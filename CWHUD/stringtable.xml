@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="CloneWars HUD">
+	<Package name="Action">
+		<key ID="STR_CWHUD_Color">
+			<Original>
+				HUD Color
+			</Original>
+			<French>
+				Couleur de l'HUD
+			</French>
+		</key>
+		<key ID="STR_CWHUD_Base">
+			<Original>
+				Basic (No Color)
+			</Original>
+			<French>
+				Basic (Pas de couleur)
+			</French>
+		</key>
+		<key ID="STR_CWHUD_Blue">
+			<Original>
+				Blue
+			</Original>
+			<French>
+				Bleu
+			</French>
+		</key>
+		<key ID="STR_CWHUD_Green">
+			<Original>
+				Green
+			</Original>
+			<French>
+				Vert
+			</French>
+		</key>
+		<key ID="STR_CWHUD_Purple">
+			<Original>
+				Purple
+			</Original>
+			<French>
+				Violet
+			</French>
+		</key>
+		<key ID="STR_CWHUD_Red">
+			<Original>
+				Red
+			</Original>
+			<French>
+				Rouge
+			</French>
+		</key>
+	</Package>
+</Project>
