@@ -5,7 +5,7 @@ class CfgPatches
     class CWHUD
     {
         name = "Clone Wars HUD";
-        Author;
+        author = "Bragg [CWHUD]";
         requiRedAddons[] = {"A3_Functions_F", "ace_interact_menu"};
         units[] = {};
         weapons[] = {};
@@ -40,8 +40,8 @@ class cfgFunctions
     };
 };
 
-#include "Dialogs\HUD.hpp"
-#include "Dialogs\Menu.hpp"
+#include "Dialogs\HUD.hpp"  // ? : class CWHUD_HUD { ... } - HUD Dialog
+#include "Dialogs\Menu.hpp" // ? : class CWHUD_Menu { ... } - Menu Dialog
 
 class CfgVehicles
 {
