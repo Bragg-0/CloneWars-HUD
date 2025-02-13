@@ -40,36 +40,41 @@ class CfgVehicles
                 class CWHUD
                 {
                     condition = "[_player] call CWHUD_fnc_checkWearHUD";
-                    displayName = "$STR_CWHUD_Color";
+                    displayName = "HUD Color";
                     icon = "\CWHUD\data\UI\HUD_ca.paa";
                     statement = "";
                     class CWHUD_Base
                     {
-                        displayName = "$STR_CWHUD_Base";
+                        displayName = "Basic (No Color)";
+                        icon = "\CWHUD\data\UI\white_dot_ca.paa";
                         condition = "[_player] call CWHUD_fnc_getWearHUDColor != 'Base'";
                         statement = "[_player, 'Base'] spawn CWHUD_fnc_setWearHUDColor";
                     };
                     class CWHUD_Blue
                     {
-                        displayName = "$STR_CWHUD_Blue";
+                        displayName = "Blue";
+                        icon = "\CWHUD\data\UI\blue_dot_ca.paa";
                         condition = "[_player] call CWHUD_fnc_getWearHUDColor != 'Blue'";
                         statement = "[_player, 'Blue'] spawn CWHUD_fnc_setWearHUDColor";
                     };
                     class CWHUD_Green
                     {
-                        displayName = "$STR_CWHUD_Green";
+                        displayName = "Green";
+                        icon = "\CWHUD\data\UI\green_dot_ca.paa";
                         condition = "[_player] call CWHUD_fnc_getWearHUDColor != 'Green'";
                         statement = "[_player, 'Green'] spawn CWHUD_fnc_setWearHUDColor";
                     };
                     class CWHUD_Purple
                     {
-                        displayName = "$STR_CWHUD_Purple";
+                        displayName = "Purple";
+                        icon = "\CWHUD\data\UI\purple_dot_ca.paa";
                         condition = "[_player] call CWHUD_fnc_getWearHUDColor != 'Purple'";
                         statement = "[_player, 'Purple'] spawn CWHUD_fnc_setWearHUDColor";
                     };
                     class CWHUD_Red
                     {
-                        displayName = "$STR_CWHUD_Red";
+                        displayName = "Red";
+                        icon = "\CWHUD\data\UI\red_dot_ca.paa";
                         condition = "[_player] call CWHUD_fnc_getWearHUDColor != 'Red'";
                         statement = "[_player, 'Red'] spawn CWHUD_fnc_setWearHUDColor";
                     };
