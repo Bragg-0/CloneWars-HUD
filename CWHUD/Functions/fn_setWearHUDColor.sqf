@@ -28,7 +28,7 @@ if ([_player] call CWHUD_fnc_checkWearHUD) then {
 
 	removeGoggles _player;
 	sleep 0.1;
-	_player addGoggles _newGoggles;
+	_player addGoggles _newGogglesClass;
 
 	diag_log format ["[CWHUD] %1 changed his goggles from %2 to %3", name _player, _oldGoggles, _newGogglesClass];
 };
