@@ -7,6 +7,7 @@
 	
 	Arguments:
 	0: player <object> - player
+	1: selection <int> - 0 for frame, 1 for color
 	
 	Returns:
 	<array> - [textureFrame, textureColor]
@@ -15,28 +16,14 @@
 	[_player] call CWHUD_fnc_getHUDTexture;
 */
 
-#include "..\script_component.hpp"
-
-params ["_player"];
+params ["_player", ["_selection", 0]];
 
 private _textures = ["", ""];
 
-if !(isPlayer _player) exitWith {
-	private _errortext = format ["CWHUD_fnc_getHUDTexture: %1 is not a player", _player];
-	CreateError(_errortext);
-	_textures
-};
-
-if (isNil "CWHUD_HUDParms") exitWith {
-	private _errortext = "CWHUD_fnc_getHUDTexture: CWHUD_HUDParms is not defined";
-	CreateError(_errortext);
-	_textures
-};
-
-private _listOfAllHelmetP1 = CWHUD_HUDParms select 0;
-private _listOfAllHelmetP2 = CWHUD_HUDParms select 1;
-private _listOfAllHelmetARF = CWHUD_HUDParms select 2;
-private _listOfAllHelmetBARC = CWHUD_HUDParms select 3;
+private _listOfAllHelmetP1 = CWHUD_HelmetList select 0;
+private _listOfAllHelmetP2 = CWHUD_HelmetList select 1;
+private _listOfAllHelmetARF = CWHUD_HelmetList select 2;
+private _listOfAllHelmetBARC = CWHUD_HelmetList select 3;
 
 private _listOfAllHelmetAvailable = [_listOfAllHelmetP1, _listOfAllHelmetP2, _listOfAllHelmetARF, _listOfAllHelmetBARC];
 
@@ -55,10 +42,7 @@ switch (true) do {
 	case (_helmet in _listOfAllHelmetBARC): {
 		_textures = ["\CWHUD\Data\Resources\BARC\frame_ca.paa", "\CWHUD\Data\Resources\BARC\color_ca.paa"];
 	};
-	default {
-		private _errortext = format ["CWHUD_fnc_getHUDTexture: %1 is not a valid helmet", _helmet];
-		CreateError(_errortext);
-	};
+	default {};
 };
 
-_textures
+_textures select _selection

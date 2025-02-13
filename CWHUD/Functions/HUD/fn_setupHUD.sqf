@@ -1,9 +1,9 @@
 /*
-	Function: CWHUD_fnc_onSwitchExternalViewDisableHUD
+	Function: CWHUD_fnc_setupHUD
 	Author: Bragg [CWHUD]
 	Public: Yes
 	
-	Description: Function to disable the HUD when the player switch to external view
+	Description: Function to setup the HUD
 	
 	Arguments:
 	0: player <object> - player
@@ -12,17 +12,26 @@
 	None
 	
 	Exemple:
-	[_player] call CWHUD_fnc_onSwitchExternalViewDisableHUD;
+	[_player] call CWHUD_fnc_setupHUD;
 */
-
-#include "..\script_component.hpp"
 
 params ["_player"];
 
-if !(isPlayer _player) exitWith {
-	private _errortext = format ["CWHUD_fnc_onSwitchExternalViewDisableHUD: %1 is not a player", _player];
-	CreateError(_errortext);
-};
+_player setVariable ["CWHUD_enable", CWHUD_enableByDefault, true];
+
+cutRsc ["CloneWarsHUD", "PLAIN", 2, false, true];
+
+[_player] call CWHUD_fnc_updateHUD;
+
+_player addEventHandler ["InventoryClosed", {
+	params ["_unit", "_container"];
+	[_unit] call CWHUD_fnc_updateHUD;
+}];
+
+_player addEventHandler ["Respawn", {
+	params ["_unit", "_corpse"];
+	[_unit] call CWHUD_fnc_updateHUD;
+}];
 
 [_player] spawn {
 	_player = _this select 0;

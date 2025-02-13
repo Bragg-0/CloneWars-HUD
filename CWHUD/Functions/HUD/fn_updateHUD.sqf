@@ -19,18 +19,30 @@
 
 params ["_player"];
 
-if !(isPlayer _player) exitWith {
-	private _errortext = format ["CWHUD_fnc_updateHUD: %1 is not a player", _player];
-	CreateError(_errortext);
-};
+if !([_player] call CWHUD_fnc_checkAvailableHUD) exitWith {};
 
-if !([_player] call CWHUD_fnc_checkAvailableHUD) exitWith {
-	[_player, false] call CWHUD_fnc_enableHUD;
-};
+private _enable = _player getVariable ["CWHUD_enable", false];
 
-[_player] spawn {
-	private _player = _this select 0;
-	[_player, false] call CWHUD_fnc_enableHUD;
-	uiSleep 0.1;
-	[_player, true] call CWHUD_fnc_enableHUD;
+// Frame
+private _frame = (findDisplay IDD_CWHUD_HUD) displayCtrl IDC_HUD_FRAME;
+_frame ctrlCommit 0;
+_frame ctrlShow _enable;
+private _textureFrame = [_player, 0] call CWHUD_fnc_getHUDTexture;
+_frame ctrlSetText _textureFrame;
+
+// Color
+private _color = (findDisplay IDD_CWHUD_HUD) displayCtrl IDC_HUD_COLOR;
+_color ctrlCommit 0;
+_color ctrlShow _enable;
+private _textureColor = [_player, 1] call CWHUD_fnc_getHUDTexture;
+_color ctrlSetText _textureColor;
+
+// Sunfilter
+private _enableSunfilter = _player getVariable ["CWHUD_enableSunfilter", false];
+private _sunfilter = (findDisplay IDD_CWHUD_HUD) displayCtrl IDC_HUD_SUNFILTER;
+_sunfilter ctrlCommit 0;
+if (_enable) then {
+	_sunfilter ctrlShow _enableSunfilter;
+} else {
+	_sunfilter ctrlShow _enable;
 };

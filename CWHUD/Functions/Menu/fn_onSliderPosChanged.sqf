@@ -6,29 +6,27 @@
 	Description: Function to change the color of the HUD preview when the slider position is changed
 	
 	Arguments:
-	0: player <object> - player
+	0: control <control> - control
+	1: newValue <number> - new value of the slider
 	
 	Returns:
-	<array> - [R, G, B, A] color of the HUD
+	None
 	
 	Exemple:
-	[_player] call CWHUD_fnc_onSliderPosChanged;
+	[_control, _newValue] call CWHUD_fnc_onSliderPosChanged;
 */
 
 #include "..\script_component.hpp"
 
-params ["_player"];
+params ["_control", "_newValue"];
 
-if !(isPlayer _player) exitWith {
-	private _errortext = format ["CWHUD_fnc_onSliderPosChanged: %1 is not a player", _player];
-	CreateError(_errortext);
-	[0.5, 0.5, 0.5, 1]
-};
+private _sliderRed = sliderPosition ((findDisplay IDD_CWHUD_MENU) displayCtrl IDC_MENU_slider_red);
+private _sliderGreen = sliderPosition ((findDisplay IDD_CWHUD_MENU) displayCtrl IDC_MENU_slider_green);
+private _sliderBlue = sliderPosition ((findDisplay IDD_CWHUD_MENU) displayCtrl IDC_MENU_slider_blue);
+private _sliderAlpha = sliderPosition ((findDisplay IDD_CWHUD_MENU) displayCtrl IDC_MENU_slider_alpha);
+private _ctrltestHUDColor = (findDisplay IDD_CWHUD_MENU) displayCtrl IDC_MENU_TESTHUDColor;
 
-private _Color = [sliderPosition IDC_MENU_slider_red, sliderPosition IDC_MENU_slider_green, sliderPosition IDC_MENU_slider_blue, sliderPosition IDC_MENU_slider_alpha];
+_ctrltestHUDColor ctrlSetTextColor [_sliderRed, _sliderGreen, _sliderBlue, _sliderAlpha];
 
-ctrlSetTextColor [IDC_MENU_TESTHUDColor, _Color];
-
-SetVarHUDColor(_color);
-
-_color
+private _color = [_sliderRed, _sliderGreen, _sliderBlue, _sliderAlpha];
+profileNamespace setVariable ["CWHUD_color", _color];

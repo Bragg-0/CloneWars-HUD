@@ -19,22 +19,36 @@
 
 params ["_player"];
 
-if !(isPlayer _player) exitWith {
-	private _errortext = format ["CWHUD_fnc_openMenu: %1 is not a player", _player];
-	CreateError(_errortext);
-	[0.5, 0.5, 0.5, 1]
-};
+private _color = profileNamespace getVariable ["CWHUD_color", [ 0.5, 0.5, 0.5, 1 ]];
 
-private _color = GetVarHUDColor;
+private _dialog = createDialog ["CloneWarsHUD_MENU", true];
 
-private _dialog = createDialog ["CWHUD_Menu", true];
+private _ctrltestHUDFrame = (findDisplay IDD_CWHUD_HUD) displayCtrl IDC_MENU_TESTHUDFrame;
+private _ctrltestHUDColor = (findDisplay IDD_CWHUD_HUD) displayCtrl IDC_MENU_TESTHUDColor;
 
-ctrlSetText [IDC_MENU_TESTHUDFrame, ([_player] call CWHUD_fnc_getHUDTexture) select 0];
-ctrlSetText [IDC_MENU_TESTHUDColor, ([_player] call CWHUD_fnc_getHUDTexture) select 1];
+private _textureFrame = [_player, 0] call CWHUD_fnc_getHUDTexture;
+private _textureColor = [_player, 1] call CWHUD_fnc_getHUDTexture;
 
-{
-	private _idc = _x;
-	sliderSetRange [_idc, 0, 1];
-	sliderSetSpeed [_idc, 0.1, 0.01];
-	sliderSetPosition [_idc, _color select (_forEachIndex - 1)];
-} forEach [IDC_MENU_slider_green, IDC_MENU_slider_red, IDC_MENU_slider_blue, IDC_MENU_slider_alpha];
+_ctrltestHUDFrame ctrlSetText _textureFrame;
+_ctrltestHUDColor ctrlSetText _textureColor;
+
+private _sliderRed = (findDisplay IDD_CWHUD_HUD) displayCtrl IDC_MENU_slider_red;
+private _sliderGreen = (findDisplay IDD_CWHUD_HUD) displayCtrl IDC_MENU_slider_green;
+private _sliderBlue = (findDisplay IDD_CWHUD_HUD) displayCtrl IDC_MENU_slider_blue;
+private _sliderAlpha = (findDisplay IDD_CWHUD_HUD) displayCtrl IDC_MENU_slider_alpha;
+
+_sliderRed sliderSetRange [0, 1];
+_sliderRed sliderSetSpeed [0.1, 0.1];
+_sliderRed sliderSetPosition (_color select 0);
+
+_sliderGreen sliderSetRange [0, 1];
+_sliderGreen sliderSetSpeed [0.1, 0.1];
+_sliderGreen sliderSetPosition (_color select 1);
+
+_sliderBlue sliderSetRange [0, 1];
+_sliderBlue sliderSetSpeed [0.1, 0.1];
+_sliderBlue sliderSetPosition (_color select 2);
+
+_sliderAlpha sliderSetRange [0, 1];
+_sliderAlpha sliderSetSpeed [0.1, 0.1];
+_sliderAlpha sliderSetPosition (_color select 3);

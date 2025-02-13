@@ -1,4 +1,4 @@
-class CWHUD_Menu
+class CloneWarsHUD_MENU
 {
 	idd = IDD_CWHUD_MENU;
 	movingEnable = 0;
@@ -60,7 +60,7 @@ class CWHUD_Menu
 			w = safeZoneW * 0.29270834;
 			h = safeZoneH * 0.275;
 			style = 48;
-			text = "..\Data\BackgroundExemple_co.paa";
+			text = "\CWHUD\Data\BackgroundExemple_co.paa";
 			colorBackground[] = Transparent;
 			colorText[] = White;
 			Font;
@@ -90,7 +90,7 @@ class CWHUD_Menu
 			w = safeZoneW * 0.29270834;
 			h = safeZoneH * 0.275;
 			style = 48;
-			text = "..\Data\Resources\P2\frame_ca.png";
+			text = "\CWHUD\Data\Resources\P2\frame_ca.paa";
 			colorBackground[] = Transparent;
 			colorText[] = White;
 			Font;
@@ -105,7 +105,7 @@ class CWHUD_Menu
 			w = safeZoneW * 0.29270834;
 			h = safeZoneH * 0.275;
 			style = 48;
-			text = "..\Data\Resources\P2\color_ca.png";
+			text = "\CWHUD\Data\Resources\P2\color_ca.paa";
 			colorBackground[] = Transparent;
 			colorText[] = White;
 			Font;
@@ -201,7 +201,7 @@ class CWHUD_Menu
 			SliderStyle;
 			color[] = Green;
 			colorActive[] = Green;
-			onSliderPosChanged = "[player] call CWHUD_fnc_onSliderPosChanged;";
+			onSliderPosChanged = "[_this select 0, _this select 1] call CWHUD_fnc_onSliderPosChanged;";
 		};
 		class slider_red
 		{
@@ -215,7 +215,7 @@ class CWHUD_Menu
 			SliderStyle;
 			color[] = Red;
 			colorActive[] = Red;
-			onSliderPosChanged = "[player] call CWHUD_fnc_onSliderPosChanged;";
+			onSliderPosChanged = "[_this select 0, _this select 1] call CWHUD_fnc_onSliderPosChanged;";
 		};
 		class slider_blue
 		{
@@ -229,7 +229,7 @@ class CWHUD_Menu
 			SliderStyle;
 			color[] = Blue;
 			colorActive[] = Blue;
-			onSliderPosChanged = "[player] call CWHUD_fnc_onSliderPosChanged;";
+			onSliderPosChanged = "[_this select 0, _this select 1] call CWHUD_fnc_onSliderPosChanged;";
 		};
 		class slider_alpha
 		{
@@ -243,7 +243,7 @@ class CWHUD_Menu
 			SliderStyle;
 			color[] = Gray;
 			colorActive[] = Gray;
-			onSliderPosChanged = "[player] call CWHUD_fnc_onSliderPosChanged;";
+			onSliderPosChanged = "[_this select 0, _this select 1] call CWHUD_fnc_onSliderPosChanged;";
 		};
 	};
 };

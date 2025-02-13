@@ -19,27 +19,29 @@ class cfgFunctions
         tag = "CWHUD";
         class HUD
         {
-            file = "\CWHUD\functions\dialogsHUD";
-            F(checkAvailableHUD);              // ? CWHUD_fnc_checkAvailableHUD : Function to check if the HUD is available, returns true if the HUD is available
-            F(enableHUD);                      // ? CWHUD_fnc_enableHUD : Function to enable the HUD
-            F(enableSunFilter);                // ? CWHUD_fnc_enableSunFilter : Function to enable the sun filter
-            F(getHUDTexture);                  // ? CWHUD_fnc_getHUDTexture : Function to get the HUD texture path based on the HUD type return a array [frameTexture, colorTexture]
-            F(onSwitchExternalViewDisableHUD); // ? CWHUD_fnc_onSwitchExternalViewDisableHUD : Function to disable the HUD when switching to external view
-            F(updateHUD);                      // ? CWHUD_fnc_updateHUD : Function to update the HUD
-            F(updateSunFilter);                // ? CWHUD_fnc_updateSunFilter : Function to update the sun filter
-            F_PostInit(initHUD);               // ? CWHUD_fnc_initHUD : Function to initialize the HUD
+            file = "\CWHUD\functions\HUD";
+            F(checkAvailableHUD);
+            F(enableHUD);
+            F(enableSunFilter);
+            F(getHUDTexture);
+            F(setupHUD);
+            F(updateHUD);
+            F_PostInit(initHUD);
         };
         class Menu
         {
-            file = "\CWHUD\functions\dialogsMenu";
-            F(onSliderPosChanged); // ? : CWHUD_fnc_onSliderPosChanged : Function to change the color of the HUD on preview
-            F(openMenu);           // ? : CWHUD_fnc_openMenu : Function to open the menu
+            file = "\CWHUD\functions\Menu";
+            F(onSliderPosChanged);
+            F(openMenu);
         };
     };
 };
 
-#include "Dialogs\HUD.hpp"  // ? : class CWHUD_HUD { ... } - HUD RscTitles
-#include "Dialogs\Menu.hpp" // ? : class CWHUD_Menu { ... } - Menu Dialog
+class RscTitles
+{
+#include "Dialogs\HUD.hpp"
+};
+#include "Dialogs\Menu.hpp"
 
 class CfgVehicles
 {
@@ -78,14 +80,14 @@ class CfgVehicles
                     };
                     class CWHUD_ENABLESUNFILTER
                     {
-                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && !(_player getVariable ['CWHUD_sunFilter', false])";
+                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && !(_player getVariable ['CWHUD_enableSunfilter', false]) && !(_player getVariable ['CWHUD_enable', false])";
                         displayName = "Enable Sun Filter";
                         icon = "\CWHUD\data\UI\button_on_sunfilter_ca.paa";
                         statement = "[_player, true] call CWHUD_fnc_enableSunFilter";
                     };
                     class CWHUD_DISABLESUNFILTER
                     {
-                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && (_player getVariable ['CWHUD_sunFilter', false])";
+                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && (_player getVariable ['CWHUD_enableSunfilter', false]) && (_player getVariable ['CWHUD_enable', false])";
                         displayName = "Disable Sun Filter";
                         icon = "\CWHUD\data\UI\button_off_sunfilter_ca.paa";
                         statement = "[_player, false] call CWHUD_fnc_enableSunFilter";
@@ -107,6 +109,6 @@ class Extended_PreInit_EventHandlers
 {
     class CWHUD_PreInit
     {
-        init = "call compile preprocessFileLineNumbers 'XEH_preInit.sqf'";
+        init = "call compile preprocessFileLineNumbers '\CWHUD\functions\XEH_preInit.sqf'";
     };
 };
