@@ -3,6 +3,7 @@ class CWHUD_Menu
 	idd = IDD_CWHUD_MENU;
 	movingEnable = 0;
 	enableSimulation = 1;
+	onDestroy = "[player] call CWHUD_fnc_updateHUD;";
 	class ControlsBackground
 	{
 		class Background

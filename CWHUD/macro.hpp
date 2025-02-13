@@ -3,6 +3,12 @@
     {           \
     }
 
+#define F_PostInit(NAME) \
+    class NAME           \
+    {                    \
+        postInit = 1;    \
+    }
+
 #define Transparent {0, 0, 0, 0}
 #define White {1, 1, 1, 1}
 #define Black {0, 0, 0, 1}
