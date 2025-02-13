@@ -23,19 +23,19 @@ class cfgFunctions
             F(checkAvailableHUD);              // ? CWHUD_fnc_checkAvailableHUD : Function to check if the HUD is available, returns true if the HUD is available
             F(disableHUD);                     // ? CWHUD_fnc_disableHUD : Function to disable the HUD
             F(enableHUD);                      // ? CWHUD_fnc_enableHUD : Function to enable the HUD
+            F(getHUDTexture);                  // ? CWHUD_fnc_getHUDTexture : Function to get the HUD texture path based on the HUD type return a array [frameTexture, colorTexture]
+            F(getStateHUD);                    // ? CWHUD_fnc_stateHUD : Function to get the HUD state, returns true if the HUD is enabled
             F(initHUD);                        // ? CWHUD_fnc_initHUD : Function to initialize the HUD
             F(onSwitchExternalViewDisableHUD); // ? CWHUD_fnc_onSwitchExternalViewDisableHUD : Function to disable the HUD when switching to external view
             F(openHUD);                        // ? CWHUD_fnc_openHUD : Function to open the HUD
             F(setHUDColor);                    // ? CWHUD_fnc_setHUDColor : Function to set the HUD color
             F(setHUDType);                     // ? CWHUD_fnc_setHUDType : Function to set the HUD type
-            F(getStateHUD);                    // ? CWHUD_fnc_stateHUD : Function to get the HUD state, returns true if the HUD is enabled
         };
         class Menu
         {
             file = "\CWHUD\functions\dialogsMenu";
-            F(loadParams); // ? : CWHUD_fnc_loadParams : Function to load the parameters
-            F(openMenu);   // ? : CWHUD_fnc_openMenu : Function to open the menu
-            F(saveParams); // ? : CWHUD_fnc_saveParams : Function to save the parameters
+            F(onSliderPosChanged); // ? : CWHUD_fnc_onSliderPosChanged : Function to change the color of the HUD on preview
+            F(openMenu);           // ? : CWHUD_fnc_openMenu : Function to open the menu
         };
     };
 };

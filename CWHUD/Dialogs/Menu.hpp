@@ -200,6 +200,7 @@ class CWHUD_Menu
 			SliderStyle;
 			color[] = Green;
 			colorActive[] = Green;
+			onSliderPosChanged = "[player] call CWHUD_fnc_onSliderPosChanged;";
 		};
 		class slider_red
 		{
@@ -213,6 +214,7 @@ class CWHUD_Menu
 			SliderStyle;
 			color[] = Red;
 			colorActive[] = Red;
+			onSliderPosChanged = "[player] call CWHUD_fnc_onSliderPosChanged;";
 		};
 		class slider_blue
 		{
@@ -226,6 +228,7 @@ class CWHUD_Menu
 			SliderStyle;
 			color[] = Blue;
 			colorActive[] = Blue;
+			onSliderPosChanged = "[player] call CWHUD_fnc_onSliderPosChanged;";
 		};
 		class slider_alpha
 		{
@@ -239,6 +242,7 @@ class CWHUD_Menu
 			SliderStyle;
 			color[] = Gray;
 			colorActive[] = Gray;
+			onSliderPosChanged = "[player] call CWHUD_fnc_onSliderPosChanged;";
 		};
 	};
 };
