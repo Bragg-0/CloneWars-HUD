@@ -18,10 +18,6 @@
 
 params ["_player", ["_enable", true]];
 
-if (_enable) then {
-	profileNamespace setVariable ["CWHUD_enableSunfilter", 0];
-} else {
-	profileNamespace setVariable ["CWHUD_enableSunfilter", 1];
-};
+profileNamespace setVariable ["CWHUD_enableSunfilter", _enable];
 
 [_player] call CWHUD_fnc_updateHUD;

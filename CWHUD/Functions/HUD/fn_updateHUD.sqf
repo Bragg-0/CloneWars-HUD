@@ -22,10 +22,13 @@ disableSerialization;
 private _enable = false;
 
 if ([_player] call CWHUD_fnc_checkAvailableHUD) then {
-	_enable = _player getVariable ["CWHUD_enable", false];
+	_enable = profileNameSpace getVariable ["CWHUD_enable", CWHUD_enableByDefault];
 };
 
 private _ui = uiNameSpace getVariable ["CloneWarsHUD", displayNull];
+if (isNull _ui) exitWith {
+	[_player] call CWHUD_fnc_setupHUD;
+};
 
 private _ctrlFrame = _ui displayCtrl 8842101;
 private _ctrlColor = _ui displayCtrl 8842102;
@@ -35,24 +38,20 @@ if (_enable) then {
 	// Frame
 	private _textureFrame = [_player, 0] call CWHUD_fnc_getHUDTexture;
 	_ctrlFrame ctrlSetText _textureFrame;
-	_ctrlSunfilter ctrlSetFade 0;
+	_ctrlFrame ctrlShow true;
 
 	// Color
 	private _textureColor = [_player, 1] call CWHUD_fnc_getHUDTexture;
 	private _color = profileNamespace getVariable ["CWHUD_color", [0.5, 0.5, 0.5, 1]];
 	_ctrlColor ctrlSetText _textureColor;
 	_ctrlColor ctrlSetTextColor _color;
-	_ctrlSunfilter ctrlSetFade 0;
+	_ctrlColor ctrlShow true;
 
 	// Sunfilter
-	private _enableSunfilter = profileNamespace getVariable ["CWHUD_enableSunfilter", 0];
-	_ctrlSunfilter ctrlSetFade 0;
+	private _enableSunfilter = profileNamespace getVariable ["CWHUD_enableSunfilter", true];
+	_ctrlSunfilter ctrlShow _enableSunfilter;
 } else {
-	_ctrlFrame ctrlSetFade 1;
-	_ctrlColor ctrlSetFade 1;
-	_ctrlSunfilter ctrlSetFade 1;
+	_ctrlFrame ctrlShow false;
+	_ctrlColor ctrlShow false;
+	_ctrlSunfilter ctrlShow false;
 };
-
-_ctrlFrame ctrlCommit 1;
-_ctrlColor ctrlCommit 1;
-_ctrlSunfilter ctrlCommit 1;

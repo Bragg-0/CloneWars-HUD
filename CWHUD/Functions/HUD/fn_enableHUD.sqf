@@ -18,6 +18,6 @@
 
 params ["_player", ["_enable", true]];
 
-_player setVariable ["CWHUD_enable", _enable, true];
+profileNameSpace setVariable ["CWHUD_enable", _enable];
 
 [_player] call CWHUD_fnc_updateHUD;

@@ -1,6 +1,6 @@
 class CloneWarsHUD_MENU
 {
-	idd = -1;
+	idd = IDD_MENU;
 	movingEnable = 0;
 	enableSimulation = 1;
 	onDestroy = "[player] call CWHUD_fnc_updateHUD;";

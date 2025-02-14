@@ -19,9 +19,12 @@ params ["_player"];
 
 disableSerialization;
 
-_player setVariable ["CWHUD_enable", CWHUD_enableByDefault, true];
+_player addEventHandler ["SlotItemChanged", {
+	params ["_unit", "_name", "_slot", "_assigned", "_weapon"];
+	[_unit] call CWHUD_fnc_updateHUD;
+}];
 
-_player addEventHandler ["InventoryClosed", {
+_player addEventHandler ["InventoryOpened", {
 	params ["_unit", "_container"];
 	[_unit] call CWHUD_fnc_updateHUD;
 }];
@@ -35,18 +38,16 @@ _player addEventHandler ["Respawn", {
 	_player = _this select 0;
 	private _hudenable = CWHUD_enableByDefault;
 	while { true } do {
-		sleep 1;
+		sleep 0.1;
 
 		waitUntil {
-			sleep 1;
 			((cameraView == "EXTERNAL") || (vehicle _player != _player)) || !(isNull curatorCamera)
 		};
 
-		_hudenable = _player getVariable ["CWHUD_enable", false];
+		_hudenable = profileNameSpace getVariable ["CWHUD_enable", CWHUD_enableByDefault];
 		[_player, false] call CWHUD_fnc_enableHUD;
 
 		waitUntil {
-			sleep 1;
 			((cameraView == "INTERNAL") && (vehicle _player == _player)) && (isNull curatorCamera)
 		};
 
@@ -54,5 +55,5 @@ _player addEventHandler ["Respawn", {
 	};
 };
 
-cutRsc ["CloneWarsHUD", "PLAIN", 0, false, true];
+cutRsc ["CloneWarsHUD", "PLAIN NOFADE", -1, false, true];
 [_player] call CWHUD_fnc_updateHUD;

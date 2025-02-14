@@ -1,12 +1,13 @@
 class CloneWarsHUD
 {
-	idd = -1;
+	idd = IDD_HUD;
 	movingEnable = 0;
-	fadein = 1;
+	fadein = 0;
 	duration = 36000000;
-	fadeout = 1;
+	fadeout = 0;
 	name = "CloneWarsHUD";
 	onLoad = "uiNamespace setVariable ['CloneWarsHUD',_this select 0]";
+	onUnLoad = "uinamespace setVariable ['CloneWarsHUD', nil]";
 	class controls
 	{
 		class SunFilter
