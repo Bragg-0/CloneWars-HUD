@@ -31,9 +31,33 @@ class cfgFunctions
         class Menu
         {
             file = "\CWHUD\functions\Menu";
+            F(onLoadMenu);
             F(onSliderPosChanged);
-            F(openMenu);
         };
+    };
+};
+
+class CfgRemoteExec
+{
+    class Functions
+    {
+        mode = 2;
+        jip = 1;
+
+        /* Client only functions */
+        RemoteExec(CWHUD_fnc_checkAvailableHUD, CLIENT);
+        RemoteExec(CWHUD_fnc_enableHUD, CLIENT);
+        RemoteExec(CWHUD_fnc_enableSunFilter, CLIENT);
+        RemoteExec(CWHUD_fnc_getHUDTexture, CLIENT);
+        RemoteExec(CWHUD_fnc_onLoadMenu, CLIENT);
+        RemoteExec(CWHUD_fnc_onSliderPosChanged, CLIENT);
+        RemoteExec(CWHUD_fnc_setupHUD, CLIENT);
+        RemoteExec(CWHUD_fnc_updateHUD, CLIENT);
+
+        /* Server only functions */
+
+        /* Functions for everyone */
+        RemoteExec(CWHUD_fnc_initHUD, ANYONE);
     };
 };
 
@@ -41,6 +65,7 @@ class RscTitles
 {
 #include "Dialogs\HUD.hpp"
 };
+
 #include "Dialogs\Menu.hpp"
 
 class CfgVehicles
@@ -62,7 +87,7 @@ class CfgVehicles
                         condition = "[_player] call CWHUD_fnc_checkAvailableHUD";
                         displayName = "HUD Color";
                         icon = "\CWHUD\data\UI\button_menu_ca.paa";
-                        statement = "[_player] call CWHUD_fnc_openMenu";
+                        statement = "createDialog ['CloneWarsHUD_MENU', true];";
                     };
                     class CWHUD_ENABLEHUD
                     {
@@ -80,7 +105,7 @@ class CfgVehicles
                     };
                     class CWHUD_ENABLESUNFILTER
                     {
-                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && !(_player getVariable ['CWHUD_enableSunfilter', false]) && !(_player getVariable ['CWHUD_enable', false])";
+                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && !(_player getVariable ['CWHUD_enableSunfilter', false]) && (_player getVariable ['CWHUD_enable', false])";
                         displayName = "Enable Sun Filter";
                         icon = "\CWHUD\data\UI\button_on_sunfilter_ca.paa";
                         statement = "[_player, true] call CWHUD_fnc_enableSunFilter";

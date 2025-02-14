@@ -6,27 +6,26 @@
 	Description: Function to change the color of the HUD preview when the slider position is changed
 	
 	Arguments:
-	0: control <control> - control
-	1: newValue <number> - new value of the slider
+	None
 	
 	Returns:
 	None
 	
 	Exemple:
-	[_control, _newValue] call CWHUD_fnc_onSliderPosChanged;
+	[] call CWHUD_fnc_onSliderPosChanged;
 */
 
-#include "..\script_component.hpp"
+disableSerialization;
 
-params ["_control", "_newValue"];
+private _ui = uiNameSpace getVariable ["CloneWarsHUD_MENU", displayNull];
 
-private _sliderRed = sliderPosition ((findDisplay IDD_CWHUD_MENU) displayCtrl IDC_MENU_slider_red);
-private _sliderGreen = sliderPosition ((findDisplay IDD_CWHUD_MENU) displayCtrl IDC_MENU_slider_green);
-private _sliderBlue = sliderPosition ((findDisplay IDD_CWHUD_MENU) displayCtrl IDC_MENU_slider_blue);
-private _sliderAlpha = sliderPosition ((findDisplay IDD_CWHUD_MENU) displayCtrl IDC_MENU_slider_alpha);
-private _ctrltestHUDColor = (findDisplay IDD_CWHUD_MENU) displayCtrl IDC_MENU_TESTHUDColor;
+private _sliderPosRed = sliderPosition (_ui displayCtrl 3142104);
+private _sliderPosGreen = sliderPosition (_ui displayCtrl 3142103);
+private _sliderPosBlue = sliderPosition (_ui displayCtrl 3142105);
+private _sliderPosAlpha = sliderPosition (_ui displayCtrl 3142106);
 
-_ctrltestHUDColor ctrlSetTextColor [_sliderRed, _sliderGreen, _sliderBlue, _sliderAlpha];
+private _color = [_sliderPosRed, _sliderPosGreen, _sliderPosBlue, _sliderPosAlpha];
 
-private _color = [_sliderRed, _sliderGreen, _sliderBlue, _sliderAlpha];
+(_ui displayCtrl 3142102) ctrlSetTextColor _color;
+
 profileNamespace setVariable ["CWHUD_color", _color];

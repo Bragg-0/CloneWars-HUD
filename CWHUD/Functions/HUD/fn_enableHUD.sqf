@@ -19,3 +19,5 @@
 params ["_player", ["_enable", true]];
 
 _player setVariable ["CWHUD_enable", _enable, true];
+
+[_player] call CWHUD_fnc_updateHUD;

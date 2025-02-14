@@ -1,9 +1,11 @@
 class CloneWarsHUD_MENU
 {
-	idd = IDD_CWHUD_MENU;
+	idd = -1;
 	movingEnable = 0;
 	enableSimulation = 1;
 	onDestroy = "[player] call CWHUD_fnc_updateHUD;";
+	onUnload = "[player] call CWHUD_fnc_updateHUD;";
+	onLoad = "uiNamespace setVariable ['CloneWarsHUD_MENU',_this select 0]; [] call CWHUD_fnc_onLoadMenu;";
 	class ControlsBackground
 	{
 		class Background
@@ -76,7 +78,7 @@ class CloneWarsHUD_MENU
 			h = safeZoneH * 0.275;
 			style = 0;
 			text = "";
-			colorBackground[] = {0, 0, 0, 0.15};
+			colorBackground[] = Black25;
 			colorText[] = Black;
 			Font;
 			SizeEx;
@@ -201,7 +203,7 @@ class CloneWarsHUD_MENU
 			SliderStyle;
 			color[] = Green;
 			colorActive[] = Green;
-			onSliderPosChanged = "[_this select 0, _this select 1] call CWHUD_fnc_onSliderPosChanged;";
+			onSliderPosChanged = "[] call CWHUD_fnc_onSliderPosChanged;";
 		};
 		class slider_red
 		{
@@ -215,7 +217,7 @@ class CloneWarsHUD_MENU
 			SliderStyle;
 			color[] = Red;
 			colorActive[] = Red;
-			onSliderPosChanged = "[_this select 0, _this select 1] call CWHUD_fnc_onSliderPosChanged;";
+			onSliderPosChanged = "[] call CWHUD_fnc_onSliderPosChanged;";
 		};
 		class slider_blue
 		{
@@ -229,7 +231,7 @@ class CloneWarsHUD_MENU
 			SliderStyle;
 			color[] = Blue;
 			colorActive[] = Blue;
-			onSliderPosChanged = "[_this select 0, _this select 1] call CWHUD_fnc_onSliderPosChanged;";
+			onSliderPosChanged = "[] call CWHUD_fnc_onSliderPosChanged;";
 		};
 		class slider_alpha
 		{
@@ -243,7 +245,7 @@ class CloneWarsHUD_MENU
 			SliderStyle;
 			color[] = Gray;
 			colorActive[] = Gray;
-			onSliderPosChanged = "[_this select 0, _this select 1] call CWHUD_fnc_onSliderPosChanged;";
+			onSliderPosChanged = "[] call CWHUD_fnc_onSliderPosChanged;";
 		};
 	};
 };

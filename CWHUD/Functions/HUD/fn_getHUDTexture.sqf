@@ -18,7 +18,7 @@
 
 params ["_player", ["_selection", 0]];
 
-private _textures = ["", ""];
+private _textures = [];
 
 private _listOfAllHelmetP1 = CWHUD_HelmetList select 0;
 private _listOfAllHelmetP2 = CWHUD_HelmetList select 1;
@@ -42,7 +42,11 @@ switch (true) do {
 	case (_helmet in _listOfAllHelmetBARC): {
 		_textures = ["\CWHUD\Data\Resources\BARC\frame_ca.paa", "\CWHUD\Data\Resources\BARC\color_ca.paa"];
 	};
-	default {};
+	default {
+		_textures = ["", ""];
+	};
 };
 
-_textures select _selection
+_texture = _textures select _selection;
+
+_texture
