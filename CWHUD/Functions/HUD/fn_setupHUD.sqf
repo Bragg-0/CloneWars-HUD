@@ -35,16 +35,13 @@ _player addEventHandler ["Respawn", {
 }];
 
 [_player] spawn {
-	_player = _this select 0;
-	private _hudenable = CWHUD_enableByDefault;
-	while { true } do {
-		sleep 0.1;
-
+	private _player = _this select 0;
+	while { !isNull _player } do {
 		waitUntil {
 			((cameraView == "EXTERNAL") || (vehicle _player != _player) || !(isNull curatorCamera))
 		};
 
-		_hudenable = profileNameSpace getVariable ["CWHUD_enable", CWHUD_enableByDefault];
+		private _hudenable = profileNameSpace getVariable ["CWHUD_enable", CWHUD_enableByDefault];
 		[_player, false] call CWHUD_fnc_enableHUD;
 
 		waitUntil {
