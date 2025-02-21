@@ -15,6 +15,8 @@
 	[_player] call CWHUD_fnc_updateHUD;
 */
 
+#include "../script_component.hpp"
+
 params ["_player"];
 
 disableSerialization;
@@ -30,9 +32,9 @@ if (isNull _ui) exitWith {
 	[_player] call CWHUD_fnc_setupHUD;
 };
 
-private _ctrlFrame = _ui displayCtrl 8842101;
-private _ctrlColor = _ui displayCtrl 8842102;
-private _ctrlSunfilter = _ui displayCtrl 8842103;
+private _ctrlFrame = _ui displayCtrl IDC_HUD_FRAME;
+private _ctrlColor = _ui displayCtrl IDC_HUD_COLOR;
+private _ctrlSunfilter = _ui displayCtrl IDC_HUD_SUNFILTER;
 
 if (_enable) then {
 	// Frame

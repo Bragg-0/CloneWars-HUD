@@ -1,4 +1,5 @@
-#include "macro.hpp"
+#include "./macros.hpp"
+#include "./functions/script_component.hpp"
 
 class CfgPatches
 {
@@ -63,10 +64,10 @@ class CfgRemoteExec
 
 class RscTitles
 {
-#include "Dialogs\HUD.hpp"
+#include "./Dialogs/HUD.hpp"
 };
 
-#include "Dialogs\Menu.hpp"
+#include "./Dialogs/Menu.hpp"
 
 class CfgVehicles
 {
