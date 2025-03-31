@@ -81,7 +81,7 @@ class CfgVehicles
                 class CWHUD
                 {
                     condition = "[_player] call CWHUD_fnc_checkAvailableHUD";
-                    displayName = "HUD Color";
+                    displayName = "HUD";
                     icon = "\CWHUD\data\UI\logo_ca.paa";
                     class CWHUD_OPENMENU
                     {
