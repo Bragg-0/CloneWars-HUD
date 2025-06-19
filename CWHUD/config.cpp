@@ -92,28 +92,28 @@ class CfgVehicles
                     };
                     class CWHUD_ENABLEHUD
                     {
-                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && !(profileNamespace getVariable ['CWHUD_enable', false])";
+                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && !(_player getVariable ['CWHUD_enable', false])";
                         displayName = "Enable HUD";
                         icon = "\CWHUD\data\UI\button_on_ca.paa";
                         statement = "[_player, true] call CWHUD_fnc_enableHUD";
                     };
                     class CWHUD_DISABLEHUD
                     {
-                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && (profileNamespace getVariable ['CWHUD_enable', false])";
+                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && (_player getVariable ['CWHUD_enable', false])";
                         displayName = "Disable HUD";
                         icon = "\CWHUD\data\UI\button_off_ca.paa";
                         statement = "[_player, false] call CWHUD_fnc_enableHUD";
                     };
                     class CWHUD_ENABLESUNFILTER
                     {
-                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && !(profileNamespace getVariable ['CWHUD_enableSunfilter', false]) && (profileNamespace getVariable ['CWHUD_enable', false])";
+                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && !(_player getVariable ['CWHUD_enableSunfilter', false]) && (_player getVariable ['CWHUD_enable', false])";
                         displayName = "Enable Sun Filter";
                         icon = "\CWHUD\data\UI\button_on_sunfilter_ca.paa";
                         statement = "[_player, true] call CWHUD_fnc_enableSunFilter";
                     };
                     class CWHUD_DISABLESUNFILTER
                     {
-                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && (profileNamespace getVariable ['CWHUD_enableSunfilter', false]) && (profileNamespace getVariable ['CWHUD_enable', false])";
+                        condition = "[_player] call CWHUD_fnc_checkAvailableHUD && (_player getVariable ['CWHUD_enableSunfilter', false]) && (_player getVariable ['CWHUD_enable', false])";
                         displayName = "Disable Sun Filter";
                         icon = "\CWHUD\data\UI\button_off_sunfilter_ca.paa";
                         statement = "[_player, false] call CWHUD_fnc_enableSunFilter";

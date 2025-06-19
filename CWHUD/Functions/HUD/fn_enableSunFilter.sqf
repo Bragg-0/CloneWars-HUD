@@ -18,6 +18,6 @@
 
 params ["_player", ["_enable", true]];
 
-profileNamespace setVariable ["CWHUD_enableSunfilter", _enable];
+_player setVariable ["CWHUD_enableSunfilter", _enable];
 
 [_player] call CWHUD_fnc_updateHUD;

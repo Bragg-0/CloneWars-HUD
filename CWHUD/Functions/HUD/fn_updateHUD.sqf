@@ -22,14 +22,15 @@ params ["_player"];
 disableSerialization;
 
 private _enable = false;
-
-if ([_player] call CWHUD_fnc_checkAvailableHUD) then {
-	_enable = profileNameSpace getVariable ["CWHUD_enable", CWHUD_enableByDefault];
-};
+private _checkAvailable = [_player] call CWHUD_fnc_checkAvailableHUD;
 
 private _ui = uiNameSpace getVariable ["CloneWarsHUD", displayNull];
 if (isNull _ui) exitWith {
 	[_player] call CWHUD_fnc_setupHUD;
+};
+
+if (_checkAvailable) then {
+	_enable = _player getVariable ["CWHUD_enable", CWHUD_enableByDefault];
 };
 
 private _ctrlFrame = _ui displayCtrl IDC_HUD_FRAME;
@@ -50,7 +51,7 @@ if (_enable) then {
 	_ctrlColor ctrlShow true;
 
 	// Sunfilter
-	private _enableSunfilter = profileNamespace getVariable ["CWHUD_enableSunfilter", true];
+	private _enableSunfilter = _player getVariable ["CWHUD_enableSunfilter", false];
 	_ctrlSunfilter ctrlShow _enableSunfilter;
 } else {
 	_ctrlFrame ctrlShow false;

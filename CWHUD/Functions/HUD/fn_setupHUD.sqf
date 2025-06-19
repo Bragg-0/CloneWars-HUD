@@ -41,7 +41,7 @@ _player addEventHandler ["Respawn", {
 			((cameraView == "EXTERNAL") || (vehicle _player != _player) || !(isNull curatorCamera))
 		};
 
-		private _hudenable = profileNameSpace getVariable ["CWHUD_enable", CWHUD_enableByDefault];
+		private _hudenable = _player getVariable ["CWHUD_enable", CWHUD_enableByDefault];
 		[_player, false] call CWHUD_fnc_enableHUD;
 
 		waitUntil {
