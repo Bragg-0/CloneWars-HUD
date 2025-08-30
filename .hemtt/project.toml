@@ -1,0 +1,28 @@
+name = "Clone Wars HUD"
+author = "CloneWarsHUD Team"
+prefix = "cwh"
+mainprefix = "x"
+
+[version]
+path = "addons/main/script_version.hpp"
+git_hash = 8
+
+[files]
+include = [
+    "mod.cpp",
+    "meta.cpp",
+    "logo_ca.paa",
+    "LICENSE.md",
+    "README.md",
+]
+exclude = [
+    "*.psd",
+    "*.png",
+    "*.md",
+]
+
+[hemtt.release]
+sign = true
+binarize = true
+rapify = true
+archive = true

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="CloneWars HUD">
+    <Package name="main">
+        <Key ID="str_cwh_main_actionname">
+            <English>GitHub</English>
+            <French>GitHub</French>
+        </Key>
+        <Key ID="str_cwh_main_overview">
+            <English>CloneWars HUD is a mod that adds a new HUD to the game, inspired by the Clone Wars series.</English>
+            <French>CloneWars HUD est un mod qui ajoute un nouveau HUD au jeu, inspiré par la série Clone Wars.</French>
+        </Key>
+        <Key ID="str_cwh_main_url">
+            <English>https://github.com/Bragg-0/CloneWars-HUD</English>
+            <French>https://github.com/Bragg-0/CloneWars-HUD</French>
+        </Key>
+    </Package>
+</Project>
