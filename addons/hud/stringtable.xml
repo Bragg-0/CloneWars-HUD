@@ -9,6 +9,14 @@
             <English>This slider controls the chance of the HUD displaying a crack on each head impact.</English>
             <French>Ce curseur contrôle la chance que le HUD affiche une fissure à chaque impact à la tête.</French>
         </Key>
+        <Key ID="str_cwh_hud_color">
+            <English>HUD Color</English>
+            <French>Couleur de l'HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_color_description">
+            <English>Change the color of the HUD.</English>
+            <French>Changer la couleur de l'HUD.</French>
+        </Key>
         <Key ID="str_cwh_hud_enable">
             <English>Enable HUD</English>
             <French>Activer l'HUD</French>

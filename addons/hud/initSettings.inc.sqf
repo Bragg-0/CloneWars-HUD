@@ -5,7 +5,7 @@
 		LLSTRING(enable),
 		LLSTRING(enable_Description)
 	],
-	_category,
+	_categoryGlobal,
 	true,
 	2,
 	{}
@@ -18,7 +18,7 @@
 		LLSTRING(enableByDefault),
 		LLSTRING(enableByDefault_Description)
 	],
-	_category,
+	_categoryGlobal,
 	true,
 	1,
 	{},
@@ -32,20 +32,34 @@
 		LLSTRING(enableThirdPerson),
 		LLSTRING(enableThirdPerson_Description)
 	],
-	_category,
+	_categoryGlobal,
 	false,
 	0
 ] call CBA_fnc_addSetting;
 
 [
-	QGVAR(brokenHUDChance),
+	QGVAR(brokenChance),
 	"SLIDER",
 	[
 		LLSTRING(brokenChance),
 		LLSTRING(brokenChance_Description)
 	],
-	_category,
+	_categoryGlobal,
 	[0, 1, 0.2, 1, true],
+	1,
+	{},
+	true
+] call CBA_fnc_addSetting;
+
+[
+	QGVAR(color),
+	"COLOR",
+	[
+		LLSTRING(color),
+		LLSTRING(color_Description)
+	],
+	_categoryColors,
+	[0,0.447,0.741,1],
 	1,
 	{},
 	true
@@ -58,7 +72,7 @@
 		LLSTRING(listARFHelmet),
 		LLSTRING(listARFHelmet_Description)
 	],
-	_category,
+	_categoryListHelmets,
 	"[]",
 	1,
 	{},
@@ -72,7 +86,7 @@
 		LLSTRING(listBARCHelmet),
 		LLSTRING(listBARCHelmet_Description)
 	],
-	_category,
+	_categoryListHelmets,
 	"[]",
 	1,
 	{},
@@ -86,7 +100,7 @@
 		LLSTRING(listP1Helmet),
 		LLSTRING(listP1Helmet_Description)
 	],
-	_category,
+	_categoryListHelmets,
 	"[]",
 	1,
 	{},
@@ -100,7 +114,7 @@
 		LLSTRING(listP2Helmet),
 		LLSTRING(listP2Helmet_Description)
 	],
-	_category,
+	_categoryListHelmets,
 	"[]",
 	1,
 	{},
