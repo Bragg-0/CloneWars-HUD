@@ -16,3 +16,6 @@ releases
 
 # Fichiers de configuration ADC
 .adc
+
+# Dossiers de l'éditeur de code 
+.vscode
