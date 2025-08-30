@@ -60,7 +60,7 @@
 	],
 	_categoryColors,
 	[0,0.447,0.741,1],
-	1,
+	0,
 	{},
 	true
 ] call CBA_fnc_addSetting;
