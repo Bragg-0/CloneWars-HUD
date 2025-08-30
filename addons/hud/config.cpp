@@ -13,3 +13,12 @@ class CfgPatches {
         VERSION_CONFIG;
     };
 };
+
+class RscText;
+class RscPicture;
+class RscPictureKeepAspect;
+class RscProgress;
+
+class RscTitles {
+    #include "rsc\rscHUD.hpp"
+};
