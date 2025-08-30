@@ -3,7 +3,7 @@
     <Package name="CBA Parameters">
         <Key ID="str_cwh_hud_brokenChance">
             <English>Broken HUD Chance</English>
-            <French>Chance de HUD cassé</French>
+            <French>Chance de fissure de l'HUD</French>
         </Key>
         <Key ID="str_cwh_hud_brokenChance_description">
             <English>This slider controls the chance of the HUD displaying a crack on each head impact.</English>
