@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="CloneWars HUD - hud">
+    <Package name="CBA Parameters">
+        <Key ID="str_cwh_hud_brokenChance">
+            <English>Broken HUD Chance</English>
+            <French>Chance de HUD cassé</French>
+        </Key>
+        <Key ID="str_cwh_hud_brokenChance_description">
+            <English>This slider controls the chance of the HUD displaying a crack on each head impact.</English>
+            <French>Ce curseur contrôle la chance que le HUD affiche une fissure à chaque impact à la tête.</French>
+        </Key>
+        <Key ID="str_cwh_hud_enable">
+            <English>Enable HUD</English>
+            <French>Activer l'HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_enable_description">
+            <English>If enabled, the HUD will be displayed.</English>
+            <French>Si activé, l'HUD sera affiché.</French>
+        </Key>
+        <Key ID="str_cwh_hud_enablebydefault">
+            <English>Enable HUD by default</English>
+            <French>Activer le HUD par défaut</French>
+        </Key>
+        <Key ID="str_cwh_hud_enablebydefault_description">
+            <English>If enabled, the HUD will be active when the mission starts.</English>
+            <French>Si activé, le HUD sera actif au début de la mission.</French>
+        </Key>
+        <Key ID="str_cwh_hud_enablethirdperson">
+            <English>Enable Third Person View</English>
+            <French>Activer la vue à la troisième personne</French>
+        </Key>
+        <Key ID="str_cwh_hud_enablethirdperson_description">
+            <English>If enabled, the HUD will also be displayed in third person view.</English>
+            <French>Si activé, l'affichage de l'hud se fera également en vue à la troisième personne.</French>
+        </Key>
+        <Key ID="str_cwh_hud_listARFHelmet">
+            <English>List of ARF Helmets</English>
+            <French>Liste des casques ARF</French>
+        </Key>
+        <Key ID="str_cwh_hud_listARFHelmet_description">
+            <English>
+                You can add ARF helmets.&lt;br/&gt;
+                Format: ['classname1', 'classname2', ...]&lt;br/&gt;
+                All inherited helmets will also be included.
+            </English>
+            <French>
+                Vous pouvez ajouter des casques ARF.&lt;br/&gt;
+                Format : ['classname1', 'classname2', ...]&lt;br/&gt;
+                Tous les casques hérités seront également inclus.
+            </French>
+        </Key>
+        <Key ID="str_cwh_hud_listbarchelmet">
+            <English>List of BARC Helmets</English>
+            <French>Liste des casques BARC</French>
+        </Key>
+        <Key ID="str_cwh_hud_listbarchelmet_description">
+            <English>
+                You can add BARC helmets.&lt;br/&gt;
+                Format: ['classname1', 'classname2', ...]&lt;br/&gt;
+                All inherited helmets will also be included.
+            </English>
+            <French>
+                Vous pouvez ajouter des casques BARC.&lt;br/&gt;
+                Format : ['classname1', 'classname2', ...]&lt;br/&gt;
+                Tous les casques hérités seront également inclus.
+            </French>
+        </Key>
+        <Key ID="str_cwh_hud_listp1helmet">
+            <English>List of Phase 1 Helmets</English>
+            <French>Liste des casques Phase 1</French>
+        </Key>
+        <Key ID="str_cwh_hud_listp1helmet_description">
+            <English>
+                You can add Phase 1 helmets.&lt;br/&gt;
+                Format: ['classname1', 'classname2', ...]&lt;br/&gt;
+                All inherited helmets will also be included.
+            </English>
+            <French>
+                Vous pouvez ajouter des casques Phase 1.&lt;br/&gt;
+                Format : ['classname1', 'classname2', ...]&lt;br/&gt;
+                Tous les casques hérités seront également inclus.
+            </French>
+        </Key>
+        <Key ID="str_cwh_hud_listp2helmet">
+            <English>List of Phase 2 Helmets</English>
+            <French>Liste des casques Phase 2</French>
+        </Key>
+        <Key ID="str_cwh_hud_listp2helmet_description">
+            <English>
+                You can add Phase 2 helmets.&lt;br/&gt;
+                Format: ['classname1', 'classname2', ...]&lt;br/&gt;
+                All inherited helmets will also be included.
+            </English>
+            <French>
+                Vous pouvez ajouter des casques Phase 2.&lt;br/&gt;
+                Format : ['classname1', 'classname2', ...]&lt;br/&gt;
+                Tous les casques hérités seront également inclus.
+            </French>
+        </Key>
+    </Package>
+</Project>
