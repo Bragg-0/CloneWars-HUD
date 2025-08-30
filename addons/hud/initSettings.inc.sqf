@@ -45,7 +45,7 @@
 		LLSTRING(brokenChance_Description)
 	],
 	_categoryGlobal,
-	[0, 1, 0.2, 1, true],
+	[0, 1, 0.1, 1, true],
 	1,
 	{},
 	true
