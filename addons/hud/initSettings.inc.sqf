@@ -73,7 +73,7 @@
 		LLSTRING(listARFHelmet_Description)
 	],
 	_categoryListHelmets,
-	"[]",
+	_listDefaultARFHelmet,
 	1,
 	{},
 	true
@@ -87,7 +87,7 @@
 		LLSTRING(listBARCHelmet_Description)
 	],
 	_categoryListHelmets,
-	"[]",
+	_listDefaultBARCHelmet,
 	1,
 	{},
 	true
@@ -101,7 +101,7 @@
 		LLSTRING(listP1Helmet_Description)
 	],
 	_categoryListHelmets,
-	"[]",
+	_listDefaultP1Helmet,
 	1,
 	{},
 	true
@@ -115,7 +115,7 @@
 		LLSTRING(listP2Helmet_Description)
 	],
 	_categoryListHelmets,
-	"[]",
+	_listDefaultP2Helmet,
 	1,
 	{},
 	true
