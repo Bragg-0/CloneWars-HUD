@@ -22,3 +22,5 @@ class RscProgress;
 class RscTitles {
     #include "rsc\rscHUD.hpp"
 };
+
+#include "CfgEventHandlers.hpp"
