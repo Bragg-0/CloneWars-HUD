@@ -6,6 +6,7 @@ Description:
 
 Parameters:
     _color - The new color value RGBA <ARRAY>
+
 Returns:
     <NONE>
 
