@@ -1,2 +1,1 @@
-PREP(canInteract);
 PREP(init);

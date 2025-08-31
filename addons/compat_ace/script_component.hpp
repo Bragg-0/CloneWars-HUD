@@ -3,3 +3,5 @@
 #include "\x\cwh\addons\main\script_mod.hpp"
 
 #include "\x\cwh\addons\main\script_macros.hpp"
+
+#include "\a3\ui_f\hpp\defineCommonGrids.inc"
