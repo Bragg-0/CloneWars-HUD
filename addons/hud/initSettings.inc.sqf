@@ -61,7 +61,7 @@
 	[0,0.447,0.741,1],
 	0,
 	{
-		_this call FUNC(changeColor);
+		[player,_this] call FUNC(changeColor);
 	}
 ] call CBA_fnc_addSetting;
 

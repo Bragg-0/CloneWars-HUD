@@ -5,6 +5,7 @@ Description:
     Changes the color of the HUD elements.
 
 Parameters:
+    _player - The player object <OBJECT>
     _color - The new color value RGBA <ARRAY>
 
 Returns:
@@ -20,7 +21,8 @@ Author:
 ---------------------------------------------------------------------------- */
 
 params [
-    ["_color", [0, 0, 0, 0], [[]]]
+    ["_player", objNull, [objNull]],
+    ["_color", [0,0.447,0.741,1], [[]]]
 ];
 
 TRACE_1("fnc_changeColor",_this);
