@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="CloneWars HUD - hud">
     <Package name="CWH - Keybinds">
-        <Key ID="str_cwh_hud_key_togglehud">
+        <Key ID="str_cwh_hud_key_repair">
+            <English>Repair HUD</English>
+            <French>Réparer le HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_key_repair_description">
+            <English>This key repairs the HUD if it is broken.</English>
+            <French>Cette touche répare le HUD s'il est endommagé.</French>
+        </Key>
+        <Key ID="str_cwh_hud_key_toggle">
             <English>Toggle HUD</English>
             <French>Afficher/Masquer le HUD</French>
         </Key>
-        <Key ID="str_cwh_hud_key_togglehud_description">
+        <Key ID="str_cwh_hud_key_toggleSunfilter">
+            <English>Toggle Sunfilter</English>
+            <French>Afficher/Masquer le filtre solaire</French>
+        </Key>
+        <Key ID="str_cwh_hud_key_toggleSunfilter_description">
+            <English>This key toggles the sunfilter on the HUD.</English>
+            <French>Cette touche permet d'afficher ou de masquer le filtre solaire sur le HUD.</French>
+        </Key>
+        <Key ID="str_cwh_hud_key_toggle_description">
             <English>This key toggles the visibility of the HUD.</English>
             <French>Cette touche permet d’afficher ou de masquer le HUD.</French>
         </Key>
