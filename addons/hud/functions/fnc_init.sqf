@@ -25,4 +25,9 @@ params [
 
 TRACE_1("fnc_init",_this);
 
-//TODO: Implement HUD initialization environment logic
+// Check if ACE mod is loaded to load ACE-specific
+private _isACE = (configFile >> "CfgPatches" >> "ace_interact_menu") call BIS_fnc_getCfgIsClass;
+if (_isACE) then {
+    INFO("ACE mod detected, initializing ACE-specific HUD elements");
+    [_player] call EFUNC(compat_ace,init);
+};
