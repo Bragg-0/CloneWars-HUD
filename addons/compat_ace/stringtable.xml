@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="CloneWars HUD - compat_ace">
+    <Package name="CWH - ACE Interaction">
+        <Key ID="str_cwh_compat_ace_activate">
+            <English>Activate</English>
+            <French>Activer</French>
+        </Key>
+        <Key ID="str_cwh_compat_ace_deactivate">
+            <English>Deactivate</English>
+            <French>Désactiver</French>
+        </Key>
+        <Key ID="str_cwh_compat_ace_disableSunfilter">
+            <English>Disable Sunfilter</English>
+            <French>Désactiver le filtre solaire</French>
+        </Key>
+        <Key ID="str_cwh_compat_ace_enableSunfilter">
+            <English>Enable Sunfilter</English>
+            <French>Activer le filtre solaire</French>
+        </Key>
+        <Key ID="str_cwh_compat_ace_interaction">
+            <English>HUD</English>
+            <French>HUD</French>
+        </Key>
+        <Key ID="str_cwh_compat_ace_repair">
+            <English>Repair</English>
+            <French>Réparer</French>
+        </Key>
+    </Package>
+</Project>
