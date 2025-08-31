@@ -9,7 +9,7 @@
 	true,
 	1,
 	{},
-	true
+	true //Need restart to update the params
 ] call CBA_fnc_addSetting;
 
 [
@@ -21,7 +21,9 @@
 	],
 	_categoryGlobal,
 	false,
-	0
+	0,
+	{},
+	true //Need restart to update the params
 ] call CBA_fnc_addSetting;
 
 [
@@ -33,9 +35,7 @@
 	],
 	_categoryGlobal,
 	[0, 1, 0.1, 1, true],
-	1,
-	{},
-	true
+	1
 ] call CBA_fnc_addSetting;
 
 [
@@ -47,9 +47,7 @@
 	],
 	_categoryGlobal,
 	[0, 90, 15],
-	1,
-	{},
-	true
+	1
 ] call CBA_fnc_addSetting;
 
 [
@@ -62,8 +60,9 @@
 	_categoryColors,
 	[0,0.447,0.741,1],
 	0,
-	{},
-	true
+	{
+		_this call FUNC(changeColor);
+	}
 ] call CBA_fnc_addSetting;
 
 [
@@ -77,7 +76,7 @@
 	_listDefaultARFHelmet,
 	1,
 	{},
-	true
+	true //Need restart to update the params
 ] call CBA_fnc_addSetting;
 
 [
@@ -91,7 +90,7 @@
 	_listDefaultBARCHelmet,
 	1,
 	{},
-	true
+	true //Need restart to update the params
 ] call CBA_fnc_addSetting;
 
 [
@@ -105,7 +104,7 @@
 	_listDefaultP1Helmet,
 	1,
 	{},
-	true
+	true //Need restart to update the params
 ] call CBA_fnc_addSetting;
 
 [
@@ -119,5 +118,5 @@
 	_listDefaultP2Helmet,
 	1,
 	{},
-	true
+	true //Need restart to update the params
 ] call CBA_fnc_addSetting;
