@@ -58,11 +58,7 @@
 		LLSTRING(color_Description)
 	],
 	_categoryColors,
-	[0,0.447,0.741,1],
-	0,
-	{
-		[player,_this] call FUNC(changeColor);
-	}
+	[0,0.447,0.741,1]
 ] call CBA_fnc_addSetting;
 
 [
