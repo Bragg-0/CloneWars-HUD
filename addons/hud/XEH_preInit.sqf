@@ -18,5 +18,6 @@ private _listDefaultP1Helmet = str ["ls_gar_phase1_helmet", "ls_gar_phase1Pilot_
 private _listDefaultP2Helmet = str ["JLTS_CloneHelmetP2", "JLTS_CloneHelmetP2MC", "JLTS_CloneHelmetP2_rework", "ls_gar_phase2_helmet", "ls_gar_phase2Pilot_helmet", "ls_sob_phase2SpecOp_helmet", "ls_cloneHelmet_phase2", "ls_cloneHelmet_phase2Pilot"];
 
 #include "initSettings.inc.sqf"
+#include "initKeybinds.inc.sqf"
 
 ADDON = true;

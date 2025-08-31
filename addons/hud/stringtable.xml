@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="CloneWars HUD - hud">
-    <Package name="CBA Parameters">
+    <Package name="CWH - Keybinds">
+        <Key ID="str_cwh_hud_key_togglehud">
+            <English>Toggle HUD</English>
+            <French>Afficher/Masquer le HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_key_togglehud_description">
+            <English>This key toggles the visibility of the HUD.</English>
+            <French>Cette touche permet d’afficher ou de masquer le HUD.</French>
+        </Key>
+    </Package>
+    <Package name="CWH - Parameters">
         <Key ID="str_cwh_hud_brokenChance">
             <English>Breakage Chance</English>
             <French>Chance de fissure du HUD</French>
