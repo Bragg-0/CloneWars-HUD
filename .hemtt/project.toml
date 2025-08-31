@@ -29,5 +29,7 @@ archive = true
 
 [hemtt.launch.default]
 workshop = [
-    "450814997",            # CBA_A3's Workshop ID
+    "450814997",            # CBA_A3
+    "463939057",            # ACE3
+    "2162749089",           # Legion Studios Core - Stable
 ]
