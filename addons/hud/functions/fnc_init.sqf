@@ -1,8 +1,8 @@
 #include "..\script_component.hpp"
 /* ----------------------------------------------------------------------------
-Function: cwh_hud_fnc_activate
+Function: cwh_hud_fnc_init
 Description:
-    Activates the HUD for the player.
+    Initializes the HUD environment for the player.
 
 Parameters:
     _player - The player object <OBJECT>
@@ -12,7 +12,7 @@ Returns:
 
 Examples
     (begin example)
-        [player] call cwh_hud_fnc_activate
+        [player] call cwh_hud_fnc_init
     (end)
 
 Author:
@@ -23,6 +23,6 @@ params [
     ["_player", objNull, [objNull]]
 ];
 
-TRACE_1("fnc_activate",_this);
+TRACE_1("fnc_init",_this);
 
-//TODO: Implement HUD activation logic
+//TODO: Implement HUD initialization environment logic

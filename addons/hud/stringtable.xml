@@ -27,14 +27,6 @@
             <English>Change the color of the HUD.</English>
             <French>Change la couleur du HUD.</French>
         </Key>
-        <Key ID="str_cwh_hud_enable">
-            <English>Enable HUD</English>
-            <French>Activer le HUD</French>
-        </Key>
-        <Key ID="str_cwh_hud_enable_description">
-            <English>If enabled, the HUD will be displayed.</English>
-            <French>Si activé, le HUD sera affiché.</French>
-        </Key>
         <Key ID="str_cwh_hud_enablebydefault">
             <English>Enable HUD by default</English>
             <French>Activer le HUD par défaut</French>

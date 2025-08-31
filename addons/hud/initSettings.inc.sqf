@@ -1,17 +1,4 @@
 [
-	QGVAR(enable),
-	"CHECKBOX",
-	[
-		LLSTRING(enable),
-		LLSTRING(enable_Description)
-	],
-	_categoryGlobal,
-	true,
-	2,
-	{}
-] call CBA_fnc_addSetting;
-
-[
 	QGVAR(enableByDefault),
 	"CHECKBOX",
 	[

@@ -5,7 +5,8 @@ Description:
     Deactivates the HUD for the player.
 
 Parameters:
-    _player  - The player object <OBJECT>
+    _player - The player object <OBJECT>
+
 Returns:
     <NONE>
 
