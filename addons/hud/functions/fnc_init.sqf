@@ -33,12 +33,12 @@ if (_aceLoaded) then {
 };
 
 // Initialize list of all helmets
-if (isNil QGVAR(listOfAllHelmets)) then {
+if (isNil QGVAR(listOfAllHelmets) || isNil QGVAR(listOfAllHelmetsWithType)) then {
     INFO("Initializing list of all helmets");
     GVAR(listOfAllHelmets) = [];
     GVAR(listOfAllHelmetsWithType) = [];
 
-    GVAR(listAllHelmets) = [["ARF", GVAR(listARFHelmet)],["BARC", GVAR(listBARCHelmet)],["P1", GVAR(listP1Helmet)],["P2", GVAR(listP2Helmet)]];
+    private _helmetsByType = [["ARF", GVAR(listARFHelmet)],["BARC", GVAR(listBARCHelmet)],["P1", GVAR(listP1Helmet)],["P2", GVAR(listP2Helmet)]];
 
     {
         _x params ["_type", "_list"];
@@ -59,7 +59,7 @@ if (isNil QGVAR(listOfAllHelmets)) then {
         } else {
             ERROR_1("fnc_init - Helmet list for type %1 is not an array, skipping",_type);
         };
-    } forEach GVAR(listAllHelmets);
+    } forEach _helmetsByType;
 
     INFO_1("List of all helmets initialized: %1 helmets found",count GVAR(listOfAllHelmets));
 
