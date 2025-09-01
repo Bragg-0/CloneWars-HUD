@@ -5,3 +5,4 @@ PREP(enableSunfilter);
 PREP(init);
 PREP(repair);
 PREP(setup);
+PREP(update);
