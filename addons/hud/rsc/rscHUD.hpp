@@ -5,8 +5,8 @@ class GVAR(rscHUD) {
     duration = 36000000;
     fadeout = 0;
     name = "CloneWarsHUD";
-    onLoad = QUOTE(call FUNC(onLoadHUD));
-    onUnLoad = QUOTE(call FUNC(onUnloadHUD));
+	onLoad = QUOTE(uiNamespace setVariable [QQGVAR(rscHUD), _this#0]);
+	onUnLoad = QUOTE(uiNamespace setVariable [QQGVAR(rscHUD), nil]);
     class controlsBackground {
         class SunFilter : RscText {
             idc = 1001;
