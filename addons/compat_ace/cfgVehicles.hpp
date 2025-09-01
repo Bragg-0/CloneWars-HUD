@@ -8,12 +8,12 @@ class CfgVehicles {
                     condition = QUOTE((headgear _player) in EGVAR(hud,listOfAllHelmets));
                     class GVAR(Deactivate) {
                         displayName = CSTRING(Deactivate);
-                        condition = QUOTE(_player getVariable [ARR_2(QQEGVAR(hud,active),false)]);
+                        condition = QUOTE(_player getVariable [ARR_2(QQEGVAR(hud,active),EGVAR(hud,enableByDefault))]);
                         statement = QUOTE([_player] call EFUNC(hud,deactivate));
                     };
                     class GVAR(Activate) {
                         displayName = CSTRING(Activate);
-                        condition = QUOTE(!(_player getVariable [ARR_2(QQEGVAR(hud,active),false)]));
+                        condition = QUOTE(!(_player getVariable [ARR_2(QQEGVAR(hud,active),EGVAR(hud,enableByDefault))]));
                         statement = QUOTE([_player] call EFUNC(hud,activate));
                     };
                     class GVAR(Repair) {
@@ -23,12 +23,12 @@ class CfgVehicles {
                     };
                     class GVAR(DisableSunfilter) {
                         displayName = CSTRING(DisableSunfilter);
-                        condition = QUOTE(_player getVariable [ARR_2(QQEGVAR(hud,sunfilter),false)]);
+                        condition = QUOTE(_player getVariable [ARR_2(QQEGVAR(hud,sunfilter),EGVAR(hud,enableByDefault))]);
                         statement = QUOTE([_player] call EFUNC(hud,disableSunfilter));
                     };
                     class GVAR(EnableSunfilter) {
                         displayName = CSTRING(EnableSunfilter);
-                        condition = QUOTE(!(_player getVariable [ARR_2(QQEGVAR(hud,sunfilter),false)]));
+                        condition = QUOTE(!(_player getVariable [ARR_2(QQEGVAR(hud,sunfilter),EGVAR(hud,enableByDefault))]));
                         statement = QUOTE([_player] call EFUNC(hud,enableSunfilter));
                     };
                 };

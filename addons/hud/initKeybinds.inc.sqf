@@ -6,7 +6,7 @@
 		LLSTRING(key_toggle_description)
 	],
 	{
-		if (player getVariable [QGVAR(active), false]) then {
+		if (player getVariable [QGVAR(active), GVAR(enableByDefault)]) then {
 			[player] call FUNC(deactivate);
 		} else {
 			[player] call FUNC(activate);
