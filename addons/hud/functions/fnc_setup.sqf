@@ -32,24 +32,26 @@ if (_player getVariable [QGVAR(hudSetup), false]) then {
 
 // Create the HUD
 (QGVAR(rscHUD) call BIS_fnc_rscLayer) cutRsc [QGVAR(rscHUD), "PLAIN NOFADE", -1, false, true];
-[_player] call FUNC(update);
 
 // Set the HUD setup variable to true
 _player setVariable [QGVAR(hudSetup), true, true];
 
-// List of events to monitor
-private _eventsCBA = ["loadout", "weapon", "weaponMode", "vehicle", "featureCamera", "cameraView"];
+// Add per-frame handler to update HUD
+private _handle = _player getVariable [QGVAR(setupHandler), -1];
 
 // Remove old event handlers if they exist
-private _ehIds = _player getVariable [QGVAR(setupHandler), []];
-if (_ehIds isEqualType [] && {count _ehIds == count _eventsCBA}) then {
-    {
-        [_eventsCBA select _forEachIndex, _x] call CBA_fnc_removePlayerEventHandler;
-    } forEach _ehIds;
+if (_handle != -1) then {
+    [_handle] call CBA_fnc_removePerFrameHandler;
 };
 
 // Add new event handlers and store the IDs
-private _newEhIds = _eventsCBA apply {
-    [_x, { params ["_player"]; [_player] call FUNC(update); }] call CBA_fnc_addPlayerEventHandler
-};
-_player setVariable [QGVAR(setupHandler), _newEhIds, true];
+private _handle = [
+    {
+        _this#1 params ["_player"];
+        [_player] call FUNC(update);
+    },
+    0,
+    [_player]
+] call CBA_fnc_addPerFrameHandler;
+
+_player setVariable [QGVAR(setupHandler), _handle, true];
