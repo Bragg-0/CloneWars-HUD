@@ -1,5 +1,9 @@
 #define CWH_DISPLAY (uiNamespace getVariable [QGVAR(rscHUD), displayNull])
 
+#define CWH_CTRL_SUNFILTER (CWH_DISPLAY displayCtrl 1001)
+#define CWH_CTRL_FRAME (CWH_DISPLAY displayCtrl 1002)
+#define CWH_CTRL_COLOR (CWH_DISPLAY displayCtrl 1003)
+
 #define CWH_CTRL_WEAPON_FRAME (CWH_DISPLAY displayCtrl 1010)
 #define CWH_CTRL_WEAPON_ICON (CWH_DISPLAY displayCtrl 1011)
 #define CWH_CTRL_WEAPON_BULLET_COUNT (CWH_DISPLAY displayCtrl 1012)
@@ -13,3 +17,5 @@
 
 #define CWH_CTRL_DIR_FRAME (CWH_DISPLAY displayCtrl 1030)
 #define CWH_CTRL_DIR_ICON (CWH_DISPLAY displayCtrl 1031)
+
+#define CWH_CTRL_CRACK (CWH_DISPLAY displayCtrl 1100)
