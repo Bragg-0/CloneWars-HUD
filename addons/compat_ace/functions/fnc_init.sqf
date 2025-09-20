@@ -5,40 +5,36 @@ Description:
     Initializes the ACE compatibility layer.
 
 Parameters:
-    _player - The player object to initialize for <OBJECT>
+    <NONE>
 
 Returns:
     <NONE>
 
 Examples
     (begin example)
-        [player] call cwh_compat_ace_fnc_init
+        [] call cwh_compat_ace_fnc_init
     (end)
 
 Author:
     Bragg
 ---------------------------------------------------------------------------- */
 
-params [
-    ["_player", objNull, [objNull]]
-];
-
 TRACE_1("fnc_init",_this);
 
 // Move ACE stamina bar when HUD is active
 [
     {
-        params ["_player", "_handle"];
-        if (isNull _player) exitWith {
+        params ["_param", "_handle"];
+        if (isNull player) exitWith {
             [_handle] call CBA_fnc_removePerFrameHandler;
             TRACE_1("fnc_init - Exiting perFrameHandler (Move ACE stamina bar when HUD is active) as player is null",_this);
         };
         private _control = uiNamespace getVariable "ace_advanced_fatigue_staminaBarContainer";
-        if (_player getVariable [QEGVAR(hud,active), false]) then {
+        if (player getVariable [QEGVAR(hud,active), false]) then {
             // is disabled
 			_control ctrlSetPosition [
-                (profileNamespace getVariable [(profileNamespace getVariable ["IGUI_GRID_STAMINA_X",IGUI_GRID_STAMINA_XDef]), ((safeZoneX + safeZoneW) - (10 * (((safeZoneW / safeZoneH) min 1.2) / 40)) - 4.3 * (((safeZoneW / safeZoneH) min 1.2) / 40))]),
-                (profileNamespace getVariable [(profileNamespace getVariable ["IGUI_GRID_STAMINA_Y",IGUI_GRID_STAMINA_YDef]), (safeZoneY + 4.05 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25))])
+                (profileNamespace getVariable ["IGUI_GRID_STAMINA_X", ((safeZoneX + safeZoneW) - (10 * (((safeZoneW / safeZoneH) min 1.2) / 40)) - 4.3 * (((safeZoneW / safeZoneH) min 1.2) / 40))]),
+                (profileNamespace getVariable ["IGUI_GRID_STAMINA_Y", (safeZoneY + 4.05 * ((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25))])
             ];
             _control ctrlCommit 0;
 		} else {
@@ -50,6 +46,5 @@ TRACE_1("fnc_init",_this);
             _control ctrlCommit 0;
 		};
     },
-    1,
-    _player
+    1
 ] call CBA_fnc_addPerFrameHandler;

@@ -7,9 +7,11 @@
 	],
 	{
 		if (player getVariable [QGVAR(active), GVAR(enableByDefault)]) then {
-			[player] call FUNC(deactivate);
+			[] call FUNC(deactivate);
+			player setVariable [QGVAR(active), false, true];
 		} else {
-			[player] call FUNC(activate);
+			[] call FUNC(activate);
+			player setVariable [QGVAR(active), true, true];
 		};
 	},
 	{},
@@ -30,18 +32,3 @@
 	}
 ] call CBA_fnc_addKeybind;
 
-[
-	_categoryGlobal,
-	QGVAR(key_toggleSunfilter),
-	[
-		LLSTRING(key_toggleSunfilter),
-		LLSTRING(key_toggleSunfilter_description)
-	],
-	{
-		if (player getVariable [QGVAR(sunfilter), false]) then {
-			[player] call FUNC(disableSunfilter);
-		} else {
-			[player] call FUNC(enableSunfilter);
-		};
-	}
-] call CBA_fnc_addKeybind;

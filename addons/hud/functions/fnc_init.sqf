@@ -5,23 +5,19 @@ Description:
     Initializes the HUD environment for the player.
 
 Parameters:
-    _player - The player object <OBJECT>
+    <NONE>
 
 Returns:
     <NONE>
 
 Examples
     (begin example)
-        [player] call cwh_hud_fnc_init
+        [] call cwh_hud_fnc_init
     (end)
 
 Author:
     Bragg
 ---------------------------------------------------------------------------- */
-
-params [
-    ["_player", objNull, [objNull]]
-];
 
 TRACE_1("fnc_init",_this);
 
@@ -29,7 +25,7 @@ TRACE_1("fnc_init",_this);
 private _aceLoaded = (configFile >> "CfgPatches" >> "ace_interact_menu") call BIS_fnc_getCfgIsClass;
 if (_aceLoaded) then {
     INFO("ACE mod detected, initializing ACE-specific elements");
-    [_player] call EFUNC(compat_ace,init);
+    [] call EFUNC(compat_ace,init);
 };
 
 // Initialize list of all helmets
@@ -46,14 +42,14 @@ if (isNil QGVAR(listOfAllHelmets) || isNil QGVAR(listOfAllHelmetsWithType)) then
         if (IS_ARRAY(_compiledList)) then {
             {
                 private _parent = _x;
-                private _isClass = (configFile >> "CfgWeapons" >> _x) call BIS_fnc_getCfgIsClass;
+                private _isClass = (configFile >> "CfgWeapons" >> _parent) call BIS_fnc_getCfgIsClass;
                 if (_isClass) then {
-                    private _children = [configFile >> "CfgWeapons" >> _x, 5] call BIS_fnc_returnChildren;
+                    private _children = format ["configName (inheritsFrom _x) == '%1'", _parent] configClasses (configFile >> "CfgWeapons");
                     {
                         private _class = configName _x;
                         GVAR(listOfAllHelmets) pushBackUnique _class;
                         GVAR(listOfAllHelmetsWithType) pushBackUnique [_class,_type];
-                    } forEach _children;
+                    } forEach ([(configFile >> "CfgWeapons" >> _parent)] + _children);
                 };
             } forEach _compiledList;
         } else {
@@ -63,12 +59,14 @@ if (isNil QGVAR(listOfAllHelmets) || isNil QGVAR(listOfAllHelmetsWithType)) then
 
     INFO_1("List of all helmets initialized: %1 helmets found",count GVAR(listOfAllHelmets));
 
-    publicVariable GVAR(listOfAllHelmets);
-    publicVariable GVAR(listOfAllHelmetsWithType);
+    GVAR(listOfAllHelmetsWithType) = createHashMapFromArray GVAR(listOfAllHelmetsWithType);
+
+    publicVariable QGVAR(listOfAllHelmets); // Array of all helmet class names
+    publicVariable QGVAR(listOfAllHelmetsWithType); // HashMap of helmet class names to their types
 
 } else {
     INFO("List of all helmets already initialized");
 };
 
 // Setup HUD for player
-[_player] call FUNC(setup);
+[] call FUNC(setup);

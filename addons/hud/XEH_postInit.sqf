@@ -4,5 +4,5 @@
 [{
     not isNull player
 }, {
-    [player] call FUNC(init);
+    [] call FUNC(init);
 }] call CBA_fnc_waitUntilAndExecute;

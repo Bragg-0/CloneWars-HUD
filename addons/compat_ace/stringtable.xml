@@ -9,14 +9,6 @@
             <English>Deactivate</English>
             <French>Désactiver</French>
         </Key>
-        <Key ID="str_cwh_compat_ace_disableSunfilter">
-            <English>Disable Sunfilter</English>
-            <French>Désactiver le filtre solaire</French>
-        </Key>
-        <Key ID="str_cwh_compat_ace_enableSunfilter">
-            <English>Enable Sunfilter</English>
-            <French>Activer le filtre solaire</French>
-        </Key>
         <Key ID="str_cwh_compat_ace_interaction">
             <English>HUD</English>
             <French>HUD</French>

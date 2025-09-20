@@ -1,28 +1,27 @@
 #include "..\script_component.hpp"
 /* ----------------------------------------------------------------------------
-Function: cwh_hud_fnc_activate
+Function: cwh_hud_fnc_updateElements
 Description:
-    Activates the HUD for the player.
+    Updates the individual elements of the HUD.
 
 Parameters:
     <NONE>
-
+    
 Returns:
     <NONE>
 
 Examples
     (begin example)
-        [] call cwh_hud_fnc_activate
+        [player] call cwh_hud_fnc_updateElements
     (end)
 
 Author:
     Bragg
 ---------------------------------------------------------------------------- */
 
-private _allHUDControls = CWH_CTRL_ALL;
+//TODO: Add more elements here as needed
+// Update Directional Indicator
 
-{
-    if (isNull _x) then { continue };
-    _x ctrlShow true;
-} forEach _allHUDControls;
+// Update Weapon Info
 
+// Update Grenade Info

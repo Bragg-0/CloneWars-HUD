@@ -8,11 +8,11 @@ class GVAR(rscHUD) {
 	onLoad = QUOTE(uiNamespace setVariable [ARR_2(QQGVAR(rscHUD),_this#0)]);
 	onUnLoad = QUOTE(uiNamespace setVariable [ARR_2(QQGVAR(rscHUD),displayNull)]);
     class controlsBackground {
-        class SunFilter : RscText {
-            idc = 1001;
-            FULLSCREEN_COORD;
-            colorBackground[] = { 0,0,0,0.25 };
-        };
+        // class SunFilter : RscText { //TODO
+        //     idc = 1001;
+        //     FULLSCREEN_COORD;
+        //     colorBackground[] = { 0,0,0,0.25 };
+        // };
         class Frame : RscPicture { // Frame Image (depends of the helmet)
             idc = 1002;
             FULLSCREEN_COORD;
@@ -116,10 +116,10 @@ class GVAR(rscHUD) {
             h = H_COORD(0.02222223);
         };
 
-        // Crack
-        class Crack : Frame { // Crack Image (when damaged)
-            idc = 1100;
-            text = QPATHTOEF(ui,data\hud\crack_ca.paa); // set default crack
-        };
+        // Crack //TODO
+        // class Crack : Frame { // Crack Image (when damaged)
+        //     idc = 1100;
+        //     text = QPATHTOEF(ui,data\hud\crack_ca.paa); // set default crack
+        // };
     };
 };
