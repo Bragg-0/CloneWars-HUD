@@ -23,7 +23,7 @@ Author:
 private _weaponState = weaponState  player;
 
 // If no weapon is selected, hide the weapon HUD element
-if (_weaponState isequalTo []) exitWith {
+if (_weaponState isEqualTo []) exitWith {
     {
         _x ctrlShow false;
     } forEach CWH_CTRL_WEAPON;
@@ -40,7 +40,7 @@ _weaponState params ["_weapon", "_muzzle", "_firemode", "_magazine", "_ammoCount
 // Get weapon icon and info text
 private _icon = getText (configFile >> "CfgWeapons" >> _weapon >> "picture");
 private _info = getText (configFile >> "CfgWeapons" >> _weapon >> "displayName");
-if (!(_firemode isEqualTo "")) then {
+if (_firemode isNotEqualTo "") then {
     _info = format ["%1 (%2)", _info, _firemode];
 };
 

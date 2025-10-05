@@ -23,7 +23,7 @@ Author:
 private _grenade = currentThrowable player;
 
 // If no grenade is selected, hide the grenade HUD element
-if (_grenade isequalTo []) exitWith {
+if (_grenade isEqualTo []) exitWith {
     {
         _x ctrlShow false;
     } forEach CWH_CTRL_GRENADE;
