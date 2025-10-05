@@ -1,8 +1,8 @@
 #include "..\script_component.hpp"
 /* ----------------------------------------------------------------------------
-Function: cwh_hud_fnc_updateElements
+Function: cwh_hud_fnc_updateElementsDir
 Description:
-    Updates the individual elements of the HUD.
+    Updates the directional indicator element of the HUD.
 
 Parameters:
     <NONE>
@@ -12,16 +12,15 @@ Returns:
 
 Examples
     (begin example)
-        [player] call cwh_hud_fnc_updateElements
+        [] call cwh_hud_fnc_updateElementsDir
     (end)
 
 Author:
     Bragg
 ---------------------------------------------------------------------------- */
 
-//TODO: Add more elements here as needed
-// Update Directional Indicator
+// Get player's current direction
+private _dir = getDir player;
 
-// Update Weapon Info
-
-// Update Grenade Info
+// Update the direction
+CWH_CTRL_DIR_INFO ctrlSetText FORMAT_1("%1°", round _dir);
