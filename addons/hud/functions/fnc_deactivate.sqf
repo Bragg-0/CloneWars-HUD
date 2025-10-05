@@ -25,3 +25,6 @@ private _allHUDControls = CWH_CTRL_ALL;
     if (isNull _x) then { continue };
     _x ctrlShow false;
 } forEach _allHUDControls;
+
+// Display default HUD
+showHUD true;

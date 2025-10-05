@@ -26,3 +26,5 @@ private _allHUDControls = CWH_CTRL_ALL;
     _x ctrlShow true;
 } forEach _allHUDControls;
 
+// Hide default HUD
+showHUD false;
