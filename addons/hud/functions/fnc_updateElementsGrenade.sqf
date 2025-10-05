@@ -38,7 +38,7 @@ if (_grenade isEqualTo []) exitWith {
 _grenade params ["_magazineName", "_muzzleName", "_id", "_ammoCount"];
 
 // Get grenade icon from config
-private _icon = getText (configFile >> "CfgMagazines" >> _grenade >> "picture");
+private _icon = getText (configFile >> "CfgMagazines" >> _magazineName >> "picture");
 
 // Update grenade icon and count
 CWH_CTRL_GRENADE_ICON ctrlSetText _icon;
