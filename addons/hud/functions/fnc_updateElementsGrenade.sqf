@@ -39,7 +39,13 @@ _grenade params ["_magazineName", "_muzzleName", "_id", "_ammoCount"];
 
 // Get grenade icon from config
 private _icon = getText (configFile >> "CfgMagazines" >> _magazineName >> "picture");
+private _count = 0;
+{
+    if (_x isEqualTo _magazineName) then {
+        ADD(_count,1);
+    };
+} forEach (magazines player);
 
 // Update grenade icon and count
 CWH_CTRL_GRENADE_ICON ctrlSetText _icon;
-CWH_CTRL_GRENADE_COUNT ctrlSetText FORMAT_1("%1",_ammoCount);
+CWH_CTRL_GRENADE_COUNT ctrlSetText FORMAT_1("%1",_count);
