@@ -23,4 +23,4 @@ Author:
 private _dir = getDir player;
 
 // Update the direction
-CWH_CTRL_DIR_INFO ctrlSetText FORMAT_1("%1°", round _dir);
+CWH_CTRL_DIR_INFO ctrlSetText FORMAT_1("%1°",round _dir);

@@ -42,4 +42,4 @@ private _icon = getText (configFile >> "CfgMagazines" >> _grenade >> "picture");
 
 // Update grenade icon and count
 CWH_CTRL_GRENADE_ICON ctrlSetText _icon;
-CWH_CTRL_GRENADE_COUNT ctrlSetText FORMAT_1("%1", _ammoCount);
+CWH_CTRL_GRENADE_COUNT ctrlSetText FORMAT_1("%1",_ammoCount);

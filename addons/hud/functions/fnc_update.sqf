@@ -27,7 +27,9 @@ if (((headgear player) in GVAR(listOfAllHelmets)) && (player getVariable [QGVAR(
             // Activate HUD
             [] call FUNC(activate);
             // Update HUD elements
-            [] call FUNC(updateElements);
+            [] call FUNC(updateElementsDir);
+            [] call FUNC(updateElementsWeapon);
+            [] call FUNC(updateElementsGrenade);
         } else {
             // Deactivate HUD
             [] call FUNC(deactivate);
