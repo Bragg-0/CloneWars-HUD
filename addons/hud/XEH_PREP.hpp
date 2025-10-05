@@ -4,4 +4,6 @@ PREP(init);
 PREP(repair);
 PREP(setup);
 PREP(update);
-PREP(updateElements);
+PREP(updateElementsDir);
+PREP(updateElementsGrenade);
+PREP(updateElementsWeapon);
