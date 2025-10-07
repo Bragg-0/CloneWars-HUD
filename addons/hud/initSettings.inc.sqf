@@ -1,3 +1,5 @@
+#include "script_macros.hpp"
+
 [
 	QGVAR(enableByDefault),
 	"CHECKBOX",
@@ -58,7 +60,7 @@
 		LLSTRING(color_Description)
 	],
 	_categoryColors,
-	[0,0.447,0.741,1]
+	[CWH_COLOR_DEFAULT]
 ] call CBA_fnc_addSetting;
 
 [

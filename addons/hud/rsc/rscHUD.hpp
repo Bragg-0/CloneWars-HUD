@@ -21,7 +21,7 @@ class GVAR(rscHUD) {
         class Color : Frame { // Color Image (can be customized in CBA)
             idc = 1003;
             text = QPATHTOEF(ui,data\hud\P2\color_ca.paa); // set default color
-            colorText[] = { 0,0.447,0.741,1 }; // default blue
+            colorText[] = { CWH_COLOR_DEFAULT };
         };
 
         // Weapon
@@ -32,7 +32,7 @@ class GVAR(rscHUD) {
             w = W_COORD(0.14895834);
             h = H_COORD(0.22222223);
             text = QPATHTOEF(ui,data\hud\weapon_frame_ca.paa);
-            colorText[] = { 0,0.447,0.741,1 }; // default blue
+            colorText[] = { CWH_COLOR_DEFAULT };
         };
         class Weapon_Icon : RscPictureKeepAspect {
             idc = 1011;
@@ -40,14 +40,15 @@ class GVAR(rscHUD) {
             y = Y_COORD(0.03981482);
             w = W_COORD(0.0859375);
             h = H_COORD(0.05);
-            colorText[] = { 1,1,1,1 };
+            colorText[] = { CWH_COLOR_WHITE };
         };
         class Weapon_Bullet_Count : RscProgress {
             idc = 1012;
             x = X_COORD(0.87760417);
             y = Y_COORD(0.09537038);
             w = W_COORD(0.0859375);
-            h = H_COORD(0.01296297);
+            h = H_COORD(0.00740741);
+            colorText[] = { CWH_COLOR_DEFAULT };
         };
         class Weapon_Info : RscText {
             idc = 1013;
@@ -62,7 +63,7 @@ class GVAR(rscHUD) {
             y = Y_COORD(0.14166667);
             w = W_COORD(0.01666667);
             h = H_COORD(0.03148149);
-            colorText[] = { 1,1,1,1 };
+            colorText[] = { CWH_COLOR_WHITE };
         };
         class Weapon_Magazine_Count : RscText {
             idc = 1015;
@@ -80,7 +81,7 @@ class GVAR(rscHUD) {
             w = W_COORD(0.12916667);
             h = H_COORD(0.11111112);
             text = QPATHTOEF(ui,data\hud\grenade_frame_ca.paa);
-            colorText[] = { 0,0.447,0.741,1 }; // default blue
+            colorText[] = { CWH_COLOR_DEFAULT };
         };
         class Grenade_Icon : RscPictureKeepAspect {
             idc = 1021;
@@ -88,7 +89,7 @@ class GVAR(rscHUD) {
             y = Y_COORD(0.20555556);
             w = W_COORD(0.0265625);
             h = H_COORD(0.05);
-            colorText[] = { 1,1,1,1 };
+            colorText[] = { CWH_COLOR_WHITE };
         };
         class Grenade_Count : RscText {
             idc = 1022;
@@ -106,7 +107,7 @@ class GVAR(rscHUD) {
             w = W_COORD(0.0796875);
             h = H_COORD(0.07407408);
             text = QPATHTOEF(ui,data\hud\dir_frame_ca.paa);
-            colorText[] = { 0,0.447,0.741,1 }; // default blue
+            colorText[] = { CWH_COLOR_DEFAULT };
         };
         class Dir_Info : RscText {
             idc = 1031;
