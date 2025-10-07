@@ -40,7 +40,7 @@ class GVAR(rscHUD) {
             y = Y_COORD(0.03981482);
             w = W_COORD(0.0859375);
             h = H_COORD(0.05);
-            colorText[] = { 0,0.447,0.741,1 }; // default blue
+            colorText[] = { 1,1,1,1 };
         };
         class Weapon_Bullet_Count : RscProgress {
             idc = 1012;
@@ -62,7 +62,7 @@ class GVAR(rscHUD) {
             y = Y_COORD(0.14166667);
             w = W_COORD(0.01666667);
             h = H_COORD(0.03148149);
-            colorText[] = { 0,0.447,0.741,1 }; // default blue
+            colorText[] = { 1,1,1,1 };
         };
         class Weapon_Magazine_Count : RscText {
             idc = 1015;
@@ -88,7 +88,7 @@ class GVAR(rscHUD) {
             y = Y_COORD(0.20555556);
             w = W_COORD(0.0265625);
             h = H_COORD(0.05);
-            colorText[] = { 0,0.447,0.741,1 }; // default blue
+            colorText[] = { 1,1,1,1 };
         };
         class Grenade_Count : RscText {
             idc = 1022;
