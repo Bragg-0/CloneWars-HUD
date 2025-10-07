@@ -5,7 +5,7 @@ mainprefix = "x"
 
 [version]
 path = "addons/main/script_version.hpp"
-git_hash = 8
+git_hash = 0
 
 [files]
 include = [
