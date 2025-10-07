@@ -72,6 +72,30 @@ class GVAR(rscHUD) {
             w = W_COORD(0.01666667);
             h = H_COORD(0.03148149);
         };
+        class Weapon_FireMode_5 : RscText {
+            idc = 10165;
+            x = X_COORD(0.88177084);
+            y = Y_COORD(0.10462963);
+            w = W_COORD(0.01145834);
+            h = H_COORD(0.00740741);
+            colorBackground[] = { CWH_COLOR_DISABLED };
+        };
+        class Weapon_FireMode_4 : Weapon_FireMode_5 {
+            idc = 10164;
+            x = X_COORD(0.8984375);
+        };
+        class Weapon_FireMode_3 : Weapon_FireMode_5 {
+            idc = 10163;
+            x = X_COORD(0.91458334);
+        };
+        class Weapon_FireMode_2 : Weapon_FireMode_5 {
+            idc = 10162;
+            x = X_COORD(0.93125);
+        };
+        class Weapon_FireMode_1 : Weapon_FireMode_5 {
+            idc = 10161;
+            x = X_COORD(0.94791667);
+        };
 
         // Grenade
         class Grenade_Frame : RscPictureKeepAspect {

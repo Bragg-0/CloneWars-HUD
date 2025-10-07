@@ -20,7 +20,7 @@ Author:
 ---------------------------------------------------------------------------- */
 
 // Get the current weapon selected
-private _weaponState = weaponState  player;
+private _weaponState = weaponState player;
 
 // If no weapon is selected, hide the weapon HUD element
 if (_weaponState isEqualTo []) exitWith {
@@ -40,9 +40,6 @@ _weaponState params ["_weapon", "_muzzle", "_firemode", "_magazine", "_ammoCount
 // Get weapon icon and info text
 private _icon = getText (configFile >> "CfgWeapons" >> _weapon >> "picture");
 private _info = getText (configFile >> "CfgWeapons" >> _weapon >> "displayName");
-if (_firemode isNotEqualTo "") then {
-    _info = format ["%1 (%2)", _info, _firemode];
-};
 
 // Update weapon icon and count
 CWH_CTRL_WEAPON_ICON ctrlSetText _icon;
@@ -61,3 +58,35 @@ private _magazinesCount = 0;
 // Update magazine icon and count
 CWH_CTRL_WEAPON_MAGAZINE_ICON ctrlSetText _magazineIcon;
 CWH_CTRL_WEAPON_MAGAZINE_COUNT ctrlSetText format ["%1", _magazinesCount];
+
+// Update firemode
+switch (_firemode) do {
+    case "Single": {
+        CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+        CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+    };
+    case "FullAuto": {
+        CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+        CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+    };
+    case "Burst": {
+        CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+        CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+    };
+    default {
+        CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+        CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+    };
+};
