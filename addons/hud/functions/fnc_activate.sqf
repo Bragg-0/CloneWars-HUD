@@ -27,4 +27,4 @@ private _allHUDControls = CWH_CTRL_ALL;
 } forEach _allHUDControls;
 
 // Hide default HUD
-showHUD GVAR(shownHUD);
+showHUD [false, false, false];
