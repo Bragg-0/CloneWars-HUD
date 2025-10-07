@@ -48,7 +48,7 @@ class GVAR(rscHUD) {
             y = Y_COORD(0.09537038);
             w = W_COORD(0.0859375);
             h = H_COORD(0.00740741);
-            colorText[] = { CWH_COLOR_DEFAULT };
+            colorBar[] = { CWH_COLOR_DEFAULT };
         };
         class Weapon_Info : RscText {
             idc = 1013;

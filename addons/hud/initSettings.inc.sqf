@@ -1,5 +1,3 @@
-#include "script_macros.hpp"
-
 [
 	QGVAR(enableByDefault),
 	"CHECKBOX",
