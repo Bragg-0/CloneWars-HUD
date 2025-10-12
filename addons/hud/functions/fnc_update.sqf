@@ -23,16 +23,16 @@ Author:
 if (((headgear player) in GVAR(listOfAllHelmets)) && (player getVariable [QGVAR(active), GVAR(enableByDefault)])) then {
     // Check if third person is disabled to show HUD only in first person
     if (!GVAR(enableThirdPerson)) then { 
-        if (cameraView == "INTERNAL") then {
+        if (cameraView == "EXTERNAL") then {
+            // Deactivate HUD
+            [] call FUNC(deactivate);
+        } else {
             // Activate HUD
             [] call FUNC(activate);
             // Update HUD elements
             [] call FUNC(updateElementsDir);
             [] call FUNC(updateElementsWeapon);
             [] call FUNC(updateElementsGrenade);
-        } else {
-            // Deactivate HUD
-            [] call FUNC(deactivate);
         };
     } else {
         // Activate HUD
