@@ -27,7 +27,7 @@ if (player getVariable [QGVAR(hudSetup), false]) then {
 };
 
 // Create the HUD
-(QGVAR(rscHUD) call BIS_fnc_rscLayer) cutRsc [QGVAR(rscHUD), "PLAIN NOFADE", -1, false, true];
+(QGVAR(rscHUD) call BIS_fnc_rscLayer) cutRsc [QGVAR(rscHUD), "PLAIN NOFADE"];
 
 // Set the HUD setup variable to true
 player setVariable [QGVAR(hudSetup), true, true];
