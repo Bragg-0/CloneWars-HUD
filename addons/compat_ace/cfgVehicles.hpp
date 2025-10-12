@@ -16,6 +16,16 @@ class CfgVehicles {
                         condition = QUOTE(!(_player getVariable [ARR_2(QQEGVAR(hud,active),EGVAR(hud,enableByDefault))]));
                         statement = QUOTE([] call EFUNC(hud,activate); _player setVariable [ARR_3(QQEGVAR(hud,active),true,true)]);
                     };
+                    class GVAR(DeactivateSunFilter) {
+                        displayName = CSTRING(DeactivateSunFilter);
+                        condition = QUOTE(_player getVariable [ARR_2(QQEGVAR(hud,enableSunFilter),EGVAR(hud,enableByDefault))]);
+                        statement = QUOTE(_player setVariable [ARR_3(QQEGVAR(hud,enableSunFilter),false,true)]);
+                    };
+                    class GVAR(ActivateSunFilter) {
+                        displayName = CSTRING(ActivateSunFilter);
+                        condition = QUOTE(!(_player getVariable [ARR_2(QQEGVAR(hud,enableSunFilter),EGVAR(hud,enableByDefault))]));
+                        statement = QUOTE(_player setVariable [ARR_3(QQEGVAR(hud,enableSunFilter),true,true)]);
+                    };
                     class GVAR(Repair) {
                         displayName = CSTRING(Repair);
                         condition = QUOTE(_player getVariable [ARR_2(QQEGVAR(hud,broken),false)]);

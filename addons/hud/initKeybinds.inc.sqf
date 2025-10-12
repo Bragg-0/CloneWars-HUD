@@ -20,6 +20,24 @@
 
 [
 	_categoryGlobal,
+	QGVAR(key_toggleSunFilter),
+	[
+		LLSTRING(key_toggleSunFilter),
+		LLSTRING(key_toggleSunFilter_description)
+	],
+	{
+		if (player getVariable [QGVAR(enableSunFilter), GVAR(enableByDefault)]) then {
+			player setVariable [QGVAR(enableSunFilter), false, true];
+		} else {
+			player setVariable [QGVAR(enableSunFilter), true, true];
+		};
+	},
+	{},
+	[DIK_DIVIDE, [false, true, false]]
+] call CBA_fnc_addKeybind;
+
+[
+	_categoryGlobal,
 	QGVAR(key_repair),
 	[
 		LLSTRING(key_repair),

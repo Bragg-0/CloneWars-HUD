@@ -8,11 +8,11 @@ class GVAR(rscHUD) {
 	onLoad = QUOTE(uiNamespace setVariable [ARR_2(QQGVAR(rscHUD),_this#0)]);
 	onUnLoad = QUOTE(uiNamespace setVariable [ARR_2(QQGVAR(rscHUD),displayNull)]);
     class controlsBackground {
-        // class SunFilter : RscText { //TODO
-        //     idc = 1001;
-        //     FULLSCREEN_COORD;
-        //     colorBackground[] = { 0,0,0,0.25 };
-        // };
+        class SunFilter : RscText {
+            idc = 1001;
+            FULLSCREEN_COORD;
+            colorBackground[] = { 0,0,0,0.25 };
+        };
         class Frame : RscPicture { // Frame Image (depends of the helmet)
             idc = 1002;
             FULLSCREEN_COORD;

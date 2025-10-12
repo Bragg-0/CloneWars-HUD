@@ -13,6 +13,14 @@
             <English>Toggle HUD</English>
             <French>Afficher/Masquer le HUD</French>
         </Key>
+        <Key ID="str_cwh_hud_key_toggleSunFilter">
+            <English>Toggle Sun Filter</English>
+            <French>Afficher/Masquer le filtre solaire</French>
+        </Key>
+        <Key ID="str_cwh_hud_key_toggleSunFilter_description">
+            <English>This key toggles the visibility of the sun filter.</English>
+            <French>Cette touche permet d’afficher ou de masquer le filtre solaire.</French>
+        </Key>
         <Key ID="str_cwh_hud_key_toggle_description">
             <English>This key toggles the visibility of the HUD.</English>
             <French>Cette touche permet d’afficher ou de masquer le HUD.</French>
