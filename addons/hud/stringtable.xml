@@ -52,8 +52,8 @@
             <French>Si activé, le HUD sera actif au début de la mission.</French>
         </Key>
         <Key ID="str_cwh_hud_enablethirdperson">
-            <English>Enable Third Person View</English>
-            <French>Activer la vue à la troisième personne</French>
+            <English>Enable in third person view</English>
+            <French>Activer dans la vue à la troisième personne</French>
         </Key>
         <Key ID="str_cwh_hud_enablethirdperson_description">
             <English>If enabled, the HUD will also be displayed in third person view.</English>
