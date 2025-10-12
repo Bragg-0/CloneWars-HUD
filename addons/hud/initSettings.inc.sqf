@@ -6,10 +6,7 @@
 		LLSTRING(enableByDefault_Description)
 	],
 	_categoryGlobal,
-	true,
-	1,
-	{},
-	true //Need restart to update the params
+	true
 ] call CBA_fnc_addSetting;
 
 [
@@ -20,10 +17,7 @@
 		LLSTRING(enableThirdPerson_Description)
 	],
 	_categoryGlobal,
-	false,
-	0,
-	{},
-	true //Need restart to update the params
+	false
 ] call CBA_fnc_addSetting;
 
 [
