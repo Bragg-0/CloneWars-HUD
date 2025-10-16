@@ -21,6 +21,9 @@ Author:
 
 TRACE_1("fnc_setup",_this);
 
+// Initialize shownHUD variable
+GVAR(shownHUD) = shownHUD;
+
 // Check if the HUD is already set up for the player and delete it if necessary
 if (player getVariable [QGVAR(hudSetup), false]) then {
     (QGVAR(rscHUD) call BIS_fnc_rscLayer) cutText ["", "PLAIN NOFADE"];

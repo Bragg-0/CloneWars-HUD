@@ -68,9 +68,7 @@ if (isNil QGVAR(listOfAllHelmets) || isNil QGVAR(listOfAllHelmetsWithType)) then
     INFO("List of all helmets already initialized");
 };
 
-// Initialize shownHUD variable
-GVAR(shownHUD) = shownHUD;
-publicVariable QGVAR(shownHUD);
-
-// Setup HUD for player
-[] call FUNC(setup);
+if (not isNull player) then {
+    // Setup HUD for player
+    [] call FUNC(setup);
+};
