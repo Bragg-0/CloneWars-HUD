@@ -141,10 +141,9 @@ class GVAR(rscHUD) {
             h = H_COORD(0.02222223);
         };
 
-        // Crack //TODO
-        // class Crack : Frame { // Crack Image (when damaged)
-        //     idc = 1100;
-        //     text = QPATHTOEF(ui,data\hud\crack_ca.paa); // set default crack
-        // };
+        class Crack : Frame { // Crack Image (when damaged)
+            idc = 1100;
+            text = QPATHTOEF(ui,data\hud\crack_ca.paa); // set default crack
+        };
     };
 };

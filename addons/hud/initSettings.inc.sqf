@@ -33,18 +33,6 @@
 ] call CBA_fnc_addSetting;
 
 [
-	QGVAR(repairTime),
-	"TIME",
-	[
-		LLSTRING(repairTime),
-		LLSTRING(repairTime_Description)
-	],
-	_categoryGlobal,
-	[0, 90, 15],
-	1
-] call CBA_fnc_addSetting;
-
-[
 	QGVAR(color),
 	"COLOR",
 	[

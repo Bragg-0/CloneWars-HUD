@@ -19,20 +19,23 @@ Author:
     Bragg
 ---------------------------------------------------------------------------- */
 
-private _allHUDControls = CWH_CTRL_ALL;
-
 {
     if (isNull _x) then { continue };
-    if (_x == CWH_CTRL_SUNFILTER) then {
-        if (player getVariable [QGVAR(enableSunFilter), GVAR(enableByDefault)]) then {
-            _x ctrlShow true;
-        } else {
-            _x ctrlShow false;
+    
+    switch (_x) do {
+        case CWH_CTRL_SUNFILTER: {
+            _x ctrlShow (player getVariable [QGVAR(enableSunFilter), GVAR(enableByDefault)]);
+            continue;
         };
-        continue;
+        case CWH_CTRL_CRACK: {
+            _x ctrlShow (player getVariable [QGVAR(broken), false]);
+            continue;
+        };
+        default {
+            _x ctrlShow true;
+        };
     };
-    _x ctrlShow true;
-} forEach _allHUDControls;
+} forEach CWH_CTRL_ALL;
 
 // Hide default HUD
 showHUD [false, false];

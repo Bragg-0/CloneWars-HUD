@@ -45,7 +45,7 @@
 	],
 	{
 		if (player getVariable [QGVAR(broken), false]) then {
-			[player] call FUNC(repair);
+			[] call FUNC(repair);
 		};
 	}
 ] call CBA_fnc_addKeybind;

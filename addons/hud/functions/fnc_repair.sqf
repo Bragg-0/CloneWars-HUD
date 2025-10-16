@@ -5,7 +5,7 @@ Description:
     Repairs the HUD if it is broken.
 
 Parameters:
-    _player - The player whose HUD is being repaired <OBJECT>
+    <NONE>
 
 Returns:
     <NONE>
@@ -19,10 +19,16 @@ Author:
     bragg
 ---------------------------------------------------------------------------- */
 
-params [
-    ["_player", objNull, [objNull]]
-];
-
 TRACE_1("fnc_repair",_this);
 
-//TODO: Implement repair logic
+[
+    LLSTRING(repairing),
+    5, 
+    {true},
+    {
+        player setVariable [QGVAR(broken), false, true];
+        hint LLSTRING(repaired);
+    }
+] call CBA_fnc_progressBar;
+
+player playActionNow "MedicOther";

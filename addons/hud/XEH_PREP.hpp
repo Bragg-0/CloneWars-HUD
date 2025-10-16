@@ -1,4 +1,5 @@
 PREP(activate);
+PREP(break);
 PREP(deactivate);
 PREP(init);
 PREP(repair);

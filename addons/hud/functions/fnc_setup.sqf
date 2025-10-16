@@ -52,4 +52,7 @@ private _handle = [
 
 player setVariable [QGVAR(setupHandler), _handle, true];
 
-//TODO: Add Break logic to crack the hud when the player takes head damage
+// Initially break the HUD to ensure it starts in a known state
+player addEventHandler ["Dammaged", {
+	_this call FUNC(break);
+}];

@@ -43,8 +43,16 @@ private _info = getText (configFile >> "CfgWeapons" >> _weapon >> "displayName")
 
 // Update weapon icon and count
 CWH_CTRL_WEAPON_ICON ctrlSetText _icon;
-CWH_CTRL_WEAPON_BULLET_COUNT progressSetPosition (_ammoCount / (getNumber (configFile >> "CfgMagazines" >> _magazine >> "count")));
 CWH_CTRL_WEAPON_INFO ctrlSetText _info;
+
+// Update bullet count progress bar
+if (_ammoCount == 0) then {
+    CWH_CTRL_WEAPON_BULLET_COUNT progressSetPosition 1; // Full bar if empty
+    CWH_CTRL_WEAPON_BULLET_COUNT ctrlSetTextColor [1,0,0,1]; // Red if empty
+} else {
+    CWH_CTRL_WEAPON_BULLET_COUNT progressSetPosition (_ammoCount / (getNumber (configFile >> "CfgMagazines" >> _magazine >> "count"))); // Set progress based on ammo count
+    CWH_CTRL_WEAPON_BULLET_COUNT ctrlSetTextColor GVAR(color); // Normal color
+};
 
 // Get magazine icon and count
 private _magazineIcon = getText (configFile >> "CfgMagazines" >> _magazine >> "picture");
@@ -66,21 +74,21 @@ switch (_firemode) do {
         CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
         CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
         CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
-        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor GVAR(color);
     };
     case "FullAuto": {
-        CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
-        CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
-        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
-        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
-        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+        CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor GVAR(color);
+        CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor GVAR(color);
+        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor GVAR(color);
+        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor GVAR(color);
+        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor GVAR(color);
     };
     case "Burst": {
         CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
         CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
-        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
-        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
-        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor [CWH_COLOR_DEFAULT];
+        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor GVAR(color);
+        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor GVAR(color);
+        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor GVAR(color);
     };
     default {
         CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
