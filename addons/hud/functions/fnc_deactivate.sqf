@@ -19,12 +19,10 @@ Author:
     Bragg
 ---------------------------------------------------------------------------- */
 
-private _allHUDControls = CWH_CTRL_ALL;
-
 {
     if (isNull _x) then { continue };
     _x ctrlShow false;
-} forEach _allHUDControls;
+} forEach CWH_CTRL_ALL;
 
 // Display default HUD
 showHUD GVAR(shownHUD);
