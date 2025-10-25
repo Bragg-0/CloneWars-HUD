@@ -20,7 +20,7 @@ Author:
 ---------------------------------------------------------------------------- */
 
 // Display HUD elements based on player's hud status and headgear
-if (((headgear player) in GVAR(listOfAllHelmets)) && (player getVariable [QGVAR(active), GVAR(enableByDefault)])) then {
+if (((headgear player) in GVAR(listOfAllHelmets)) && (player getVariable [QGVAR(active), GVAR(enableByDefault)]) && (isNull objectParent player)) then {
 
     private _activeAndUpdateHUD = {
         if ((isNull curatorCamera) && (isNull (uiNamespace getVariable ["BIS_fnc_arsenal_cam", objNull]))) then {
