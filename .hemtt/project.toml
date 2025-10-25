@@ -33,3 +33,4 @@ workshop = [
     "463939057",            # ACE3
     "2162749089",           # Legion Studios Core - Stable
 ]
+mission = "test.Stratis"

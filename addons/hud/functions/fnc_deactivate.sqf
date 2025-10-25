@@ -25,4 +25,4 @@ Author:
 } forEach CWH_CTRL_ALL;
 
 // Display default HUD
-showHUD GVAR(shownHUD);
+showHUD (GVAR(shownHUD));

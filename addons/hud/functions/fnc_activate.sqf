@@ -38,4 +38,4 @@ Author:
 } forEach CWH_CTRL_ALL;
 
 // Hide default HUD
-showHUD [false, false];
+showHUD [(GVAR(shownHUD) select 0), false];
