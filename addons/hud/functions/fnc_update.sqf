@@ -27,9 +27,29 @@ if (((headgear player) in GVAR(listOfAllHelmets)) && (player getVariable [QGVAR(
             // Activate HUD
             [] call FUNC(activate);
 
+            // Update HUD color based on CBA setting
+            private _hudColor = GVAR(color);
+            if (GVAR(enableRGB)) then {
+                private _alpha = _hudColor select 3;
+                private _hue = diag_tickTime % 6;
+                private _r = 0;
+                private _g = 0;
+                private _b = 0;
+                switch (floor _hue) do {
+                    case 0: {_r = 1; _g = _hue - 0; _b = 0;};
+                    case 1: {_r = 2 - _hue; _g = 1; _b = 0;};
+                    case 2: {_r = 0; _g = 1; _b = _hue - 2;};
+                    case 3: {_r = 0; _g = 4 - _hue; _b = 1;};
+                    case 4: {_r = _hue - 4; _g = 0; _b = 1;};
+                    case 5: {_r = 1; _g = 0; _b = 6 - _hue;};
+                };
+
+                _hudColor = [_r, _g, _b, _alpha];
+            };
+
             // Update HUD elements
             [] call FUNC(updateElementsDir);
-            [] call FUNC(updateElementsWeapon);
+            [_hudColor] call FUNC(updateElementsWeapon);
             [] call FUNC(updateElementsGrenade);
 
             // Update HUD type to adapt on helmet type
@@ -37,9 +57,9 @@ if (((headgear player) in GVAR(listOfAllHelmets)) && (player getVariable [QGVAR(
             CWH_CTRL_FRAME ctrlSetText FORMAT_1(QPATHTOEF(ui,data\hud\%1\frame_ca.paa),_currentHelmetType);
             CWH_CTRL_COLOR ctrlSetText FORMAT_1(QPATHTOEF(ui,data\hud\%1\color_ca.paa),_currentHelmetType);
 
-            // Update HUD color based on CBA setting
-            { 
-                _x ctrlSetTextColor GVAR(color);
+            // Update colored elements to match HUD color
+            {
+                _x ctrlSetTextColor _hudColor;
             } forEach CWH_CTRL_COLORED;
         } else {
             // Deactivate HUD

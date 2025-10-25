@@ -5,7 +5,7 @@ Description:
     Updates the weapon indicator element of the HUD.
 
 Parameters:
-    <NONE>
+    0: color - Color array for the weapon HUD elements (default: GVAR(color))
     
 Returns:
     <NONE>
@@ -18,6 +18,10 @@ Examples
 Author:
     Bragg
 ---------------------------------------------------------------------------- */
+
+params [
+    ["_color", GVAR(color), [[]]]
+];
 
 // Get the current weapon selected
 private _weaponState = weaponState player;
@@ -51,7 +55,7 @@ if (_ammoCount == 0) then {
     CWH_CTRL_WEAPON_BULLET_COUNT ctrlSetTextColor [1,0,0,1]; // Red if empty
 } else {
     CWH_CTRL_WEAPON_BULLET_COUNT progressSetPosition (_ammoCount / (getNumber (configFile >> "CfgMagazines" >> _magazine >> "count"))); // Set progress based on ammo count
-    CWH_CTRL_WEAPON_BULLET_COUNT ctrlSetTextColor GVAR(color); // Normal color
+    CWH_CTRL_WEAPON_BULLET_COUNT ctrlSetTextColor _color; // Normal color
 };
 
 // Get magazine icon and count
@@ -74,21 +78,21 @@ switch (_firemode) do {
         CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
         CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
         CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
-        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor GVAR(color);
+        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor _color;
     };
     case "FullAuto": {
-        CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor GVAR(color);
-        CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor GVAR(color);
-        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor GVAR(color);
-        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor GVAR(color);
-        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor GVAR(color);
+        CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor _color;
+        CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor _color;
+        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor _color;
+        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor _color;
+        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor _color;
     };
     case "Burst": {
         CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
         CWH_CTRL_WEAPON_FIREMODE_4 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
-        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor GVAR(color);
-        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor GVAR(color);
-        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor GVAR(color);
+        CWH_CTRL_WEAPON_FIREMODE_3 ctrlSetBackgroundColor _color;
+        CWH_CTRL_WEAPON_FIREMODE_2 ctrlSetBackgroundColor _color;
+        CWH_CTRL_WEAPON_FIREMODE_1 ctrlSetBackgroundColor _color;
     };
     default {
         CWH_CTRL_WEAPON_FIREMODE_5 ctrlSetBackgroundColor [CWH_COLOR_DISABLED];

@@ -44,6 +44,17 @@
 ] call CBA_fnc_addSetting;
 
 [
+	QGVAR(enableRGB),
+	"CHECKBOX",
+	[
+		LLSTRING(enableRGB),
+		LLSTRING(enableRGB_Description)
+	],
+	_categoryColors,
+	false
+] call CBA_fnc_addSetting;
+
+[
 	QGVAR(listARFHelmet),
 	"EDITBOX",
 	[

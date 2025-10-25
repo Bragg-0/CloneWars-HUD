@@ -12,7 +12,7 @@ Returns:
 
 Examples
     (begin example)
-        [player] call cwh_hud_fnc_repair
+        [] call cwh_hud_fnc_repair
     (end)
 
 Author:

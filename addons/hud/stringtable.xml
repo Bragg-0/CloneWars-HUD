@@ -57,6 +57,14 @@
             <English>Change the color of the HUD.</English>
             <French>Change la couleur du HUD.</French>
         </Key>
+        <Key ID="str_cwh_hud_enableRGB">
+            <English>Enable RGB HUD</English>
+            <French>Activer le HUD RVB</French>
+        </Key>
+        <Key ID="str_cwh_hud_enableRGB_description">
+            <English>If enabled, the HUD will cycle through RGB colors. #RAINBOW</English>
+            <French>Si activé, le HUD fera défiler les couleurs RVB. #RAINBOW</French>
+        </Key>
         <Key ID="str_cwh_hud_enablebydefault">
             <English>Enable HUD by default</English>
             <French>Activer le HUD par défaut</French>

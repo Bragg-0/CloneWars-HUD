@@ -52,6 +52,7 @@ class GVAR(rscHUD) {
         };
         class Weapon_Info : RscText {
             idc = 1013;
+            style = ST_CENTER;
             x = X_COORD(0.87760417);
             y = Y_COORD(0.11388889);
             w = W_COORD(0.0859375);
@@ -67,6 +68,7 @@ class GVAR(rscHUD) {
         };
         class Weapon_Magazine_Count : RscText {
             idc = 1015;
+            style = ST_CENTER;
             x = X_COORD(0.92708334);
             y = Y_COORD(0.14166667);
             w = W_COORD(0.01666667);
@@ -117,6 +119,7 @@ class GVAR(rscHUD) {
         };
         class Grenade_Count : RscText {
             idc = 1022;
+            style = ST_CENTER;
             x = X_COORD(0.92864584);
             y = Y_COORD(0.21574075);
             w = W_COORD(0.01666667);
@@ -135,6 +138,7 @@ class GVAR(rscHUD) {
         };
         class Dir_Info : RscText {
             idc = 1031;
+            style = ST_CENTER;
             x = X_COORD(0.3484375);
             y = Y_COORD(0.05092593);
             w = W_COORD(0.05);
