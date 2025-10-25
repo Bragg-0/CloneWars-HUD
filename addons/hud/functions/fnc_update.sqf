@@ -19,8 +19,8 @@ Author:
     Bragg
 ---------------------------------------------------------------------------- */
 
-// Display HUD elements based on player's hud status and headgear
-if (((headgear player) in GVAR(listOfAllHelmets)) && (player getVariable [QGVAR(active), GVAR(enableByDefault)]) && (isNull objectParent player)) then {
+// Display HUD elements based on player's hud status, helmet type, and isn't in a vehicle or is a passenger
+if (((headgear player) in GVAR(listOfAllHelmets)) && (player getVariable [QGVAR(active), GVAR(enableByDefault)]) && (isNull objectParent player || ((fullCrew [vehicle player,"cargo"] findIf {_x select 0 == player}) != -1))) then {
 
     private _activeAndUpdateHUD = {
         if ((isNull curatorCamera) && (isNull (uiNamespace getVariable ["BIS_fnc_arsenal_cam", objNull]))) then {
@@ -88,7 +88,6 @@ if (((headgear player) in GVAR(listOfAllHelmets)) && (player getVariable [QGVAR(
             [] call FUNC(deactivate);
         };
     };
-
 } else {
     // Deactivate HUD
     [] call FUNC(deactivate);
