@@ -1,0 +1,36 @@
+name = "Clone Wars HUD"
+author = "CloneWarsHUD Team"
+prefix = "cwh"
+mainprefix = "x"
+
+[version]
+path = "addons/main/script_version.hpp"
+git_hash = 0
+
+[files]
+include = [
+    "mod.cpp",
+    "meta.cpp",
+    "logo_ca.paa",
+    "LICENSE.md",
+    "README.md",
+]
+exclude = [
+    "*.psd",
+    "*.png",
+    "*.md",
+]
+
+[hemtt.release]
+sign = true
+binarize = true
+rapify = true
+archive = true
+
+[hemtt.launch.default]
+workshop = [
+    "450814997",            # CBA_A3
+    "463939057",            # ACE3
+    "2162749089",           # Legion Studios Core - Stable
+]
+mission = "test.Stratis"

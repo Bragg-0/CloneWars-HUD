@@ -1,0 +1,14 @@
+name = "CloneWars HUD";
+author = "CWHUD";
+logo = "logo_ca.paa";
+logoOver = "logo_ca.paa";
+tooltip = "CloneWars HUD";
+tooltipOwned = "CloneWars HUD";
+picture = "logo_ca.paa";
+actionName = "gitHub";
+action = "https://github.com/Bragg-0/CloneWars-HUD";
+overview = "CloneWars HUD is a mod that adds a new HUD to the game, inspired by the Clone Wars series.";
+hideName = 0;
+hidePicture = 0;
+dlcColor[] = {0.23, 0.39, 0.30, 1};
+logoSmall = "logo_ca.paa";

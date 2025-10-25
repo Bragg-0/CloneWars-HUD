@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="CloneWars HUD">
+    <Package name="main">
+        <Key ID="str_cwh_main_url">
+            <English>https://github.com/Bragg-0/CloneWars-HUD</English>
+            <French>https://github.com/Bragg-0/CloneWars-HUD</French>
+        </Key>
+    </Package>
+</Project>

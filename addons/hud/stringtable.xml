@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="CloneWars HUD - hud">
+    <Package name="CWH - HUD Messages">
+        <Key ID="str_cwh_hud_broken">
+            <English>Your HUD is broken! Find a safe place to repair it.</English>
+            <French>Votre HUD est endommagé ! Trouvez un endroit sûr pour le réparer.</French>
+        </Key>
+        <Key ID="str_cwh_hud_repaired">
+            <English>Your HUD has been repaired.</English>
+            <French>Votre HUD a été réparé.</French>
+        </Key>
+        <Key ID="str_cwh_hud_repairing">
+            <English>Repairing HUD...</English>
+            <French>Réparation du HUD...</French>
+        </Key>
+    </Package>
+    <Package name="CWH - Keybinds">
+        <Key ID="str_cwh_hud_key_repair">
+            <English>Repair HUD</English>
+            <French>Réparer le HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_key_repair_description">
+            <English>This key repairs the HUD if it is broken.</English>
+            <French>Cette touche répare le HUD s'il est endommagé.</French>
+        </Key>
+        <Key ID="str_cwh_hud_key_toggle">
+            <English>Toggle HUD</English>
+            <French>Afficher/Masquer le HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_key_toggleSunFilter">
+            <English>Toggle Sun Filter</English>
+            <French>Afficher/Masquer le filtre solaire</French>
+        </Key>
+        <Key ID="str_cwh_hud_key_toggleSunFilter_description">
+            <English>This key toggles the visibility of the sun filter.</English>
+            <French>Cette touche permet d’afficher ou de masquer le filtre solaire.</French>
+        </Key>
+        <Key ID="str_cwh_hud_key_toggle_description">
+            <English>This key toggles the visibility of the HUD.</English>
+            <French>Cette touche permet d’afficher ou de masquer le HUD.</French>
+        </Key>
+    </Package>
+    <Package name="CWH - Parameters">
+        <Key ID="str_cwh_hud_brokenChance">
+            <English>Breakage Chance</English>
+            <French>Chance de fissure du HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_brokenChance_description">
+            <English>This slider controls the chance of the HUD displaying a crack on each head impact. The crack will be visible until the player repairs their helmet.</English>
+            <French>Ce curseur contrôle la probabilité que le HUD affiche une fissure à chaque impact à la tête. La fissure sera visible jusqu'à ce que le joueur répare son casque.</French>
+        </Key>
+        <Key ID="str_cwh_hud_color">
+            <English>HUD Color</English>
+            <French>Couleur du HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_color_description">
+            <English>Change the color of the HUD.</English>
+            <French>Change la couleur du HUD.</French>
+        </Key>
+        <Key ID="str_cwh_hud_enableRGB">
+            <English>Enable RGB HUD</English>
+            <French>Activer le HUD RVB</French>
+        </Key>
+        <Key ID="str_cwh_hud_enableRGB_description">
+            <English>If enabled, the HUD will cycle through RGB colors. #RAINBOW</English>
+            <French>Si activé, le HUD fera défiler les couleurs RVB. #RAINBOW</French>
+        </Key>
+        <Key ID="str_cwh_hud_enablebydefault">
+            <English>Enable HUD by default</English>
+            <French>Activer le HUD par défaut</French>
+        </Key>
+        <Key ID="str_cwh_hud_enablebydefault_description">
+            <English>If enabled, the HUD will be active when the mission starts.</English>
+            <French>Si activé, le HUD sera actif au début de la mission.</French>
+        </Key>
+        <Key ID="str_cwh_hud_enablethirdperson">
+            <English>Enable in third person view</English>
+            <French>Activer dans la vue à la troisième personne</French>
+        </Key>
+        <Key ID="str_cwh_hud_enablethirdperson_description">
+            <English>If enabled, the HUD will also be displayed in third person view.</English>
+            <French>Si activé, le HUD sera également affiché en vue à la troisième personne.</French>
+        </Key>
+        <Key ID="str_cwh_hud_listARFHelmet">
+            <English>List of ARF Helmets</English>
+            <French>Liste des casques ARF</French>
+        </Key>
+        <Key ID="str_cwh_hud_listARFHelmet_description">
+            <English>You can add ARF helmets. Format: ["classname1", "classname2", ...] (All inherited helmets will also be included.)</English>
+            <French>Vous pouvez ajouter des casques ARF. Format : ["classname1", "classname2", ...] (Tous les casques hérités seront également inclus.)</French>
+        </Key>
+        <Key ID="str_cwh_hud_listbarchelmet">
+            <English>List of BARC Helmets</English>
+            <French>Liste des casques BARC</French>
+        </Key>
+        <Key ID="str_cwh_hud_listbarchelmet_description">
+            <English>You can add BARC helmets. Format: ["classname1", "classname2", ...] (All inherited helmets will also be included.)</English>
+            <French>Vous pouvez ajouter des casques BARC. Format : ["classname1", "classname2", ...] (Tous les casques hérités seront également inclus.)</French>
+        </Key>
+        <Key ID="str_cwh_hud_listp1helmet">
+            <English>List of Phase 1 Helmets</English>
+            <French>Liste des casques Phase 1</French>
+        </Key>
+        <Key ID="str_cwh_hud_listp1helmet_description">
+            <English>You can add Phase 1 helmets. Format: ["classname1", "classname2", ...] (All inherited helmets will also be included.)</English>
+            <French>Vous pouvez ajouter des casques Phase 1. Format : ["classname1", "classname2", ...] (Tous les casques hérités seront également inclus.)</French>
+        </Key>
+        <Key ID="str_cwh_hud_listp2helmet">
+            <English>List of Phase 2 Helmets</English>
+            <French>Liste des casques Phase 2</French>
+        </Key>
+        <Key ID="str_cwh_hud_listp2helmet_description">
+            <English>You can add Phase 2 helmets. Format: ["classname1", "classname2", ...] (All inherited helmets will also be included.)</English>
+            <French>Vous pouvez ajouter des casques Phase 2. Format : ["classname1", "classname2", ...] (Tous les casques hérités seront également inclus.)</French>
+        </Key>
+    </Package>
+</Project>
