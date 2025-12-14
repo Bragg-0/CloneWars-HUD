@@ -61,9 +61,6 @@ if (isNil QGVAR(listOfAllHelmets) || isNil QGVAR(listOfAllHelmetsWithType)) then
 
     GVAR(listOfAllHelmetsWithType) = createHashMapFromArray GVAR(listOfAllHelmetsWithType);
 
-    publicVariable QGVAR(listOfAllHelmets); // Array of all helmet class names
-    publicVariable QGVAR(listOfAllHelmetsWithType); // HashMap of helmet class names to their types
-
 } else {
     INFO("List of all helmets already initialized");
 };
