@@ -1,6 +1,7 @@
 PREP(activate);
 PREP(break);
 PREP(deactivate);
+PREP(getHelmetType);
 PREP(init);
 PREP(repair);
 PREP(setup);

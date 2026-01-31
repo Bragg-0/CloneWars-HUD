@@ -19,8 +19,11 @@ Author:
     Bragg
 ---------------------------------------------------------------------------- */
 
+// Get helmet type (cached)
+private _currentHelmetType = [headgear player] call FUNC(getHelmetType);
+
 // Display HUD elements based on player's hud status, helmet type, and isn't in a vehicle or is a passenger
-if (((headgear player) in GVAR(listOfAllHelmets)) && (player getVariable [QGVAR(active), GVAR(enableByDefault)]) && (isNull objectParent player || ((fullCrew [vehicle player,"cargo"] findIf {_x select 0 == player}) != -1))) then {
+if ((_currentHelmetType != "NONE") && (player getVariable [QGVAR(active), GVAR(enableByDefault)]) && (isNull objectParent player || ((fullCrew [vehicle player,"cargo"] findIf {_x select 0 == player}) != -1))) then {
 
     private _activeAndUpdateHUD = {
         if ((isNull curatorCamera) && (isNull (uiNamespace getVariable ["BIS_fnc_arsenal_cam", objNull]))) then {
@@ -53,7 +56,6 @@ if (((headgear player) in GVAR(listOfAllHelmets)) && (player getVariable [QGVAR(
             [] call FUNC(updateElementsGrenade);
 
             // Update HUD type to adapt on helmet type
-            private _currentHelmetType = GVAR(listOfAllHelmetsWithType) getOrDefault [(headgear player), "NONE"];
             CWH_CTRL_FRAME ctrlSetText FORMAT_1(QPATHTOEF(ui,data\hud\%1\frame_ca.paa),_currentHelmetType);
             CWH_CTRL_COLOR ctrlSetText FORMAT_1(QPATHTOEF(ui,data\hud\%1\color_ca.paa),_currentHelmetType);
 

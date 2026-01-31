@@ -5,7 +5,7 @@ class CfgVehicles {
             class ACE_Equipment {
                 class GVAR(Interaction) {
                     displayName = CSTRING(Interaction);
-                    condition = QUOTE((headgear _player) in EGVAR(hud,listOfAllHelmets));
+                    condition = QUOTE([headgear _player] call EFUNC(hud,getHelmetType) != 'NONE');
                     class GVAR(Deactivate) {
                         displayName = CSTRING(Deactivate);
                         condition = QUOTE(_player getVariable [ARR_2(QQEGVAR(hud,active),EGVAR(hud,enableByDefault))]);

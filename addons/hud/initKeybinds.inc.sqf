@@ -6,7 +6,7 @@
 		LLSTRING(key_toggle_description)
 	],
 	{
-		if (player getVariable [QGVAR(active), GVAR(enableByDefault)]) then {
+		if (player getVariable [QGVAR(active), GVAR(enableByDefault)] && ([headgear player] call FUNC(getHelmetType) != 'NONE')) then {
 			[] call FUNC(deactivate);
 			player setVariable [QGVAR(active), false, true];
 		} else {
@@ -26,7 +26,7 @@
 		LLSTRING(key_toggleSunFilter_description)
 	],
 	{
-		if (player getVariable [QGVAR(enableSunFilter), GVAR(enableByDefault)]) then {
+		if (player getVariable [QGVAR(enableSunFilter), GVAR(enableByDefault)] && ([headgear player] call FUNC(getHelmetType) != 'NONE')) then {
 			player setVariable [QGVAR(enableSunFilter), false, true];
 		} else {
 			player setVariable [QGVAR(enableSunFilter), true, true];
@@ -44,7 +44,7 @@
 		LLSTRING(key_repair_description)
 	],
 	{
-		if (player getVariable [QGVAR(broken), false]) then {
+		if (player getVariable [QGVAR(broken), false] && ([headgear player] call FUNC(getHelmetType) != 'NONE')) then {
 			[] call FUNC(repair);
 		};
 	}
