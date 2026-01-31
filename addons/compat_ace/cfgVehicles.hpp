@@ -30,6 +30,7 @@ class CfgVehicles {
                         displayName = CSTRING(Repair);
                         condition = QUOTE(_player getVariable [ARR_2(QQEGVAR(hud,broken),false)]);
                         statement = QUOTE([_player] call EFUNC(hud,repair));
+                        icon = "\a3\ui_f\data\igui\cfg\simpletasks\types\repair_ca.paa";
                     };
                 };
             };
