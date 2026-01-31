@@ -3,6 +3,7 @@
 hemtt
 hemtt.exe
 .hemttout
+.hemttprivatekey
 
 # Clés privées
 *.biprivatekey
