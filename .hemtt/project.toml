@@ -32,5 +32,6 @@ workshop = [
     "450814997",            # CBA_A3
     "463939057",            # ACE3
     "2162749089",           # Legion Studios Core - Stable
+    "1779063631",           # Zeus Enhanced
 ]
 mission = "test.Stratis"
