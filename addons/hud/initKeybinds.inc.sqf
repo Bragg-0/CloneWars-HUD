@@ -7,10 +7,8 @@
 	],
 	{
 		if (player getVariable [QGVAR(active), GVAR(enableByDefault)] && ([headgear player] call FUNC(getHelmetType) != 'NONE')) then {
-			[] call FUNC(deactivate);
 			player setVariable [QGVAR(active), false, true];
 		} else {
-			[] call FUNC(activate);
 			player setVariable [QGVAR(active), true, true];
 		};
 	},

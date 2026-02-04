@@ -5,21 +5,26 @@ Description:
     Initializes the HUD environment for the player.
 
 Parameters:
-    <NONE>
+    1: _unit - The unit to initialize the HUD for (default: player)
 
 Returns:
     <NONE>
 
 Examples
     (begin example)
-        [] call cwh_hud_fnc_init
+        [player] call cwh_hud_fnc_init
     (end)
 
 Author:
     Bragg
 ---------------------------------------------------------------------------- */
 
+params [["_unit", player]];
+
 TRACE_1("fnc_init",_this);
+
+if (isNull _unit) exitWith {};
+if (_unit != player) exitWith {};
 
 // Check if ACE mod is loaded to load ACE-specific
 private _aceLoaded = (configFile >> "CfgPatches" >> "ace_interact_menu") call BIS_fnc_getCfgIsClass;
@@ -51,7 +56,5 @@ if (isNil QGVAR(helmetRoots) || isNil QGVAR(helmetCache)) then {
     INFO("Helmet configuration already initialized");
 };
 
-if (not isNull player) then {
-    // Setup HUD for player
-    [] call FUNC(setup);
-};
+// Setup HUD
+[] call FUNC(setup);

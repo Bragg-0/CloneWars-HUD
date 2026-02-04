@@ -6,5 +6,5 @@ if (!hasInterface) exitWith {};
 [{
     not isNull player
 }, {
-    [] call FUNC(init);
+    [player] call FUNC(init);
 }] call CBA_fnc_waitUntilAndExecute;
