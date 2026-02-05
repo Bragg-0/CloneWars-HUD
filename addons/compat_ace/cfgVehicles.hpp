@@ -9,22 +9,22 @@ class CfgVehicles {
                     class GVAR(Deactivate) {
                         displayName = CSTRING(Deactivate);
                         condition = QUOTE(_player getVariable [ARR_2(QQEGVAR(hud,active),EGVAR(hud,enableByDefault))]);
-                        statement = QUOTE([] call EFUNC(hud,deactivate); _player setVariable [ARR_3(QQEGVAR(hud,active),false,true)]);
+                        statement = QUOTE(_player setVariable [ARR_3(QQEGVAR(hud,active),false,true)];[] call EFUNC(hud,update););
                     };
                     class GVAR(Activate) {
                         displayName = CSTRING(Activate);
                         condition = QUOTE(!(_player getVariable [ARR_2(QQEGVAR(hud,active),EGVAR(hud,enableByDefault))]));
-                        statement = QUOTE([] call EFUNC(hud,activate); _player setVariable [ARR_3(QQEGVAR(hud,active),true,true)]);
+                        statement = QUOTE(_player setVariable [ARR_3(QQEGVAR(hud,active),true,true)];[] call EFUNC(hud,update););
                     };
                     class GVAR(DeactivateSunFilter) {
                         displayName = CSTRING(DeactivateSunFilter);
                         condition = QUOTE(_player getVariable [ARR_2(QQEGVAR(hud,enableSunFilter),EGVAR(hud,enableByDefault))]);
-                        statement = QUOTE(_player setVariable [ARR_3(QQEGVAR(hud,enableSunFilter),false,true)]);
+                        statement = QUOTE(_player setVariable [ARR_3(QQEGVAR(hud,enableSunFilter),false,true)];[] call EFUNC(hud,update););
                     };
                     class GVAR(ActivateSunFilter) {
                         displayName = CSTRING(ActivateSunFilter);
                         condition = QUOTE(!(_player getVariable [ARR_2(QQEGVAR(hud,enableSunFilter),EGVAR(hud,enableByDefault))]));
-                        statement = QUOTE(_player setVariable [ARR_3(QQEGVAR(hud,enableSunFilter),true,true)]);
+                        statement = QUOTE(_player setVariable [ARR_3(QQEGVAR(hud,enableSunFilter),true,true)];[] call EFUNC(hud,update););
                     };
                     class GVAR(Repair) {
                         displayName = CSTRING(Repair);

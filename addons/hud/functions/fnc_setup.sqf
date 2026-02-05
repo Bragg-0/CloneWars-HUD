@@ -27,7 +27,9 @@ if (isNull _unit) exitWith {};
 if (_unit != player) exitWith {};
 
 // Initialize shownHUD variable
-GVAR(shownHUD) = shownHUD;
+if (isNil QGVAR(shownHUD)) then {
+    GVAR(shownHUD) = shownHUD;
+};
 
 // Initialize hud active variable
 GVAR(hudActive) = false;
@@ -39,6 +41,9 @@ if (player getVariable [QGVAR(hudSetup), false]) then {
 
 // Create the HUD
 (QGVAR(rscHUD) call BIS_fnc_rscLayer) cutRsc [QGVAR(rscHUD), "PLAIN NOFADE", -1, false];
+
+// Deactivate initially to ensure known state (hides controls, shows default HUD)
+[] call FUNC(deactivate);
 
 // Check if already setup ON THIS UNIT to prevent duplication
 if (_unit getVariable [QGVAR(isSetup), false]) exitWith {};
@@ -82,6 +87,9 @@ private _idRespawn = _unit addEventHandler ["Respawn", {
 	params ["_newUnit"];
     _newUnit setVariable [QGVAR(broken), false, true];
     // Re-initialize setup for the new unit
-    [_newUnit] call FUNC(setup);
+    [{
+        params ["_newUnit"];
+        [_newUnit] call FUNC(setup);
+    }, [_newUnit]] call CBA_fnc_execNextFrame;
 }];
 _unit setVariable [QGVAR(ehRespawn), _idRespawn];

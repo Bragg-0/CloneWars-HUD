@@ -6,11 +6,9 @@
 		LLSTRING(key_toggle_description)
 	],
 	{
-		if (player getVariable [QGVAR(active), GVAR(enableByDefault)] && ([headgear player] call FUNC(getHelmetType) != 'NONE')) then {
-			player setVariable [QGVAR(active), false, true];
-		} else {
-			player setVariable [QGVAR(active), true, true];
-		};
+		private _isActive = player getVariable [QGVAR(active), GVAR(enableByDefault)];
+		player setVariable [QGVAR(active), !_isActive, true];
+		[] call FUNC(update);
 	},
 	{},
 	[DIK_MULTIPLY, [false, true, false]]
@@ -24,11 +22,9 @@
 		LLSTRING(key_toggleSunFilter_description)
 	],
 	{
-		if (player getVariable [QGVAR(enableSunFilter), GVAR(enableByDefault)] && ([headgear player] call FUNC(getHelmetType) != 'NONE')) then {
-			player setVariable [QGVAR(enableSunFilter), false, true];
-		} else {
-			player setVariable [QGVAR(enableSunFilter), true, true];
-		};
+		private _isSunFilterEnabled = player getVariable [QGVAR(enableSunFilter), GVAR(enableByDefault)];
+		player setVariable [QGVAR(enableSunFilter), !_isSunFilterEnabled, true];
+		[] call FUNC(update);
 	},
 	{},
 	[DIK_DIVIDE, [false, true, false]]

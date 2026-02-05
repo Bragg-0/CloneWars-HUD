@@ -29,11 +29,21 @@ if ((_currentHelmetType != "NONE") && (player getVariable [QGVAR(active), GVAR(e
     if ((isNull curatorCamera) && (isNull (uiNamespace getVariable ["BIS_fnc_arsenal_cam", objNull]))) then {
         switch (cameraView) do {
             case "INTERNAL";
-            case "GUNNER": { _shouldDraw = true; };
+            case "GUNNER": {
+                _shouldDraw = true;
+                };
             case "EXTERNAL": {
-                if (GVAR(enableThirdPerson)) then { _shouldDraw = true; };
+                if (GVAR(enableThirdPerson)) then {
+                    _shouldDraw = true;
+                };
+            };
+            default {
+                _shouldDraw = false;
             };
         };
+        
+        // Failsafe: Ensure HUD is hidden in 3rd person if disabled (case-insensitive check)
+        if (cameraView == "EXTERNAL" && !GVAR(enableThirdPerson)) then { _shouldDraw = false; };
     };
 };
 
@@ -68,6 +78,9 @@ if (_shouldDraw) then {
     [] call FUNC(updateElementsDir);
     [_hudColor] call FUNC(updateElementsWeapon);
     [] call FUNC(updateElementsGrenade);
+
+    // Update SunFilter
+    CWH_CTRL_SUNFILTER ctrlShow (player getVariable [QGVAR(enableSunFilter), GVAR(enableByDefault)]);
 
     // Update HUD type to adapt on helmet type
     CWH_CTRL_FRAME ctrlSetText FORMAT_1(QPATHTOEF(ui,data\hud\%1\frame_ca.paa),_currentHelmetType);
