@@ -81,6 +81,9 @@ if (_shouldDraw) then {
 
     // Update SunFilter
     CWH_CTRL_SUNFILTER ctrlShow (player getVariable [QGVAR(enableSunFilter), GVAR(enableByDefault)]);
+    
+    // Update Crack
+    CWH_CTRL_CRACK ctrlShow (player getVariable [QGVAR(broken), false]);
 
     // Update HUD type to adapt on helmet type
     CWH_CTRL_FRAME ctrlSetText FORMAT_1(QPATHTOEF(ui,data\hud\%1\frame_ca.paa),_currentHelmetType);

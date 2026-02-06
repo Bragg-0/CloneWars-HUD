@@ -23,7 +23,7 @@ params ["_unit", "_hitSelection", "_damage", "_hitPartIndex", "_hitPoint", "_sho
 
 TRACE_1("fnc_break",_this);
 
-if (_hitSelection isEqualTo "head") then {
+if ((toLower _hitSelection) isEqualTo "head") then {
     private _random = random 1;
     if (_random < GVAR(brokenChance)) then {
         player setVariable [QGVAR(broken), true, true];
