@@ -23,12 +23,8 @@ Author:
     if (isNull _x) then { continue };
     
     switch (_x) do {
-        case CWH_CTRL_SUNFILTER: {
-            _x ctrlShow (player getVariable [QGVAR(enableSunFilter), GVAR(enableByDefault)]);
-            continue;
-        };
+        case CWH_CTRL_SUNFILTER;
         case CWH_CTRL_CRACK: {
-            _x ctrlShow (player getVariable [QGVAR(broken), false]);
             continue;
         };
         default {
