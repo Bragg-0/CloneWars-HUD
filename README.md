@@ -36,13 +36,6 @@ CloneWars HUD enhances the gaming experience by adding authentic HUD interfaces 
 3. Enable the mod in your Arma 3 launcher
 4. Make sure CBA_A3 is also enabled
 
-### Manual Installation
-
-1. Download the latest version from the [Releases](https://github.com/Bragg-0/CloneWars-HUD/releases) page
-2. Extract the contents to your Arma 3 folder
-3. Enable the mod in your Arma 3 launcher
-4. Make sure CBA_A3 is also enabled
-
 ## ⚙️ Configuration
 
 The mod uses the CBA settings system. Access the options via:
