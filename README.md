@@ -1,5 +1,4 @@
 # CloneWars HUD
-![Version](https://img.shields.io/badge/Version-3.0.0-red.svg)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)
 ![Languages](https://img.shields.io/badge/Languages-English%20/%20French-blue.svg)
 
