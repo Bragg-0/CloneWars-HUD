@@ -40,7 +40,7 @@ if (player getVariable [QGVAR(hudSetup), false]) then {
 };
 
 // Create the HUD
-(QGVAR(rscHUD) call BIS_fnc_rscLayer) cutRsc [QGVAR(rscHUD), "PLAIN NOFADE", -1, false];
+(QGVAR(rscHUD) call BIS_fnc_rscLayer) cutRsc [QGVAR(rscHUD), "PLAIN NOFADE", -1, false, false];
 
 // Deactivate initially to ensure known state (hides controls, shows default HUD)
 [] call FUNC(deactivate);
