@@ -33,6 +33,7 @@ if (isNil QGVAR(shownHUD)) then {
 
 // Initialize hud active variable
 GVAR(hudActive) = false;
+GVAR(hudForceUpdate) = true;
 
 // Check if the HUD is already set up for the player and delete it if necessary
 if (player getVariable [QGVAR(hudSetup), false]) then {

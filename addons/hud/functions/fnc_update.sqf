@@ -47,6 +47,11 @@ if ((_currentHelmetType != "NONE") && (player getVariable [QGVAR(active), GVAR(e
     };
 };
 
+if (GVAR(hudForceUpdate)) then {
+    GVAR(hudForceUpdate) = false;
+    GVAR(hudActive) = !_shouldDraw;
+};
+
 if (_shouldDraw) then {
     // Activate HUD if not already active
     if !(GVAR(hudActive)) then {
