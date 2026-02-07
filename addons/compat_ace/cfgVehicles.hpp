@@ -6,6 +6,7 @@ class CfgVehicles {
                 class GVAR(Interaction) {
                     displayName = CSTRING(Interaction);
                     condition = QUOTE([headgear _player] call EFUNC(hud,getHelmetType) != 'NONE');
+                    icon = QPATHTOEF(ui,data\logo_ca.paa);
                     class GVAR(Deactivate) {
                         displayName = CSTRING(Deactivate);
                         condition = QUOTE(_player getVariable [ARR_2(QQEGVAR(hud,active),EGVAR(hud,enableByDefault))]);
