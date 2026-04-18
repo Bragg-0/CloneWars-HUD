@@ -32,6 +32,3 @@ Author:
         };
     };
 } forEach CWH_CTRL_ALL;
-
-// Hide default HUD
-showHUD [(GVAR(shownHUD) select 0), false];

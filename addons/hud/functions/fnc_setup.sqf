@@ -26,11 +26,6 @@ TRACE_1("fnc_setup",_this);
 if (isNull _unit) exitWith {};
 if (_unit != player) exitWith {};
 
-// Initialize shownHUD variable
-if (isNil QGVAR(shownHUD)) then {
-    GVAR(shownHUD) = shownHUD;
-};
-
 // Initialize hud active variable
 GVAR(hudActive) = false;
 GVAR(hudForceUpdate) = true;
