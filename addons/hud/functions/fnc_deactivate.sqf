@@ -23,3 +23,6 @@ Author:
     if (isNull _x) then { continue };
     _x ctrlShow false;
 } forEach CWH_CTRL_ALL;
+
+// Display default HUD
+showHUD (GVAR(shownHUD));
