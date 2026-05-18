@@ -32,7 +32,8 @@ if (
     && (isNull curatorCamera) // Prevent HUD from showing when in the Zeus interface //!(fixes issue with Zeus showing the HUD)
     && (isNull (uiNamespace getVariable ["BIS_fnc_arsenal_cam", objNull])) // Prevent HUD from showing when in the arsenal //!(fixes issue with arsenal camera showing the HUD)
     && !(isRemoteControlling player) // Prevent HUD from showing when controlling a drone or turret //!(fixes issue with drones and turrets being used as weapons and showing the HUD)
-    && !((currentWeapon player == binocular player) && (cameraView == "Gunner")) // Prevent HUD from showing when using binoculars in gunner view //!(fixes issue with binoculars showing the HUD)
+    && !(getNumber (configFile >> "CfgWeapons" >> currentWeapon player >> "type") == 4 && (cameraView == "Gunner")) // Prevent HUD from showing when using binoculars, laser designators or rangefinders //!(fixes issue with binoculars/laser designators/rangefinders conflicting with the HUD)
+    && (currentVisionMode player == 0) // Prevent HUD from showing when using NVGs or thermal vision //!(fixes issue with NVGs/thermal vision conflicting with the HUD)
 ) then {
     switch (cameraView) do {
         case "INTERNAL";
