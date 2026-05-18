@@ -21,21 +21,31 @@ Author:
 
 // Get helmet type (cached)
 private _currentHelmetType = [headgear player] call FUNC(getHelmetType);
-
-// Display HUD elements based on player's hud status, helmet type, and isn't in a vehicle or is a passenger
+private _cameraView = cameraView;
+private _currentWeapon = currentWeapon player;
 private _shouldDraw = false;
 
+// Determine if HUD should be drawn based on various conditions
+private _isHudEnabled = player getVariable [QGVAR(active), GVAR(enableByDefault)]; // Check if HUD is enabled for the player
+private _hasHudHelmet = _currentHelmetType != "NONE"; // Check if player is wearing a helmet that supports the HUD
+private _isPassengerOrOnFoot = isNull objectParent player || {fullCrew [vehicle player, "cargo"] findIf {_x select 0 == player} != -1}; // Check if player is on foot or a passenger in a vehicle
+private _isInZeus = !isNull curatorCamera; // Check if player is in Zeus mode
+private _isInArsenal = !isNull (uiNamespace getVariable ["BIS_fnc_arsenal_cam", objNull]); // Check if player is in Arsenal
+private _isUsingRemoteControl = isRemoteControlling player; // Check if player is using remote control (e.g., UAV)
+private _isUsingBinocularOptic = (_cameraView == "GUNNER" && {_currentWeapon == binocular player || {getNumber (configFile >> "CfgWeapons" >> _currentWeapon >> "type") == 4096}}); // Check if player is using binoculars or a weapon with a binocular optic
+private _isUsingAltVision = currentVisionMode player != 0; // Check if player is using any alternative vision mode (e.g., night vision, thermal)
+
 if (
-    (player getVariable [QGVAR(active), GVAR(enableByDefault)]) // Check if the HUD is active for the player (default to enabled if not set)
-    && (_currentHelmetType != "NONE") // Check if the player is wearing a helmet //!(fixes issue with HUD showing when not wearing a helmet)
-    && (isNull objectParent player || ((fullCrew [vehicle player,"cargo"] findIf {_x select 0 == player}) != -1)) // Prevent HUD from showing when in a vehicle as a driver or gunner //!(fixes issue with vehicles showing the HUD)
-    && (isNull curatorCamera) // Prevent HUD from showing when in the Zeus interface //!(fixes issue with Zeus showing the HUD)
-    && (isNull (uiNamespace getVariable ["BIS_fnc_arsenal_cam", objNull])) // Prevent HUD from showing when in the arsenal //!(fixes issue with arsenal camera showing the HUD)
-    && !(isRemoteControlling player) // Prevent HUD from showing when controlling a drone or turret //!(fixes issue with drones and turrets being used as weapons and showing the HUD)
-    && !(getNumber (configFile >> "CfgWeapons" >> currentWeapon player >> "type") == 4 && (cameraView == "Gunner")) // Prevent HUD from showing when using binoculars, laser designators or rangefinders //!(fixes issue with binoculars/laser designators/rangefinders conflicting with the HUD)
-    && (currentVisionMode player == 0) // Prevent HUD from showing when using NVGs or thermal vision //!(fixes issue with NVGs/thermal vision conflicting with the HUD)
+    _isHudEnabled
+    && {_hasHudHelmet}
+    && {_isPassengerOrOnFoot}
+    && {!_isInZeus}
+    && {!_isInArsenal}
+    && {!_isUsingRemoteControl}
+    && {!_isUsingBinocularOptic}
+    && {!_isUsingAltVision}
 ) then {
-    switch (cameraView) do {
+    switch (_cameraView) do {
         case "INTERNAL";
         case "GUNNER": {
             _shouldDraw = true;
