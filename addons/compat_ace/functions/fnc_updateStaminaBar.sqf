@@ -20,8 +20,8 @@ private _control = uiNamespace getVariable ["ace_advanced_fatigue_staminaBarCont
 if (isNull _control) exitWith {};
 
 // New control (first use or recreated by ACE): remember its original position
-if (_control isNotEqualTo GVAR(staminaBar)) then {
-    GVAR(staminaBar) = _control;
+if (_control isNotEqualTo (uiNamespace getVariable [QGVAR(staminaBar), controlNull])) then {
+    uiNamespace setVariable [QGVAR(staminaBar), _control];
     GVAR(staminaBarPosition) = ctrlPosition _control;
     GVAR(staminaBarMoved) = false;
 };

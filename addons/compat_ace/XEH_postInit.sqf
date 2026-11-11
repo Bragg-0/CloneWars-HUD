@@ -2,7 +2,8 @@
 
 if (!hasInterface) exitWith {};
 
-GVAR(staminaBar) = controlNull;     // Stamina bar control currently handled
+// Controls can't be serialized: the handled stamina bar control is kept in uiNamespace
+uiNamespace setVariable [QGVAR(staminaBar), controlNull];
 GVAR(staminaBarPosition) = [];      // Its original (ACE) position
 GVAR(staminaBarMoved) = false;
 
