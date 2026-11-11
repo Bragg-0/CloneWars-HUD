@@ -49,3 +49,9 @@
 
 // Config attribute a helmet (CfgWeapons) can define to declare its HUD type, e.g. cwh_hudType = "P2";
 #define CWH_HELMET_ATTRIBUTE QUOTE(DOUBLES(PREFIX,hudType))
+
+// Layout: the info elements are described on a 1920x1080 canvas, see fnc_layout
+#define CWH_DESIGN_W 1920
+#define CWH_DESIGN_H 1080
+// Width / height ratio of the visor textures (frame, color, crack)
+#define CWH_VISOR_RATIO 2

@@ -27,6 +27,7 @@ GVAR(fireModeLevel) = 0;
 GVAR(ammoEmpty) = false;
 GVAR(repairing) = false;
 GVAR(lastHeadHitFrame) = -1;
+GVAR(layoutKey) = [];           // Screen + settings the current layout was computed for
 
 #include "initSettings.inc.sqf"
 #include "initKeybinds.inc.sqf"

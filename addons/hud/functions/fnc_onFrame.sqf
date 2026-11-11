@@ -41,6 +41,13 @@ if (!GVAR(visible) || {_type != GVAR(type)}) then {
 if (diag_tickTime >= GVAR(nextSlowUpdate)) then {
     GVAR(nextSlowUpdate) = diag_tickTime + CWH_SLOW_UPDATE_INTERVAL;
 
+    // Screen resolution, interface size or HUD scale / opacity changed: recompute the layout
+    private _layoutKey = [safeZoneW, safeZoneH, getResolution select 0, getResolution select 1, GVAR(scale), GVAR(opacity)];
+    if (_layoutKey isNotEqualTo GVAR(layoutKey)) then {
+        GVAR(layoutKey) = _layoutKey;
+        [] call FUNC(layout);
+    };
+
     [] call FUNC(updateWeapon);
     [] call FUNC(updateGrenade);
 

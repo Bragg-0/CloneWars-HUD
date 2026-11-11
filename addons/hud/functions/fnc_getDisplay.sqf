@@ -27,6 +27,7 @@ if (isNull _display) then {
         _x ctrlShow false;
     } forEach CWH_CTRL_ALL;
     GVAR(visible) = false;
+    GVAR(layoutKey) = []; // Forces fnc_layout
 };
 
 _display

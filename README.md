@@ -48,6 +48,12 @@ The mod uses the CBA settings system. Access the options via:
 - **Enable Third Person**: Allows HUD display in third-person view
 - **Hide in Night/Thermal Vision**: Hides the HUD while night or thermal vision is active
 
+#### Display
+- **HUD Scale**: Size of the info elements (weapon, grenades, heading)
+- **HUD Opacity**: Opacity of the info elements
+
+The HUD adapts to any aspect ratio (4:3, 16:9, 21:9...): nothing is stretched.
+
 #### Colors
 - **HUD Color**: Customize the interface color
 - **RGB Mode**: Enables RGB color effects 🌈

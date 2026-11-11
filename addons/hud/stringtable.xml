@@ -121,6 +121,14 @@
             <English>You can add Phase 2 helmets. Format: ["classname1", "classname2", ...] (All inherited helmets will also be included.)</English>
             <French>Vous pouvez ajouter des casques Phase 2. Format : ["classname1", "classname2", ...] (Tous les casques hérités seront également inclus.)</French>
         </Key>
+        <Key ID="str_cwh_hud_opacity">
+            <English>HUD opacity</English>
+            <French>Opacité du HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_opacity_description">
+            <English>Opacity of the HUD info elements (weapon, grenades, heading). The visor is not affected.</English>
+            <French>Opacité des éléments d'information du HUD (arme, grenades, cap). La visière n'est pas affectée.</French>
+        </Key>
         <Key ID="str_cwh_hud_repairTime">
             <English>Repair time</English>
             <French>Durée de réparation</French>
@@ -128,6 +136,14 @@
         <Key ID="str_cwh_hud_repairTime_description">
             <English>Time in seconds needed to repair a cracked HUD.</English>
             <French>Temps en secondes nécessaire pour réparer un HUD fissuré.</French>
+        </Key>
+        <Key ID="str_cwh_hud_scale">
+            <English>HUD scale</English>
+            <French>Taille du HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_scale_description">
+            <English>Size of the HUD info elements (weapon, grenades, heading). The visor is not affected.</English>
+            <French>Taille des éléments d'information du HUD (arme, grenades, cap). La visière n'est pas affectée.</French>
         </Key>
         <Key ID="str_cwh_hud_sunFilterByDefault">
             <English>Enable sun filter by default</English>

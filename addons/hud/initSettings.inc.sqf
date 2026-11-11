@@ -1,5 +1,6 @@
 private _categoryGlobal = QUOTE(MOD_NAME);
 private _categoryColors = [QUOTE(MOD_NAME), "Colors"];
+private _categoryDisplay = [QUOTE(MOD_NAME), "Display"];
 private _categoryDamage = [QUOTE(MOD_NAME), "Damage"];
 private _categoryListHelmets = [QUOTE(MOD_NAME), "Helmets"];
 
@@ -39,6 +40,23 @@ private _fnc_resetHelmets = {
     [LLSTRING(hideInVisionModes), LLSTRING(hideInVisionModes_Description)],
     _categoryGlobal,
     true
+] call CBA_fnc_addSetting;
+
+// Display
+[
+    QGVAR(scale),
+    "SLIDER",
+    [LLSTRING(scale), LLSTRING(scale_Description)],
+    _categoryDisplay,
+    [0.5, 1.5, 1, 0, true]
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(opacity),
+    "SLIDER",
+    [LLSTRING(opacity), LLSTRING(opacity_Description)],
+    _categoryDisplay,
+    [0.2, 1, 1, 0, true]
 ] call CBA_fnc_addSetting;
 
 // Colors

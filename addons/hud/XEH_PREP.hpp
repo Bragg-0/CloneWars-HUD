@@ -4,6 +4,7 @@ PREP(getHelmetType);
 PREP(getWeaponInfo);
 PREP(handleDamage);
 PREP(hide);
+PREP(layout);
 PREP(onFrame);
 PREP(onPlayerChanged);
 PREP(repair);
