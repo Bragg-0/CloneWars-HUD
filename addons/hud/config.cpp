@@ -7,7 +7,7 @@ class CfgPatches {
         url = ECSTRING(main,url);
         name = COMPONENT_NAME;
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { QUOTE(MAIN_ADDON) };
+        requiredAddons[] = { QUOTE(MAIN_ADDON), QUOTE(DOUBLES(PREFIX,ui)) };
         units[] = {};
         weapons[] = {};
         VERSION_CONFIG;
@@ -24,3 +24,4 @@ class RscTitles {
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgHudTypes.hpp"

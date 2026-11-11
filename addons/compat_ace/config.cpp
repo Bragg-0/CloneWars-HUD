@@ -7,7 +7,7 @@ class CfgPatches {
         url = ECSTRING(main,url);
         name = COMPONENT_NAME;
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = { QUOTE(MAIN_ADDON), "ace_interact_menu", "cwh_hud"};
+        requiredAddons[] = { QUOTE(MAIN_ADDON), QUOTE(DOUBLES(PREFIX,hud)), "ace_interact_menu" };
         units[] = {};
         weapons[] = {};
         skipWhenMissingDependencies = 1;

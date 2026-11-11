@@ -43,13 +43,18 @@ The mod uses the CBA settings system. Access the options via:
 ### Available Settings
 
 #### Global
-- **Enable by Default**: Automatically activates the HUD on spawn
+- **Enable by Default**: Automatically activates the HUD on mission start (your choice is then kept across respawns)
+- **Enable Sun Filter by Default**: Darker visor on mission start
 - **Enable Third Person**: Allows HUD display in third-person view
-- **Break Chance**: Probability that the HUD will crack when taking damage (0% to 100%)
+- **Hide in Night/Thermal Vision**: Hides the HUD while night or thermal vision is active
 
 #### Colors
 - **HUD Color**: Customize the interface color
 - **RGB Mode**: Enables RGB color effects 🌈
+
+#### Damage
+- **Break Chance**: Probability that the HUD will crack on each head hit (0% to 100%)
+- **Repair Time**: Time in seconds needed to repair a cracked HUD
 
 #### Helmet Lists
 Configuration of compatible helmets for each type:
@@ -58,11 +63,10 @@ Configuration of compatible helmets for each type:
 - P1 helmets list
 - P2 helmets list
 
-> [!NOTE]
->  The default configuration includes a default list of compatible helmets.
+Format: `["class1", "class2"]` or `class1, class2`. Helmets inheriting from a listed class are included.
 
-> [!IMPORTANT]
-> Modifying helmet lists requires a restart.
+> [!NOTE]
+>  The default configuration includes a default list of compatible helmets. Changes apply immediately, no restart needed.
 
 ## 🎮 Usage
 
@@ -78,6 +82,58 @@ Configuration of compatible helmets for each type:
 - P2 (Phase II)
 - ARF (Advanced Recon Force)
 - BARC
+
+## 🧩 For Mod Makers
+
+### Declare a helmet as compatible
+
+Add the `cwh_hudType` attribute to your helmet class (it is inherited by child classes):
+
+```cpp
+class CfgWeapons {
+    class H_HelmetB;
+    class My_Clone_Helmet: H_HelmetB {
+        cwh_hudType = "P2"; // P1, P2, ARF, BARC or a custom type
+    };
+};
+```
+
+### Add a custom HUD type
+
+```cpp
+class cwh_hud_types {
+    class MyType {
+        displayName = "My HUD";
+        frame = "\my\addon\frame_ca.paa"; // Static part of the visor
+        color = "\my\addon\color_ca.paa"; // Part tinted with the HUD color (white texture)
+    };
+};
+```
+
+### Functions
+
+| Function | Arguments | Description |
+|---|---|---|
+| `cwh_hud_fnc_setEnabled` | `[enabled]` (toggle if omitted) | Enables or disables the HUD |
+| `cwh_hud_fnc_setSunFilter` | `[enabled]` (toggle if omitted) | Enables or disables the sun filter |
+| `cwh_hud_fnc_setBroken` | `[unit, broken]` | Cracks or repairs the HUD |
+| `cwh_hud_fnc_repair` | `[unit]` | Starts the repair (progress bar) |
+| `cwh_hud_fnc_getHelmetType` | `[classname]` | HUD type of a helmet, `""` if none |
+
+### Events (CBA, local)
+
+| Event | Arguments |
+|---|---|
+| `cwh_hud_visibilityChanged` | `[visible]` |
+| `cwh_hud_enabledChanged` | `[enabled]` |
+| `cwh_hud_brokenChanged` | `[unit, broken]` |
+
+```sqf
+["cwh_hud_visibilityChanged", {
+    params ["_visible"];
+    systemChat format ["HUD visible: %1", _visible];
+}] call CBA_fnc_addEventHandler;
+```
 
 ## 🛠️ Development
 

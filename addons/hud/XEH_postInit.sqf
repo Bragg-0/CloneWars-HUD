@@ -2,9 +2,16 @@
 
 if (!hasInterface) exitWith {};
 
-// Wait until the player is not null, then initialize the HUD
-[{
-    not isNull player
-}, {
-    [player] call FUNC(init);
-}] call CBA_fnc_waitUntilAndExecute;
+// Player preferences, kept across respawns (settings are initialized at this point)
+GVAR(enabled) = GVAR(enableByDefault);
+GVAR(sunFilter) = GVAR(sunFilterByDefault);
+
+GVAR(layer) = QGVAR(rscHUD) call BIS_fnc_rscLayer;
+
+// Zeus, Arsenal (BI & ACE), spectators...
+["featureCamera", {
+    params ["", "_camera"];
+    GVAR(featureCamera) = _camera;
+}, true] call CBA_fnc_addPlayerEventHandler;
+
+[LINKFUNC(onFrame)] call CBA_fnc_addPerFrameHandler;
