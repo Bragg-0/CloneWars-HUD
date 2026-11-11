@@ -51,7 +51,7 @@ class GVAR(rscHUD) {
         };
         class Weapon_Info : RscText {
             idc = 1013;
-            style = ST_CENTER;
+            style = ST_LEFT;
             LAYOUT_BY_SCRIPT;
         };
         class Weapon_Magazine_Icon : RscPictureKeepAspect {
@@ -61,7 +61,13 @@ class GVAR(rscHUD) {
         };
         class Weapon_Magazine_Count : RscText {
             idc = 1015;
-            style = ST_CENTER;
+            style = ST_RIGHT;
+            LAYOUT_BY_SCRIPT;
+        };
+        class Weapon_Ammo : RscText { // Rounds left in the magazine
+            idc = 1016;
+            style = ST_RIGHT;
+            font = "RobotoCondensedBold";
             LAYOUT_BY_SCRIPT;
         };
         class Weapon_FireMode_5 : RscText {

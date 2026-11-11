@@ -36,6 +36,7 @@ CWH_CTRL_WEAPON_INFO ctrlSetText _name;
 // Empty: full red bar
 GVAR(ammoEmpty) = _ammo == 0;
 CWH_CTRL_WEAPON_BULLET_COUNT progressSetPosition ([_ammo / _capacity, 1] select GVAR(ammoEmpty));
+CWH_CTRL_WEAPON_AMMO ctrlSetText str _ammo;
 
 CWH_CTRL_WEAPON_MAGAZINE_ICON ctrlSetText _magazineIcon;
 CWH_CTRL_WEAPON_MAGAZINE_COUNT ctrlSetText str ({_x == _magazine} count magazines player);

@@ -31,6 +31,7 @@ if (GVAR(enableRGB)) then {
 } forEach CWH_CTRL_COLORED;
 
 CWH_CTRL_WEAPON_BULLET_COUNT ctrlSetTextColor ([_color, [CWH_COLOR_EMPTY]] select GVAR(ammoEmpty));
+CWH_CTRL_WEAPON_AMMO ctrlSetTextColor ([[CWH_COLOR_WHITE], [CWH_COLOR_EMPTY]] select GVAR(ammoEmpty));
 
 {
     _x ctrlSetBackgroundColor ([[CWH_COLOR_DISABLED], _color] select (_forEachIndex < GVAR(fireModeLevel)));

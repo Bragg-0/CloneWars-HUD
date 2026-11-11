@@ -53,6 +53,13 @@ if (diag_tickTime >= GVAR(nextSlowUpdate)) then {
 
     CWH_CTRL_SUNFILTER ctrlShow GVAR(sunFilter);
     CWH_CTRL_CRACK ctrlShow (player getVariable [QGVAR(broken), false]);
+
+    // The vanilla weapon info can be re-enabled behind our back (mission init, other scripts): keep it hidden
+    private _shownHUD = shownHUD;
+    if (_shownHUD select 1) then {
+        _shownHUD set [1, false];
+        showHUD _shownHUD;
+    };
 };
 
 [] call FUNC(updateColor);
