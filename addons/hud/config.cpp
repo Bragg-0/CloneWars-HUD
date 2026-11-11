@@ -25,3 +25,4 @@ class RscTitles {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgHudTypes.hpp"
+#include "CfgSounds.hpp"

@@ -32,6 +32,7 @@ _unit setVariable [QGVAR(broken), _broken, true];
 if (_unit == player) then {
     hint ([LLSTRING(repaired), LLSTRING(broken)] select _broken);
     GVAR(nextSlowUpdate) = 0;
+    [["confirm", "alert"] select _broken] call FUNC(playSound);
 };
 
 [QGVAR(brokenChanged), [_unit, _broken]] call CBA_fnc_localEvent;

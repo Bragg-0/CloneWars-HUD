@@ -57,12 +57,14 @@ The HUD adapts to any aspect ratio (4:3, 16:9, 21:9...): nothing is stretched.
 #### Elements
 - **Show weapon / grenade / heading / health block**: Turn each info block on or off
 - **Low ammo warning**: Magazine level under which the ammo counter blinks orange (0% to disable)
+- **Squad markers**: Marks the members of your group with a small icon in the HUD color (team colors optional, orange blink if unconscious), up to a configurable range
 
 The health block shows health and stamina, or blood volume and pain when ACE medical is loaded.
 
 #### Effects
 - **Boot sequence**: The HUD elements light up one after the other when the HUD turns on
 - **Glitch when hit**: The HUD shakes and flickers briefly when you take damage
+- **HUD sounds** and volume: Power on / off, hit, low ammo, crack and repair sounds
 
 #### Colors
 - **HUD Color**: Customize the interface color
@@ -135,6 +137,7 @@ class cwh_hud_types {
 | `cwh_hud_fnc_setBroken` | `[unit, broken]` | Cracks or repairs the HUD |
 | `cwh_hud_fnc_repair` | `[unit]` | Starts the repair (progress bar) |
 | `cwh_hud_fnc_glitch` | `[duration]` (0.35 s if omitted) | Makes the HUD glitch |
+| `cwh_hud_fnc_playSound` | `[name]` | Plays a HUD sound: `boot`, `shutdown`, `glitch`, `warning`, `alert`, `confirm` |
 | `cwh_hud_fnc_getHelmetType` | `[classname]` | HUD type of a helmet, `""` if none |
 
 ### Events (CBA, local)

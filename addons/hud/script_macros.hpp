@@ -62,6 +62,7 @@
 #define CWH_BOOT_FADE 0.5 // Time for a block to light up (seconds)
 #define CWH_GLITCH_DURATION 0.35
 #define CWH_BLINK_ON ((diag_tickTime * 2) % 1 < 0.5) // 2 Hz
+#define CWH_BLINK_OFF ((diag_tickTime * 2) % 1 >= 0.5)
 
 // Interval (seconds) between updates of the slow-changing elements (weapon, grenade, crack, sun filter)
 #define CWH_SLOW_UPDATE_INTERVAL 0.1

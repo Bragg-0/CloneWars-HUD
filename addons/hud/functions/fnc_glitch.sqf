@@ -24,5 +24,10 @@ params [["_duration", CWH_GLITCH_DURATION, [0]]];
 
 if (!GVAR(enableGlitch) || {!GVAR(visible)}) exitWith {};
 
+// A hit raises several events: one sound per glitch
+if (diag_tickTime >= GVAR(glitchEnd)) then {
+    ["glitch"] call FUNC(playSound);
+};
+
 GVAR(glitchEnd) = diag_tickTime + _duration;
 GVAR(animating) = true;

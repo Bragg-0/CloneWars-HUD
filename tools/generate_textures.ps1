@@ -317,3 +317,11 @@ foreach ($offset in 0, 6) {
 }
 
 Save-Texture $c 'health_frame_ca'
+
+# --- Squad marker: 64x64, chevron pointing at the squad member ----------------
+
+$c = New-Canvas 64 64 64
+$g = $c.G
+Add-Line $g (New-Path @(14,18, 32,42, 50,18) $false) 5
+Add-Rect $g 29 50 6 6 255
+Save-Texture $c 'squad_marker_ca'

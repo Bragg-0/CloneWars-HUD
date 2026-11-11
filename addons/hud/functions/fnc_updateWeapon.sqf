@@ -36,8 +36,17 @@ CWH_CTRL_WEAPON_ICON ctrlSetText _icon;
 CWH_CTRL_WEAPON_INFO ctrlSetText _name;
 
 // Empty: full red bar. Low (threshold in the settings, 0 = disabled): orange warning
+private _wasEmpty = GVAR(ammoEmpty);
+private _wasLow = GVAR(ammoLow);
 GVAR(ammoEmpty) = _ammo == 0;
 GVAR(ammoLow) = !GVAR(ammoEmpty) && {_capacity > 1} && {_ammo / _capacity <= GVAR(lowAmmoThreshold)};
+
+if (GVAR(ammoEmpty) && {!_wasEmpty}) then {
+    ["alert"] call FUNC(playSound);
+};
+if (GVAR(ammoLow) && {!_wasLow}) then {
+    ["warning"] call FUNC(playSound);
+};
 CWH_CTRL_WEAPON_BULLET_COUNT progressSetPosition ([_ammo / _capacity, 1] select GVAR(ammoEmpty));
 CWH_CTRL_WEAPON_AMMO ctrlSetText str _ammo;
 

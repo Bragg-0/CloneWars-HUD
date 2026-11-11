@@ -94,9 +94,9 @@ private _unitH = _pxH * _scale;
     [1022, CWH_BLOCK_GRENADE, "R", "T", 1776, 204, 50, 44, 30],  // Count
     [1021, CWH_BLOCK_GRENADE, "R", "T", 1834, 203, 50, 46],      // Icon
 
-    // Heading (top center, under the visor top piece): 192x48 block at 864,100
-    [1030, CWH_BLOCK_HEADING, "C", "T", 864, 100, 192, 48],      // Frame
-    [1031, CWH_BLOCK_HEADING, "C", "T", 884, 110, 152, 28, 22],  // Text
+    // Heading (top center, right under the visor top piece): 192x48 block at 864,68
+    [1030, CWH_BLOCK_HEADING, "C", "T", 864, 68, 192, 48],      // Frame
+    [1031, CWH_BLOCK_HEADING, "C", "T", 884, 78, 152, 28, 22],  // Text
 
     // Health (top left): 256x64 block at 24,24, two rows (label, bar, value)
     [1040, CWH_BLOCK_HEALTH, "L", "T", 24, 24, 256, 64],         // Frame

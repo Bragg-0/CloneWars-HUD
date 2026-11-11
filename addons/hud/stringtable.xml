@@ -81,6 +81,14 @@
             <English>If enabled, the HUD will cycle through RGB colors. #RAINBOW</English>
             <French>Si activé, le HUD fera défiler les couleurs RVB. #RAINBOW</French>
         </Key>
+        <Key ID="str_cwh_hud_enableSounds">
+            <English>HUD sounds</English>
+            <French>Sons du HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_enableSounds_description">
+            <English>Sounds when the HUD turns on or off, when you are hit, when ammo is low and when the HUD cracks or is repaired.</English>
+            <French>Sons à l'allumage et à l'extinction du HUD, quand vous êtes touché, quand les munitions sont basses et quand le HUD se fissure ou est réparé.</French>
+        </Key>
         <Key ID="str_cwh_hud_enablebydefault">
             <English>Enable HUD by default</English>
             <French>Activer le HUD par défaut</French>
@@ -209,6 +217,14 @@
             <English>Health and stamina. With ACE medical: blood volume and pain.</English>
             <French>Santé et endurance. Avec ACE médical : volume de sang et douleur.</French>
         </Key>
+        <Key ID="str_cwh_hud_showSquad">
+            <English>Show squad markers</English>
+            <French>Afficher les marqueurs d'escouade</French>
+        </Key>
+        <Key ID="str_cwh_hud_showSquad_description">
+            <English>Marks the members of your group with a small icon in the HUD color. It blinks orange if they are unconscious.</English>
+            <French>Marque les membres de votre groupe avec une petite icône de la couleur du HUD. Elle clignote en orange s'ils sont inconscients.</French>
+        </Key>
         <Key ID="str_cwh_hud_showWeapon">
             <English>Show weapon block</English>
             <French>Afficher le bloc arme</French>
@@ -216,6 +232,30 @@
         <Key ID="str_cwh_hud_showWeapon_description">
             <English>Weapon name, ammunition, fire mode and magazines. If disabled, the vanilla weapon info stays visible.</English>
             <French>Nom de l'arme, munitions, mode de tir et chargeurs. Si désactivé, l'info arme d'Arma reste visible.</French>
+        </Key>
+        <Key ID="str_cwh_hud_soundVolume">
+            <English>HUD sounds volume</English>
+            <French>Volume des sons du HUD</French>
+        </Key>
+        <Key ID="str_cwh_hud_soundVolume_description">
+            <English>Volume of the HUD sounds.</English>
+            <French>Volume des sons du HUD.</French>
+        </Key>
+        <Key ID="str_cwh_hud_squadMaxDistance">
+            <English>Squad markers range</English>
+            <French>Portée des marqueurs d'escouade</French>
+        </Key>
+        <Key ID="str_cwh_hud_squadMaxDistance_description">
+            <English>Distance in meters beyond which squad members are no longer marked.</English>
+            <French>Distance en mètres au-delà de laquelle les membres de l'escouade ne sont plus marqués.</French>
+        </Key>
+        <Key ID="str_cwh_hud_squadTeamColors">
+            <English>Squad markers in team colors</English>
+            <French>Marqueurs d'escouade aux couleurs d'équipe</French>
+        </Key>
+        <Key ID="str_cwh_hud_squadTeamColors_description">
+            <English>If enabled, the markers use the color of the member's team (red, green, blue, yellow) instead of the HUD color.</English>
+            <French>Si activé, les marqueurs prennent la couleur de l'équipe du coéquipier (rouge, vert, bleu, jaune) au lieu de la couleur du HUD.</French>
         </Key>
         <Key ID="str_cwh_hud_sunFilterByDefault">
             <English>Enable sun filter by default</English>

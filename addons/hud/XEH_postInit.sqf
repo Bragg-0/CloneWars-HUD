@@ -15,3 +15,6 @@ GVAR(layer) = QGVAR(rscHUD) call BIS_fnc_rscLayer;
 }, true] call CBA_fnc_addPlayerEventHandler;
 
 [LINKFUNC(onFrame)] call CBA_fnc_addPerFrameHandler;
+
+// Squad markers
+addMissionEventHandler ["Draw3D", {[] call FUNC(drawSquad)}];

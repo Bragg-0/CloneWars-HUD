@@ -23,6 +23,16 @@ if (player isNotEqualTo GVAR(unit)) then {
 
 private _type = [headgear player] call FUNC(getHelmetType);
 
+// Power state: HUD enabled with a compatible helmet. Unlike the visibility, it does not change
+// with the camera or the vehicle seat, so the on / off sounds are not played all the time.
+private _powered = GVAR(enabled) && {_type != ""} && {alive player};
+if (_powered isNotEqualTo GVAR(powered)) then {
+    GVAR(powered) = _powered;
+    if (GVAR(featureCamera) == "") then {
+        [["shutdown", "boot"] select _powered] call FUNC(playSound);
+    };
+};
+
 if !([_type] call FUNC(shouldShow)) exitWith {
     if (GVAR(visible)) then {
         [] call FUNC(hide);
@@ -51,6 +61,7 @@ if (diag_tickTime >= GVAR(nextSlowUpdate)) then {
     [] call FUNC(updateWeapon);
     [] call FUNC(updateGrenade);
     [] call FUNC(updateHealth);
+    [] call FUNC(updateSquad);
 
     {
         _x ctrlShow GVAR(showHeading);

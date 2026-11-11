@@ -102,6 +102,30 @@ private _fnc_resetHelmets = {
     [0, 0.5, 0.25, 0, true]
 ] call CBA_fnc_addSetting;
 
+[
+    QGVAR(showSquad),
+    "CHECKBOX",
+    [LLSTRING(showSquad), LLSTRING(showSquad_Description)],
+    _categoryElements,
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(squadMaxDistance),
+    "SLIDER",
+    [LLSTRING(squadMaxDistance), LLSTRING(squadMaxDistance_Description)],
+    _categoryElements,
+    [25, 1000, 300, 0]
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(squadTeamColors),
+    "CHECKBOX",
+    [LLSTRING(squadTeamColors), LLSTRING(squadTeamColors_Description)],
+    _categoryElements,
+    false
+] call CBA_fnc_addSetting;
+
 // Effects
 [
     QGVAR(enableBootAnimation),
@@ -117,6 +141,22 @@ private _fnc_resetHelmets = {
     [LLSTRING(enableGlitch), LLSTRING(enableGlitch_Description)],
     _categoryEffects,
     true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(enableSounds),
+    "CHECKBOX",
+    [LLSTRING(enableSounds), LLSTRING(enableSounds_Description)],
+    _categoryEffects,
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(soundVolume),
+    "SLIDER",
+    [LLSTRING(soundVolume), LLSTRING(soundVolume_Description)],
+    _categoryEffects,
+    [0, 2, 1, 0, true]
 ] call CBA_fnc_addSetting;
 
 // Colors

@@ -26,6 +26,9 @@ if (GVAR(enableRGB)) then {
     ];
 };
 
+// Color currently displayed, also used by the squad markers
+GVAR(currentColor) = _color;
+
 {
     _x ctrlSetTextColor _color;
 } forEach CWH_CTRL_COLORED;
