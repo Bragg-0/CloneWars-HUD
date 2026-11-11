@@ -50,16 +50,28 @@ if (diag_tickTime >= GVAR(nextSlowUpdate)) then {
 
     [] call FUNC(updateWeapon);
     [] call FUNC(updateGrenade);
+    [] call FUNC(updateHealth);
+
+    {
+        _x ctrlShow GVAR(showHeading);
+    } forEach CWH_CTRL_DIR;
 
     CWH_CTRL_SUNFILTER ctrlShow GVAR(sunFilter);
     CWH_CTRL_CRACK ctrlShow (player getVariable [QGVAR(broken), false]);
 
-    // The vanilla weapon info can be re-enabled behind our back (mission init, other scripts): keep it hidden
+    // Vanilla weapon info: hidden while our weapon block replaces it, in its original state otherwise.
+    // Checked continuously as it can be changed behind our back (mission init, other scripts).
     private _shownHUD = shownHUD;
-    if (_shownHUD select 1) then {
-        _shownHUD set [1, false];
+    private _showVanillaInfo = !GVAR(showWeapon) && {GVAR(savedInfo)};
+    if ((_shownHUD select 1) isNotEqualTo _showVanillaInfo) then {
+        _shownHUD set [1, _showVanillaInfo];
         showHUD _shownHUD;
     };
 };
 
 [] call FUNC(updateColor);
+
+// Boot sequence, glitch
+if (GVAR(animating)) then {
+    [] call FUNC(animate);
+};

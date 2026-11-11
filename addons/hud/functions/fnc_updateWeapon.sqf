@@ -17,11 +17,13 @@ Author:
 
 (weaponState player) params [["_weapon", ""], ["_muzzle", ""], ["_mode", ""], ["_magazine", ""], ["_ammo", 0]];
 
-if (_weapon == "") exitWith {
+if (!GVAR(showWeapon) || {_weapon == ""}) exitWith {
     {
         _x ctrlShow false;
     } forEach CWH_CTRL_WEAPON;
     GVAR(fireModeLevel) = 0;
+    GVAR(ammoEmpty) = false;
+    GVAR(ammoLow) = false;
 };
 
 {
@@ -33,8 +35,9 @@ if (_weapon == "") exitWith {
 CWH_CTRL_WEAPON_ICON ctrlSetText _icon;
 CWH_CTRL_WEAPON_INFO ctrlSetText _name;
 
-// Empty: full red bar
+// Empty: full red bar. Low (threshold in the settings, 0 = disabled): orange warning
 GVAR(ammoEmpty) = _ammo == 0;
+GVAR(ammoLow) = !GVAR(ammoEmpty) && {_capacity > 1} && {_ammo / _capacity <= GVAR(lowAmmoThreshold)};
 CWH_CTRL_WEAPON_BULLET_COUNT progressSetPosition ([_ammo / _capacity, 1] select GVAR(ammoEmpty));
 CWH_CTRL_WEAPON_AMMO ctrlSetText str _ammo;
 

@@ -57,6 +57,22 @@
             <English>Change the color of the HUD.</English>
             <French>Change la couleur du HUD.</French>
         </Key>
+        <Key ID="str_cwh_hud_enableBootAnimation">
+            <English>Boot sequence</English>
+            <French>Séquence de démarrage</French>
+        </Key>
+        <Key ID="str_cwh_hud_enableBootAnimation_description">
+            <English>The HUD elements light up one after the other, flickering, when the HUD turns on.</English>
+            <French>Les éléments du HUD s'allument l'un après l'autre en scintillant quand le HUD s'active.</French>
+        </Key>
+        <Key ID="str_cwh_hud_enableGlitch">
+            <English>Glitch when hit</English>
+            <French>Parasites quand vous êtes touché</French>
+        </Key>
+        <Key ID="str_cwh_hud_enableGlitch_description">
+            <English>The HUD shakes and flickers briefly when you take damage.</English>
+            <French>Le HUD tremble et clignote brièvement quand vous subissez des dégâts.</French>
+        </Key>
         <Key ID="str_cwh_hud_enableRGB">
             <English>Enable RGB HUD</English>
             <French>Activer le HUD RVB</French>
@@ -80,6 +96,22 @@
         <Key ID="str_cwh_hud_enablethirdperson_description">
             <English>If enabled, the HUD will also be displayed in third person view.</English>
             <French>Si activé, le HUD sera également affiché en vue à la troisième personne.</French>
+        </Key>
+        <Key ID="str_cwh_hud_health_blood">
+            <English>BLOOD</English>
+            <French>SANG</French>
+        </Key>
+        <Key ID="str_cwh_hud_health_health">
+            <English>HEALTH</English>
+            <French>SANTÉ</French>
+        </Key>
+        <Key ID="str_cwh_hud_health_pain">
+            <English>PAIN</English>
+            <French>DOULEUR</French>
+        </Key>
+        <Key ID="str_cwh_hud_health_stamina">
+            <English>STAMINA</English>
+            <French>ENDUR.</French>
         </Key>
         <Key ID="str_cwh_hud_hideInVisionModes">
             <English>Hide in night/thermal vision</English>
@@ -121,6 +153,14 @@
             <English>You can add Phase 2 helmets. Format: ["classname1", "classname2", ...] (All inherited helmets will also be included.)</English>
             <French>Vous pouvez ajouter des casques Phase 2. Format : ["classname1", "classname2", ...] (Tous les casques hérités seront également inclus.)</French>
         </Key>
+        <Key ID="str_cwh_hud_lowAmmoThreshold">
+            <English>Low ammo warning</English>
+            <French>Alerte munitions basses</French>
+        </Key>
+        <Key ID="str_cwh_hud_lowAmmoThreshold_description">
+            <English>The ammo counter blinks orange when the magazine is at or below this level. 0% disables the warning.</English>
+            <French>Le compteur de munitions clignote en orange quand le chargeur est à ce niveau ou en dessous. 0 % désactive l'alerte.</French>
+        </Key>
         <Key ID="str_cwh_hud_opacity">
             <English>HUD opacity</English>
             <French>Opacité du HUD</French>
@@ -144,6 +184,38 @@
         <Key ID="str_cwh_hud_scale_description">
             <English>Size of the HUD info elements (weapon, grenades, heading). The visor is not affected.</English>
             <French>Taille des éléments d'information du HUD (arme, grenades, cap). La visière n'est pas affectée.</French>
+        </Key>
+        <Key ID="str_cwh_hud_showGrenade">
+            <English>Show grenade block</English>
+            <French>Afficher le bloc grenades</French>
+        </Key>
+        <Key ID="str_cwh_hud_showGrenade_description">
+            <English>Selected grenade and how many are left.</English>
+            <French>Grenade sélectionnée et nombre restant.</French>
+        </Key>
+        <Key ID="str_cwh_hud_showHeading">
+            <English>Show heading</English>
+            <French>Afficher le cap</French>
+        </Key>
+        <Key ID="str_cwh_hud_showHeading_description">
+            <English>Direction you are looking at, in degrees.</English>
+            <French>Direction du regard, en degrés.</French>
+        </Key>
+        <Key ID="str_cwh_hud_showHealth">
+            <English>Show health block</English>
+            <French>Afficher le bloc santé</French>
+        </Key>
+        <Key ID="str_cwh_hud_showHealth_description">
+            <English>Health and stamina. With ACE medical: blood volume and pain.</English>
+            <French>Santé et endurance. Avec ACE médical : volume de sang et douleur.</French>
+        </Key>
+        <Key ID="str_cwh_hud_showWeapon">
+            <English>Show weapon block</English>
+            <French>Afficher le bloc arme</French>
+        </Key>
+        <Key ID="str_cwh_hud_showWeapon_description">
+            <English>Weapon name, ammunition, fire mode and magazines. If disabled, the vanilla weapon info stays visible.</English>
+            <French>Nom de l'arme, munitions, mode de tir et chargeurs. Si désactivé, l'info arme d'Arma reste visible.</French>
         </Key>
         <Key ID="str_cwh_hud_sunFilterByDefault">
             <English>Enable sun filter by default</English>

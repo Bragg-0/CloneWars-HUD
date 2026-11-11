@@ -54,6 +54,16 @@ The mod uses the CBA settings system. Access the options via:
 
 The HUD adapts to any aspect ratio (4:3, 16:9, 21:9...): nothing is stretched.
 
+#### Elements
+- **Show weapon / grenade / heading / health block**: Turn each info block on or off
+- **Low ammo warning**: Magazine level under which the ammo counter blinks orange (0% to disable)
+
+The health block shows health and stamina, or blood volume and pain when ACE medical is loaded.
+
+#### Effects
+- **Boot sequence**: The HUD elements light up one after the other when the HUD turns on
+- **Glitch when hit**: The HUD shakes and flickers briefly when you take damage
+
 #### Colors
 - **HUD Color**: Customize the interface color
 - **RGB Mode**: Enables RGB color effects 🌈
@@ -124,6 +134,7 @@ class cwh_hud_types {
 | `cwh_hud_fnc_setSunFilter` | `[enabled]` (toggle if omitted) | Enables or disables the sun filter |
 | `cwh_hud_fnc_setBroken` | `[unit, broken]` | Cracks or repairs the HUD |
 | `cwh_hud_fnc_repair` | `[unit]` | Starts the repair (progress bar) |
+| `cwh_hud_fnc_glitch` | `[duration]` (0.35 s if omitted) | Makes the HUD glitch |
 | `cwh_hud_fnc_getHelmetType` | `[classname]` | HUD type of a helmet, `""` if none |
 
 ### Events (CBA, local)

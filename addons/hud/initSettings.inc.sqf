@@ -1,6 +1,8 @@
 private _categoryGlobal = QUOTE(MOD_NAME);
 private _categoryColors = [QUOTE(MOD_NAME), "Colors"];
 private _categoryDisplay = [QUOTE(MOD_NAME), "Display"];
+private _categoryElements = [QUOTE(MOD_NAME), "Elements"];
+private _categoryEffects = [QUOTE(MOD_NAME), "Effects"];
 private _categoryDamage = [QUOTE(MOD_NAME), "Damage"];
 private _categoryListHelmets = [QUOTE(MOD_NAME), "Helmets"];
 
@@ -57,6 +59,64 @@ private _fnc_resetHelmets = {
     [LLSTRING(opacity), LLSTRING(opacity_Description)],
     _categoryDisplay,
     [0.2, 1, 1, 0, true]
+] call CBA_fnc_addSetting;
+
+// Elements
+[
+    QGVAR(showWeapon),
+    "CHECKBOX",
+    [LLSTRING(showWeapon), LLSTRING(showWeapon_Description)],
+    _categoryElements,
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(showGrenade),
+    "CHECKBOX",
+    [LLSTRING(showGrenade), LLSTRING(showGrenade_Description)],
+    _categoryElements,
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(showHeading),
+    "CHECKBOX",
+    [LLSTRING(showHeading), LLSTRING(showHeading_Description)],
+    _categoryElements,
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(showHealth),
+    "CHECKBOX",
+    [LLSTRING(showHealth), LLSTRING(showHealth_Description)],
+    _categoryElements,
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(lowAmmoThreshold),
+    "SLIDER",
+    [LLSTRING(lowAmmoThreshold), LLSTRING(lowAmmoThreshold_Description)],
+    _categoryElements,
+    [0, 0.5, 0.25, 0, true]
+] call CBA_fnc_addSetting;
+
+// Effects
+[
+    QGVAR(enableBootAnimation),
+    "CHECKBOX",
+    [LLSTRING(enableBootAnimation), LLSTRING(enableBootAnimation_Description)],
+    _categoryEffects,
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(enableGlitch),
+    "CHECKBOX",
+    [LLSTRING(enableGlitch), LLSTRING(enableGlitch_Description)],
+    _categoryEffects,
+    true
 ] call CBA_fnc_addSetting;
 
 // Colors

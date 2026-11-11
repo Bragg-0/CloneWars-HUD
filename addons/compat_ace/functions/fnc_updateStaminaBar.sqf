@@ -3,8 +3,9 @@
 Function: cwh_compat_ace_fnc_updateStaminaBar
 Description:
     Moves the ACE advanced fatigue stamina bar to the top left corner while
-    the HUD is shown (it overlaps the weapon frame otherwise), and puts it
-    back to its original position when the HUD is hidden.
+    the HUD is shown (it overlaps the weapon block otherwise), under the
+    health block if it is displayed. Puts it back to its original position
+    when the HUD is hidden.
 
 Parameters:
     <NONE>
@@ -23,22 +24,25 @@ if (isNull _control) exitWith {};
 if (_control isNotEqualTo (uiNamespace getVariable [QGVAR(staminaBar), controlNull])) then {
     uiNamespace setVariable [QGVAR(staminaBar), _control];
     GVAR(staminaBarPosition) = ctrlPosition _control;
-    GVAR(staminaBarMoved) = false;
+    GVAR(staminaBarTarget) = [];
 };
 
-private _shouldMove = EGVAR(hud,visible);
-if (_shouldMove isEqualTo GVAR(staminaBarMoved)) exitWith {};
-
-TRACE_1("fnc_updateStaminaBar",_shouldMove);
-
-if (_shouldMove) then {
-    _control ctrlSetPosition [
-        safeZoneX + safeZoneW * 0.00677084,
-        safeZoneY + safeZoneH * 0.01203704
-    ];
+// Same units as the HUD layout (design pixels on a 1920x1080 canvas, see cwh_hud_fnc_layout)
+private _target = if (EGVAR(hud,visible)) then {
+    getResolution params ["_resW", "_resH"];
+    private _unitH = safeZoneH / 1080 * EGVAR(hud,scale);
+    private _unitW = safeZoneW / (1080 * (_resW / _resH)) * EGVAR(hud,scale);
+    private _posY = [STAMINA_BAR_Y, STAMINA_BAR_Y_UNDER_HEALTH] select EGVAR(hud,showHealth);
+    [safeZoneX + STAMINA_BAR_X * _unitW, safeZoneY + _posY * _unitH]
 } else {
-    _control ctrlSetPosition GVAR(staminaBarPosition);
+    GVAR(staminaBarPosition) select [0, 2]
 };
+
+if (_target isEqualTo GVAR(staminaBarTarget)) exitWith {};
+
+TRACE_1("fnc_updateStaminaBar",_target);
+
+_control ctrlSetPosition _target;
 _control ctrlCommit 0;
 
-GVAR(staminaBarMoved) = _shouldMove;
+GVAR(staminaBarTarget) = _target;

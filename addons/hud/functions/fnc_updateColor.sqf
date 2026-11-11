@@ -30,8 +30,26 @@ if (GVAR(enableRGB)) then {
     _x ctrlSetTextColor _color;
 } forEach CWH_CTRL_COLORED;
 
-CWH_CTRL_WEAPON_BULLET_COUNT ctrlSetTextColor ([_color, [CWH_COLOR_EMPTY]] select GVAR(ammoEmpty));
-CWH_CTRL_WEAPON_AMMO ctrlSetTextColor ([[CWH_COLOR_WHITE], [CWH_COLOR_EMPTY]] select GVAR(ammoEmpty));
+// Ammo: red when empty, blinking orange when low
+private _barColor = _color;
+private _counterColor = [CWH_COLOR_WHITE];
+if (GVAR(ammoEmpty)) then {
+    _barColor = [CWH_COLOR_EMPTY];
+    _counterColor = [CWH_COLOR_EMPTY];
+} else {
+    if (GVAR(ammoLow)) then {
+        _barColor = [CWH_COLOR_WARNING];
+        _counterColor = [[CWH_COLOR_WARNING_DIM], [CWH_COLOR_WARNING]] select CWH_BLINK_ON;
+    };
+};
+CWH_CTRL_WEAPON_BULLET_COUNT ctrlSetTextColor _barColor;
+CWH_CTRL_WEAPON_AMMO ctrlSetTextColor _counterColor;
+
+// Health: red when critical, orange on warning (pain, exhaustion)
+CWH_CTRL_HEALTH_BAR_1 ctrlSetTextColor ([_color, [CWH_COLOR_EMPTY]] select GVAR(healthRow1Low));
+CWH_CTRL_HEALTH_VALUE_1 ctrlSetTextColor ([[CWH_COLOR_WHITE], [CWH_COLOR_EMPTY]] select GVAR(healthRow1Low));
+CWH_CTRL_HEALTH_BAR_2 ctrlSetTextColor ([_color, [CWH_COLOR_WARNING]] select GVAR(healthRow2Warning));
+CWH_CTRL_HEALTH_VALUE_2 ctrlSetTextColor ([[CWH_COLOR_WHITE], [CWH_COLOR_WARNING]] select GVAR(healthRow2Warning));
 
 {
     _x ctrlSetBackgroundColor ([[CWH_COLOR_DISABLED], _color] select (_forEachIndex < GVAR(fireModeLevel)));

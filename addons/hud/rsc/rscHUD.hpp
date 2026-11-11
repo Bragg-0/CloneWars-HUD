@@ -119,6 +119,38 @@ class GVAR(rscHUD) {
             LAYOUT_BY_SCRIPT;
         };
 
+        // Health: two rows (label, bar, value)
+        class Health_Frame : RscPictureKeepAspect {
+            idc = 1040;
+            LAYOUT_BY_SCRIPT;
+            text = QPATHTOEF(ui,data\hud\health_frame_ca.paa);
+            colorText[] = { CWH_COLOR_DEFAULT };
+        };
+        class Health_Label_1 : RscText {
+            idc = 1041;
+            style = ST_LEFT;
+            LAYOUT_BY_SCRIPT;
+        };
+        class Health_Bar_1 : RscProgress {
+            idc = 1042;
+            LAYOUT_BY_SCRIPT;
+            colorBar[] = { CWH_COLOR_DEFAULT };
+        };
+        class Health_Value_1 : RscText {
+            idc = 1043;
+            style = ST_RIGHT;
+            LAYOUT_BY_SCRIPT;
+        };
+        class Health_Label_2 : Health_Label_1 {
+            idc = 1044;
+        };
+        class Health_Bar_2 : Health_Bar_1 {
+            idc = 1045;
+        };
+        class Health_Value_2 : Health_Value_1 {
+            idc = 1046;
+        };
+
         class Crack : Frame { // Crack image (when damaged)
             idc = 1100;
             text = QPATHTOEF(ui,data\hud\crack_ca.paa);

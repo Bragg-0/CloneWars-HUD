@@ -28,17 +28,19 @@ if (GVAR(visible)) exitWith {};
 
 {
     _x ctrlShow true;
-} forEach ([CWH_CTRL_FRAME, CWH_CTRL_COLOR] + CWH_CTRL_DIR);
+} forEach [CWH_CTRL_FRAME, CWH_CTRL_COLOR];
 
-// Hide the vanilla weapon info, remember its state to restore it later
-private _shownHUD = shownHUD;
+// Remember the state of the vanilla weapon info to restore it later (it is hidden by fnc_onFrame)
 if (isNil QGVAR(savedInfo)) then {
-    GVAR(savedInfo) = _shownHUD select 1;
+    GVAR(savedInfo) = shownHUD select 1;
 };
-_shownHUD set [1, false];
-showHUD _shownHUD;
 
 GVAR(visible) = true;
-GVAR(nextSlowUpdate) = 0; // Weapon, grenade, crack... updated this frame
+GVAR(nextSlowUpdate) = 0; // Info blocks, crack, vanilla info... updated this frame
+
+if (GVAR(enableBootAnimation)) then {
+    GVAR(bootStart) = diag_tickTime;
+    GVAR(animating) = true;
+};
 
 [QGVAR(visibilityChanged), [true]] call CBA_fnc_localEvent;

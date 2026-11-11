@@ -164,74 +164,7 @@ Add-Line $g (New-Path @(80,42, 112,42) $false) 3.5
 
 Save-Texture $c 'dir_frame_ca'
 
-# --- Visor crack: 2048x1024 (same 2:1 canvas as the visor textures) -----------
-# Procedural, seeded so the result is identical on every run.
-
-$c = New-Canvas 2048 1024 2048
-$g = $c.G
-$random = [System.Random]::new(66)
-
-function Get-Jagged([double]$X, [double]$Y, [double]$Angle, [double]$Length, [double]$Jitter) {
-    $coords = [System.Collections.Generic.List[double]]::new()
-    $coords.Add($X); $coords.Add($Y)
-    $travelled = 0.0
-    while ($travelled -lt $Length) {
-        $step = 14 + $random.NextDouble() * 34
-        $Angle += ($random.NextDouble() - 0.5) * $Jitter
-        $X += [Math]::Cos($Angle) * $step
-        $Y += [Math]::Sin($Angle) * $step
-        $coords.Add($X); $coords.Add($Y)
-        $travelled += $step
-    }
-    , $coords.ToArray()
-}
-
-function Add-Impact([double]$X, [double]$Y, [double]$Radius) {
-    $rays = 8 + $random.Next(4)
-    $tips = @()
-    for ($i = 0; $i -lt $rays; $i++) {
-        $angle = (2 * [Math]::PI * $i / $rays) + ($random.NextDouble() - 0.5) * 0.5
-        $length = $Radius * (0.35 + $random.NextDouble() * 0.85)
-        $coords = Get-Jagged $X $Y $angle $length 0.5
-        Add-Line $g (New-Path $coords $false) (0.8 + $random.NextDouble() * 0.9) (110 + $random.Next(80)) $false
-        # Point at ~1/3 of the ray, used for the inner ring
-        $index = [Math]::Max(2, [int]($coords.Length / 6) * 2)
-        $tips += , @($coords[$index], $coords[$index + 1])
-        # Occasional branch
-        if ($random.NextDouble() -lt 0.3) {
-            $from = [Math]::Max(2, [int]($coords.Length / 4) * 2)
-            $branch = Get-Jagged $coords[$from] $coords[$from + 1] ($angle + ($random.NextDouble() - 0.5) * 1.6) ($length * 0.4) 0.6
-            Add-Line $g (New-Path $branch $false) 0.7 100 $false
-        }
-    }
-    # Broken ring joining neighbouring rays
-    for ($i = 0; $i -lt $tips.Count; $i++) {
-        if ($random.NextDouble() -lt 0.7) {
-            $a = $tips[$i]; $b = $tips[($i + 1) % $tips.Count]
-            Add-Line $g (New-Path @($a[0], $a[1], $b[0], $b[1]) $false) 0.7 110 $false
-        }
-    }
-    # Shattered core
-    for ($i = 0; $i -lt 16; $i++) {
-        $angle = $random.NextDouble() * 2 * [Math]::PI
-        $distance = $random.NextDouble() * $Radius * 0.13
-        $px = $X + [Math]::Cos($angle) * $distance
-        $py = $Y + [Math]::Sin($angle) * $distance
-        $size = 3 + $random.NextDouble() * 9
-        $shard = New-Path @($px, $py, ($px + $size), ($py + $size * 0.4), ($px + $size * 0.3), ($py + $size))
-        $brush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(120 + $random.Next(100), 255, 255, 255))
-        $g.FillPath($brush, $shard)
-        $brush.Dispose()
-    }
-}
-
-Add-Impact 1400 215 120
-Add-Impact 1640 640 165
-# Long crack running between the two impacts
-$long = Get-Jagged 1400 215 1.06 470 0.3
-Add-Line $g (New-Path $long $false) 1.3 170 $false
-
-Save-Texture $c 'crack_ca'
+# The visor crack (crack_ca.paa) is not generated: the hand-picked texture is kept as is.
 
 # --- ACE menu icons: on / off switches, 512x512 -------------------------------
 
@@ -358,3 +291,29 @@ $quality.Param[0] = [System.Drawing.Imaging.EncoderParameter]::new([System.Drawi
 $c.Bitmap.Save($logoJpg, $codec, $quality)
 $c.Bitmap.Dispose()
 Write-Host "JPG  $logoJpg"
+
+# --- Health block: 256x64 design px -> 512x128 --------------------------------
+# Mirror of the weapon block style (top left of the screen).
+
+$OutDir = Join-Path $PSScriptRoot '..\addons\ui\data\hud'
+
+$c = New-Canvas 512 128 256
+$g = $c.G
+
+$outline = New-Path @(5,5, 238,5, 251,18, 251,59, 18,59, 5,46)
+Add-Fill $g $outline
+Add-Line $g $outline
+
+# Accent bar on the left edge
+Add-Line $g (New-Path @(5,14, 5,38) $false) 3.5
+# Double line on the top-right cut corner
+Add-Line $g (New-Path @(236,10, 246,20) $false) 1 200 $false
+# Bar tracks (two rows)
+Add-Rect $g 92 18 104 6 38
+Add-Rect $g 92 40 104 6 38
+# Hatching next to the bottom-left cut corner
+foreach ($offset in 0, 6) {
+    Add-Line $g (New-Path @((22 + $offset),55, (28 + $offset),49) $false) 1 150 $false
+}
+
+Save-Texture $c 'health_frame_ca'

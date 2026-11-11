@@ -16,7 +16,7 @@ Author:
 
 (currentThrowable player) params [["_magazine", ""]];
 
-if (_magazine == "") exitWith {
+if (!GVAR(showGrenade) || {_magazine == ""}) exitWith {
     {
         _x ctrlShow false;
     } forEach CWH_CTRL_GRENADE;
