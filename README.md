@@ -1,6 +1,6 @@
 # CloneWars HUD
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)
-![Languages](https://img.shields.io/badge/Languages-English%20/%20French-blue.svg)
+![Languages](https://img.shields.io/badge/Languages-English%20/%20French%20/%20German%20/%20Spanish-blue.svg)
 
 CloneWars HUD is a mod for Arma 3 that adds an immersive HUD inspired by the Clone Wars series.
 

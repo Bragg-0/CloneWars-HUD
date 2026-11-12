@@ -4,90 +4,134 @@
         <Key ID="str_cwh_compat_zen_break">
             <English>Crack HUD</English>
             <French>Fissurer le HUD</French>
+            <Spanish>Agrietar el HUD</Spanish>
+            <German>HUD beschädigen</German>
         </Key>
         <Key ID="str_cwh_compat_zen_category">
             <English>Clone Wars HUD</English>
             <French>Clone Wars HUD</French>
+            <Spanish>Clone Wars HUD</Spanish>
+            <German>Clone Wars HUD</German>
         </Key>
         <Key ID="str_cwh_compat_zen_disable">
             <English>Turn HUD off</English>
             <French>Désactiver le HUD</French>
+            <Spanish>Apagar el HUD</Spanish>
+            <German>HUD ausschalten</German>
         </Key>
         <Key ID="str_cwh_compat_zen_enable">
             <English>Turn HUD on</English>
             <French>Activer le HUD</French>
+            <Spanish>Encender el HUD</Spanish>
+            <German>HUD einschalten</German>
         </Key>
         <Key ID="str_cwh_compat_zen_message">
             <English>Message</English>
             <French>Message</French>
+            <Spanish>Mensaje</Spanish>
+            <German>Nachricht</German>
         </Key>
         <Key ID="str_cwh_compat_zen_noRecipient">
             <English>No player to send the notification to</English>
             <French>Aucun joueur à qui envoyer la notification</French>
+            <Spanish>Ningún jugador al que enviar la notificación</Spanish>
+            <German>Kein Spieler, an den die Benachrichtigung gesendet werden kann</German>
         </Key>
         <Key ID="str_cwh_compat_zen_notify">
             <English>HUD notification</English>
             <French>Notification HUD</French>
+            <Spanish>Notificación del HUD</Spanish>
+            <German>HUD-Benachrichtigung</German>
         </Key>
         <Key ID="str_cwh_compat_zen_recipients">
             <English>Recipients</English>
             <French>Destinataires</French>
+            <Spanish>Destinatarios</Spanish>
+            <German>Empfänger</German>
         </Key>
         <Key ID="str_cwh_compat_zen_repair">
             <English>Repair HUD</English>
             <French>Réparer le HUD</French>
+            <Spanish>Reparar el HUD</Spanish>
+            <German>HUD reparieren</German>
         </Key>
         <Key ID="str_cwh_compat_zen_selectPlayer">
             <English>Place the module on a player</English>
             <French>Placez le module sur un joueur</French>
+            <Spanish>Coloca el módulo sobre un jugador</Spanish>
+            <German>Platziere das Modul auf einem Spieler</German>
         </Key>
         <Key ID="str_cwh_compat_zen_toBlufor">
             <English>BLUFOR</English>
             <French>BLUFOR</French>
+            <Spanish>BLUFOR</Spanish>
+            <German>BLUFOR</German>
         </Key>
         <Key ID="str_cwh_compat_zen_toCivilian">
             <English>Civilians</English>
             <French>Civils</French>
+            <Spanish>Civiles</Spanish>
+            <German>Zivilisten</German>
         </Key>
         <Key ID="str_cwh_compat_zen_toEveryone">
             <English>Everyone</English>
             <French>Tout le monde</French>
+            <Spanish>Todos</Spanish>
+            <German>Alle</German>
         </Key>
         <Key ID="str_cwh_compat_zen_toGroup">
             <English>Group of the unit under the module</English>
             <French>Groupe de l'unité sous le module</French>
+            <Spanish>Grupo de la unidad bajo el módulo</Spanish>
+            <German>Gruppe der Einheit unter dem Modul</German>
         </Key>
         <Key ID="str_cwh_compat_zen_toIndependent">
             <English>Independent</English>
             <French>Indépendants</French>
+            <Spanish>Independientes</Spanish>
+            <German>Unabhängige</German>
         </Key>
         <Key ID="str_cwh_compat_zen_toOpfor">
             <English>OPFOR</English>
             <French>OPFOR</French>
+            <Spanish>OPFOR</Spanish>
+            <German>OPFOR</German>
         </Key>
         <Key ID="str_cwh_compat_zen_toPlayer">
             <English>Player under the module</English>
             <French>Joueur sous le module</French>
+            <Spanish>Jugador bajo el módulo</Spanish>
+            <German>Spieler unter dem Modul</German>
         </Key>
         <Key ID="str_cwh_compat_zen_type">
             <English>Type</English>
             <French>Type</French>
+            <Spanish>Tipo</Spanish>
+            <German>Typ</German>
         </Key>
         <Key ID="str_cwh_compat_zen_typeAlert">
             <English>Alert</English>
             <French>Alerte</French>
+            <Spanish>Alerta</Spanish>
+            <German>Alarm</German>
         </Key>
         <Key ID="str_cwh_compat_zen_typeInfo">
             <English>Info</English>
             <French>Info</French>
+            <Spanish>Info</Spanish>
+            <German>Info</German>
         </Key>
         <Key ID="str_cwh_compat_zen_typeSuccess">
             <English>Success</English>
             <French>Succès</French>
+            <Spanish>Éxito</Spanish>
+            <German>Erfolg</German>
         </Key>
         <Key ID="str_cwh_compat_zen_typeWarning">
             <English>Warning</English>
             <French>Avertissement</French>
+            <Spanish>Advertencia</Spanish>
+            <German>Warnung</German>
         </Key>
     </Package>
 </Project>

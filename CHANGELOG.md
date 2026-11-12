@@ -22,6 +22,7 @@ Complete rewrite of the mod.
 - **TFAR radio block**: short range radios and active long range radio, channel, frequency and additional channel, green while transmitting and amber while receiving. The TFAR hint is hidden while the HUD is shown
 - **Zeus Enhanced modules**: crack, repair, turn on / off the HUD of a player, send a HUD notification to a player, a group, a side or everyone
 - **Settings** to turn every block and effect on or off
+- **Translations**: German and Spanish, in addition to English and French
 - Passengers in FFV seats now have the HUD
 - The HUD is hidden while unconscious, in spectator mode and in the ACE arsenal
 
