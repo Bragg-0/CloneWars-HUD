@@ -1,0 +1,31 @@
+name: Release
+
+# Pushing a version tag (e.g. v4.0.0) builds the signed release and publishes it as a GitHub release.
+# The tag must match the version in addons/main/script_version.hpp.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup HEMTT
+        uses: arma-actions/hemtt@v1
+
+      - name: Release
+        run: hemtt release
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          # cwh-<version>.zip (cwh-latest.zip is the same file)
+          files: releases/cwh-[0-9]*.zip
+          fail_on_unmatched_files: true
+          generate_release_notes: true
