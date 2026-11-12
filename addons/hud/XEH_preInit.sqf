@@ -6,16 +6,46 @@ PREP_RECOMPILE_START;
 #include "XEH_PREP.hpp"
 PREP_RECOMPILE_END;
 
-// Categories for the settings
-private _categoryGlobal = QUOTE(MOD_NAME);
-private _categoryColors = [QUOTE(MOD_NAME), "Colors"];
-private _categoryListHelmets = [QUOTE(MOD_NAME), "Helmets"];
+// HUD types declared in config: type => [frame texture, color texture]
+GVAR(types) = createHashMap;
+{
+    GVAR(types) set [configName _x, [getText (_x >> "frame"), getText (_x >> "color")]];
+} forEach ("true" configClasses (configFile >> QGVAR(types)));
 
-// Default helmet lists
-private _listDefaultARFHelmet = str ["ls_gar_phase1Arf_helmet", "ls_gar_scout_helmet", "ls_gar_engineer_helmet", "ls_gar_phase1Arf_helmet", "ls_gar_phase2Arf_helmet", "ls_cloneHelmet_arf"];
-private _listDefaultBARCHelmet = str ["JLTS_CloneHelmetAB", "JLTS_CloneHelmetBARC", "ls_gar_barc_helmet", "ls_gar_airborne_helmet", "ls_cloneHelmet_airborne","ls_gar_phase2Insulated_helmet"];
-private _listDefaultP1Helmet = str ["ls_gar_phase1_helmet", "ls_gar_phase1Pilot_helmet", "ls_sob_phase1SpecOp_helmet", "ls_gar_rex_helmet","ls_sob_commando_helmet"];
-private _listDefaultP2Helmet = str ["JLTS_CloneHelmetP2", "JLTS_CloneHelmetP2MC", "JLTS_CloneHelmetP2_rework", "ls_gar_phase2_helmet", "ls_gar_phase2Pilot_helmet", "ls_sob_phase2SpecOp_helmet", "ls_cloneHelmet_phase2", "ls_cloneHelmet_phase2Pilot", "ls_cloneHelmet_arc", "ls_gar_arc_helmet"];
+// Caches
+GVAR(helmetCache) = createHashMap;     // helmet classname => HUD type ("" if none)
+GVAR(helmetRoots) = nil;               // built lazily from the settings, see fnc_getHelmetType
+GVAR(weaponInfoCache) = createHashMap; // weapon state => [icon, name, capacity, magazine icon, fire mode level]
+GVAR(grenadeColorCache) = createHashMap; // throwable magazine => color ([] if none)
+
+// Runtime state
+GVAR(unit) = objNull;          // Unit the HUD is currently attached to
+GVAR(visible) = false;         // Is the HUD currently drawn
+GVAR(type) = "";               // HUD type currently drawn
+GVAR(featureCamera) = "";      // Active feature camera (Zeus, Arsenal, spectator...)
+GVAR(nextSlowUpdate) = 0;
+GVAR(fireModeLevel) = 0;
+GVAR(ammoEmpty) = false;
+GVAR(ammoLow) = false;
+GVAR(healthRow1Low) = false;
+GVAR(healthRow2Warning) = false;
+GVAR(aceMedical) = isClass (configFile >> "CfgPatches" >> "ace_medical"); // Health block shows blood and pain
+GVAR(powered) = false;         // HUD enabled with a compatible helmet (drives the on / off sounds)
+GVAR(squadUnits) = [];         // Squad members to mark
+GVAR(currentColor) = [CWH_COLOR_DEFAULT]; // HUD color currently displayed (RGB cycle included)
+GVAR(squadStates) = createHashMap; // Squad member => 0 ok, 1 down, 2 killed (notifications)
+GVAR(compassWaypoint) = [];    // Position marked on the compass
+GVAR(layoutUnit) = [0, 0];     // UI units per design pixel [w, h], see fnc_layout
+GVAR(notifications) = [];      // [[text, color, start, end], ...] newest first
+GVAR(notificationFactor) = 1;  // Opacity of the notifications (setting and boot animation)
+GVAR(radioProviders) = [];     // Code returning the radio info, see fnc_updateRadio
+GVAR(radioStates) = [];        // State of each radio row: CWH_RADIO_IDLE / TRANSMITTING / RECEIVING
+GVAR(animating) = false;      // An effect (boot sequence, glitch) is playing
+GVAR(bootStart) = -1;          // Start time of the boot sequence, -1 if not playing
+GVAR(glitchEnd) = 0;           // End time of the glitch
+GVAR(repairing) = false;
+GVAR(lastHeadHitFrame) = -1;
+GVAR(layoutKey) = [];           // Screen + settings the current layout was computed for
 
 #include "initSettings.inc.sqf"
 #include "initKeybinds.inc.sqf"

@@ -4,26 +4,38 @@
         <Key ID="str_cwh_compat_ace_activate">
             <English>Activate</English>
             <French>Activer</French>
+            <Spanish>Activar</Spanish>
+            <German>Aktivieren</German>
         </Key>
         <Key ID="str_cwh_compat_ace_activatesunfilter">
             <English>Activate Sun Filter</English>
             <French>Activer le filtre solaire</French>
+            <Spanish>Activar filtro solar</Spanish>
+            <German>Sonnenfilter aktivieren</German>
         </Key>
         <Key ID="str_cwh_compat_ace_deactivate">
             <English>Deactivate</English>
             <French>Désactiver</French>
+            <Spanish>Desactivar</Spanish>
+            <German>Deaktivieren</German>
         </Key>
         <Key ID="str_cwh_compat_ace_deactivatesunfilter">
             <English>Deactivate Sun Filter</English>
             <French>Désactiver le filtre solaire</French>
+            <Spanish>Desactivar filtro solar</Spanish>
+            <German>Sonnenfilter deaktivieren</German>
         </Key>
         <Key ID="str_cwh_compat_ace_interaction">
             <English>HUD</English>
             <French>HUD</French>
+            <Spanish>HUD</Spanish>
+            <German>HUD</German>
         </Key>
         <Key ID="str_cwh_compat_ace_repair">
             <English>Repair</English>
             <French>Réparer</French>
+            <Spanish>Reparar</Spanish>
+            <German>Reparieren</German>
         </Key>
     </Package>
 </Project>

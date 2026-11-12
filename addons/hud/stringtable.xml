@@ -4,114 +4,480 @@
         <Key ID="str_cwh_hud_broken">
             <English>Your HUD is broken! Find a safe place to repair it.</English>
             <French>Votre HUD est endommagé ! Trouvez un endroit sûr pour le réparer.</French>
+            <Spanish>¡Tu HUD está dañado! Busca un lugar seguro para repararlo.</Spanish>
+            <German>Dein HUD ist beschädigt! Suche einen sicheren Ort, um es zu reparieren.</German>
         </Key>
         <Key ID="str_cwh_hud_repaired">
             <English>Your HUD has been repaired.</English>
             <French>Votre HUD a été réparé.</French>
+            <Spanish>Tu HUD ha sido reparado.</Spanish>
+            <German>Dein HUD wurde repariert.</German>
         </Key>
         <Key ID="str_cwh_hud_repairing">
             <English>Repairing HUD...</English>
             <French>Réparation du HUD...</French>
+            <Spanish>Reparando el HUD...</Spanish>
+            <German>HUD wird repariert...</German>
+        </Key>
+        <Key ID="str_cwh_hud_squadDown">
+            <English>%1 is down</English>
+            <French>%1 est à terre</French>
+            <Spanish>%1 está abatido</Spanish>
+            <German>%1 ist am Boden</German>
+        </Key>
+        <Key ID="str_cwh_hud_squadKilled">
+            <English>%1 is KIA</English>
+            <French>%1 a été tué</French>
+            <Spanish>%1 ha caído</Spanish>
+            <German>%1 ist gefallen</German>
         </Key>
     </Package>
     <Package name="CWH - Keybinds">
         <Key ID="str_cwh_hud_key_repair">
             <English>Repair HUD</English>
             <French>Réparer le HUD</French>
+            <Spanish>Reparar el HUD</Spanish>
+            <German>HUD reparieren</German>
         </Key>
         <Key ID="str_cwh_hud_key_repair_description">
             <English>This key repairs the HUD if it is broken.</English>
             <French>Cette touche répare le HUD s'il est endommagé.</French>
+            <Spanish>Esta tecla repara el HUD si está dañado.</Spanish>
+            <German>Diese Taste repariert das HUD, wenn es beschädigt ist.</German>
         </Key>
         <Key ID="str_cwh_hud_key_toggle">
             <English>Toggle HUD</English>
             <French>Afficher/Masquer le HUD</French>
+            <Spanish>Mostrar/ocultar el HUD</Spanish>
+            <German>HUD ein-/ausschalten</German>
         </Key>
         <Key ID="str_cwh_hud_key_toggleSunFilter">
             <English>Toggle Sun Filter</English>
             <French>Afficher/Masquer le filtre solaire</French>
+            <Spanish>Mostrar/ocultar el filtro solar</Spanish>
+            <German>Sonnenfilter ein-/ausschalten</German>
         </Key>
         <Key ID="str_cwh_hud_key_toggleSunFilter_description">
             <English>This key toggles the visibility of the sun filter.</English>
             <French>Cette touche permet d’afficher ou de masquer le filtre solaire.</French>
+            <Spanish>Esta tecla muestra u oculta el filtro solar.</Spanish>
+            <German>Diese Taste schaltet den Sonnenfilter ein oder aus.</German>
         </Key>
         <Key ID="str_cwh_hud_key_toggle_description">
             <English>This key toggles the visibility of the HUD.</English>
             <French>Cette touche permet d’afficher ou de masquer le HUD.</French>
+            <Spanish>Esta tecla muestra u oculta el HUD.</Spanish>
+            <German>Diese Taste blendet das HUD ein oder aus.</German>
         </Key>
     </Package>
     <Package name="CWH - Parameters">
         <Key ID="str_cwh_hud_brokenChance">
             <English>Breakage Chance</English>
             <French>Chance de fissure du HUD</French>
+            <Spanish>Probabilidad de rotura</Spanish>
+            <German>Bruchwahrscheinlichkeit</German>
         </Key>
         <Key ID="str_cwh_hud_brokenChance_description">
             <English>This slider controls the chance of the HUD displaying a crack on each head impact. The crack will be visible until the player repairs their helmet.</English>
             <French>Ce curseur contrôle la probabilité que le HUD affiche une fissure à chaque impact à la tête. La fissure sera visible jusqu'à ce que le joueur répare son casque.</French>
+            <Spanish>Probabilidad de que el HUD se agriete con cada impacto en la cabeza. La grieta permanece visible hasta que el jugador repare su casco.</Spanish>
+            <German>Wahrscheinlichkeit, dass das HUD bei jedem Kopftreffer einen Riss bekommt. Der Riss bleibt sichtbar, bis der Spieler seinen Helm repariert.</German>
         </Key>
         <Key ID="str_cwh_hud_color">
             <English>HUD Color</English>
             <French>Couleur du HUD</French>
+            <Spanish>Color del HUD</Spanish>
+            <German>HUD-Farbe</German>
         </Key>
         <Key ID="str_cwh_hud_color_description">
             <English>Change the color of the HUD.</English>
             <French>Change la couleur du HUD.</French>
+            <Spanish>Cambia el color del HUD.</Spanish>
+            <German>Ändert die Farbe des HUD.</German>
+        </Key>
+        <Key ID="str_cwh_hud_compassShowWaypoint">
+            <English>Waypoint on the compass</English>
+            <French>Waypoint sur la boussole</French>
+            <Spanish>Punto de ruta en la brújula</Spanish>
+            <German>Wegpunkt auf dem Kompass</German>
+        </Key>
+        <Key ID="str_cwh_hud_compassShowWaypoint_description">
+            <English>Shows on the compass your custom waypoint (Shift + click on the map), otherwise the current task destination, otherwise the group waypoint.</English>
+            <French>Affiche sur la boussole votre waypoint personnel (Maj + clic sur la carte), sinon la destination de la tâche en cours, sinon le waypoint du groupe.</French>
+            <Spanish>Muestra en la brújula tu punto de ruta personal (Mayús + clic en el mapa), si no el destino de la tarea actual, si no el punto de ruta del grupo.</Spanish>
+            <German>Zeigt auf dem Kompass deinen eigenen Wegpunkt (Umschalt + Klick auf die Karte), sonst das Ziel der aktuellen Aufgabe, sonst den Wegpunkt der Gruppe.</German>
+        </Key>
+        <Key ID="str_cwh_hud_compassSquad">
+            <English>Squad on the compass</English>
+            <French>Escouade sur la boussole</French>
+            <Spanish>Escuadra en la brújula</Spanish>
+            <German>Trupp auf dem Kompass</German>
+        </Key>
+        <Key ID="str_cwh_hud_compassSquad_description">
+            <English>Shows the direction of the members of your group on the compass.</English>
+            <French>Affiche la direction des membres de votre groupe sur la boussole.</French>
+            <Spanish>Muestra la dirección de los miembros de tu grupo en la brújula.</Spanish>
+            <German>Zeigt die Richtung der Mitglieder deiner Gruppe auf dem Kompass.</German>
+        </Key>
+        <Key ID="str_cwh_hud_enableBootAnimation">
+            <English>Boot sequence</English>
+            <French>Séquence de démarrage</French>
+            <Spanish>Secuencia de arranque</Spanish>
+            <German>Startsequenz</German>
+        </Key>
+        <Key ID="str_cwh_hud_enableBootAnimation_description">
+            <English>The HUD elements light up one after the other, flickering, when the HUD turns on.</English>
+            <French>Les éléments du HUD s'allument l'un après l'autre en scintillant quand le HUD s'active.</French>
+            <Spanish>Los elementos del HUD se encienden uno tras otro, parpadeando, al activar el HUD.</Spanish>
+            <German>Die Elemente des HUD leuchten beim Einschalten nacheinander flackernd auf.</German>
+        </Key>
+        <Key ID="str_cwh_hud_enableGlitch">
+            <English>Glitch when hit</English>
+            <French>Parasites quand vous êtes touché</French>
+            <Spanish>Interferencias al recibir impactos</Spanish>
+            <German>Störung bei Treffern</German>
+        </Key>
+        <Key ID="str_cwh_hud_enableGlitch_description">
+            <English>The HUD shakes and flickers briefly when you take damage.</English>
+            <French>Le HUD tremble et clignote brièvement quand vous subissez des dégâts.</French>
+            <Spanish>El HUD tiembla y parpadea brevemente cuando recibes daño.</Spanish>
+            <German>Das HUD wackelt und flackert kurz, wenn du Schaden nimmst.</German>
         </Key>
         <Key ID="str_cwh_hud_enableRGB">
             <English>Enable RGB HUD</English>
             <French>Activer le HUD RVB</French>
+            <Spanish>Activar HUD RGB</Spanish>
+            <German>RGB-HUD aktivieren</German>
         </Key>
         <Key ID="str_cwh_hud_enableRGB_description">
             <English>If enabled, the HUD will cycle through RGB colors. #RAINBOW</English>
             <French>Si activé, le HUD fera défiler les couleurs RVB. #RAINBOW</French>
+            <Spanish>Si está activado, el HUD recorre los colores RGB. #RAINBOW</Spanish>
+            <German>Wenn aktiviert, durchläuft das HUD die RGB-Farben. #RAINBOW</German>
+        </Key>
+        <Key ID="str_cwh_hud_enableSounds">
+            <English>HUD sounds</English>
+            <French>Sons du HUD</French>
+            <Spanish>Sonidos del HUD</Spanish>
+            <German>HUD-Sounds</German>
+        </Key>
+        <Key ID="str_cwh_hud_enableSounds_description">
+            <English>Sounds when the HUD turns on or off, when you are hit, when ammo is low and when the HUD cracks or is repaired.</English>
+            <French>Sons à l'allumage et à l'extinction du HUD, quand vous êtes touché, quand les munitions sont basses et quand le HUD se fissure ou est réparé.</French>
+            <Spanish>Sonidos al encender o apagar el HUD, al recibir impactos, con poca munición y cuando el HUD se agrieta o se repara.</Spanish>
+            <German>Sounds beim Ein- und Ausschalten des HUD, bei Treffern, bei wenig Munition und wenn das HUD beschädigt oder repariert wird.</German>
         </Key>
         <Key ID="str_cwh_hud_enablebydefault">
             <English>Enable HUD by default</English>
             <French>Activer le HUD par défaut</French>
+            <Spanish>Activar el HUD por defecto</Spanish>
+            <German>HUD standardmäßig aktivieren</German>
         </Key>
         <Key ID="str_cwh_hud_enablebydefault_description">
             <English>If enabled, the HUD will be active when the mission starts.</English>
             <French>Si activé, le HUD sera actif au début de la mission.</French>
+            <Spanish>Si está activado, el HUD estará activo al inicio de la misión.</Spanish>
+            <German>Wenn aktiviert, ist das HUD zu Beginn der Mission aktiv.</German>
         </Key>
         <Key ID="str_cwh_hud_enablethirdperson">
             <English>Enable in third person view</English>
             <French>Activer dans la vue à la troisième personne</French>
+            <Spanish>Activar en tercera persona</Spanish>
+            <German>In der Third-Person-Ansicht aktivieren</German>
         </Key>
         <Key ID="str_cwh_hud_enablethirdperson_description">
             <English>If enabled, the HUD will also be displayed in third person view.</English>
             <French>Si activé, le HUD sera également affiché en vue à la troisième personne.</French>
+            <Spanish>Si está activado, el HUD también se mostrará en la vista en tercera persona.</Spanish>
+            <German>Wenn aktiviert, wird das HUD auch in der Third-Person-Ansicht angezeigt.</German>
+        </Key>
+        <Key ID="str_cwh_hud_health_blood">
+            <English>BLOOD</English>
+            <French>SANG</French>
+            <Spanish>SANGRE</Spanish>
+            <German>BLUT</German>
+        </Key>
+        <Key ID="str_cwh_hud_health_health">
+            <English>HEALTH</English>
+            <French>SANTÉ</French>
+            <Spanish>SALUD</Spanish>
+            <German>LEBEN</German>
+        </Key>
+        <Key ID="str_cwh_hud_health_pain">
+            <English>PAIN</English>
+            <French>DOULEUR</French>
+            <Spanish>DOLOR</Spanish>
+            <German>SCHMERZ</German>
+        </Key>
+        <Key ID="str_cwh_hud_health_stamina">
+            <English>STAMINA</English>
+            <French>ENDUR.</French>
+            <Spanish>RESIST.</Spanish>
+            <German>AUSDAUER</German>
+        </Key>
+        <Key ID="str_cwh_hud_hideInVisionModes">
+            <English>Hide in night/thermal vision</English>
+            <French>Masquer en vision nocturne/thermique</French>
+            <Spanish>Ocultar con visión nocturna/térmica</Spanish>
+            <German>Bei Nacht-/Wärmesicht ausblenden</German>
+        </Key>
+        <Key ID="str_cwh_hud_hideInVisionModes_description">
+            <English>If enabled, the HUD is hidden while night vision or thermal vision is active.</English>
+            <French>Si activé, le HUD est masqué lorsque la vision nocturne ou thermique est active.</French>
+            <Spanish>Si está activado, el HUD se oculta mientras la visión nocturna o térmica esté activa.</Spanish>
+            <German>Wenn aktiviert, wird das HUD ausgeblendet, solange Nacht- oder Wärmesicht aktiv ist.</German>
         </Key>
         <Key ID="str_cwh_hud_listARFHelmet">
             <English>List of ARF Helmets</English>
             <French>Liste des casques ARF</French>
+            <Spanish>Lista de cascos ARF</Spanish>
+            <German>Liste der ARF-Helme</German>
         </Key>
         <Key ID="str_cwh_hud_listARFHelmet_description">
             <English>You can add ARF helmets. Format: ["classname1", "classname2", ...] (All inherited helmets will also be included.)</English>
             <French>Vous pouvez ajouter des casques ARF. Format : ["classname1", "classname2", ...] (Tous les casques hérités seront également inclus.)</French>
+            <Spanish>Puedes añadir cascos ARF. Formato: ["clase1", "clase2", ...] (También se incluyen todos los cascos heredados.)</Spanish>
+            <German>Du kannst ARF-Helme hinzufügen. Format: ["klassenname1", "klassenname2", ...] (Alle abgeleiteten Helme werden ebenfalls berücksichtigt.)</German>
         </Key>
         <Key ID="str_cwh_hud_listbarchelmet">
             <English>List of BARC Helmets</English>
             <French>Liste des casques BARC</French>
+            <Spanish>Lista de cascos BARC</Spanish>
+            <German>Liste der BARC-Helme</German>
         </Key>
         <Key ID="str_cwh_hud_listbarchelmet_description">
             <English>You can add BARC helmets. Format: ["classname1", "classname2", ...] (All inherited helmets will also be included.)</English>
             <French>Vous pouvez ajouter des casques BARC. Format : ["classname1", "classname2", ...] (Tous les casques hérités seront également inclus.)</French>
+            <Spanish>Puedes añadir cascos BARC. Formato: ["clase1", "clase2", ...] (También se incluyen todos los cascos heredados.)</Spanish>
+            <German>Du kannst BARC-Helme hinzufügen. Format: ["klassenname1", "klassenname2", ...] (Alle abgeleiteten Helme werden ebenfalls berücksichtigt.)</German>
         </Key>
         <Key ID="str_cwh_hud_listp1helmet">
             <English>List of Phase 1 Helmets</English>
             <French>Liste des casques Phase 1</French>
+            <Spanish>Lista de cascos Fase 1</Spanish>
+            <German>Liste der Phase-1-Helme</German>
         </Key>
         <Key ID="str_cwh_hud_listp1helmet_description">
             <English>You can add Phase 1 helmets. Format: ["classname1", "classname2", ...] (All inherited helmets will also be included.)</English>
             <French>Vous pouvez ajouter des casques Phase 1. Format : ["classname1", "classname2", ...] (Tous les casques hérités seront également inclus.)</French>
+            <Spanish>Puedes añadir cascos Fase 1. Formato: ["clase1", "clase2", ...] (También se incluyen todos los cascos heredados.)</Spanish>
+            <German>Du kannst Phase-1-Helme hinzufügen. Format: ["klassenname1", "klassenname2", ...] (Alle abgeleiteten Helme werden ebenfalls berücksichtigt.)</German>
         </Key>
         <Key ID="str_cwh_hud_listp2helmet">
             <English>List of Phase 2 Helmets</English>
             <French>Liste des casques Phase 2</French>
+            <Spanish>Lista de cascos Fase 2</Spanish>
+            <German>Liste der Phase-2-Helme</German>
         </Key>
         <Key ID="str_cwh_hud_listp2helmet_description">
             <English>You can add Phase 2 helmets. Format: ["classname1", "classname2", ...] (All inherited helmets will also be included.)</English>
             <French>Vous pouvez ajouter des casques Phase 2. Format : ["classname1", "classname2", ...] (Tous les casques hérités seront également inclus.)</French>
+            <Spanish>Puedes añadir cascos Fase 2. Formato: ["clase1", "clase2", ...] (También se incluyen todos los cascos heredados.)</Spanish>
+            <German>Du kannst Phase-2-Helme hinzufügen. Format: ["klassenname1", "klassenname2", ...] (Alle abgeleiteten Helme werden ebenfalls berücksichtigt.)</German>
+        </Key>
+        <Key ID="str_cwh_hud_lowAmmoThreshold">
+            <English>Low ammo warning</English>
+            <French>Alerte munitions basses</French>
+            <Spanish>Aviso de poca munición</Spanish>
+            <German>Warnung bei wenig Munition</German>
+        </Key>
+        <Key ID="str_cwh_hud_lowAmmoThreshold_description">
+            <English>The ammo counter blinks orange when the magazine is at or below this level. 0% disables the warning.</English>
+            <French>Le compteur de munitions clignote en orange quand le chargeur est à ce niveau ou en dessous. 0 % désactive l'alerte.</French>
+            <Spanish>El contador de munición parpadea en naranja cuando el cargador está en este nivel o por debajo. 0 % desactiva el aviso.</Spanish>
+            <German>Der Munitionszähler blinkt orange, wenn das Magazin diesen Füllstand erreicht oder unterschreitet. 0 % deaktiviert die Warnung.</German>
+        </Key>
+        <Key ID="str_cwh_hud_notificationDuration">
+            <English>Notification duration</English>
+            <French>Durée des notifications</French>
+            <Spanish>Duración de las notificaciones</Spanish>
+            <German>Dauer der Benachrichtigungen</German>
+        </Key>
+        <Key ID="str_cwh_hud_notificationDuration_description">
+            <English>Time in seconds a notification stays on screen.</English>
+            <French>Temps en secondes pendant lequel une notification reste affichée.</French>
+            <Spanish>Tiempo en segundos que una notificación permanece en pantalla.</Spanish>
+            <German>Zeit in Sekunden, die eine Benachrichtigung angezeigt wird.</German>
+        </Key>
+        <Key ID="str_cwh_hud_notifySquad">
+            <English>Squad alerts</English>
+            <French>Alertes d'escouade</French>
+            <Spanish>Alertas de escuadra</Spanish>
+            <German>Trupp-Warnungen</German>
+        </Key>
+        <Key ID="str_cwh_hud_notifySquad_description">
+            <English>Notification when a member of your group goes down or is killed.</English>
+            <French>Notification quand un membre de votre groupe tombe inconscient ou est tué.</French>
+            <Spanish>Notificación cuando un miembro de tu grupo cae inconsciente o muere.</Spanish>
+            <German>Benachrichtigung, wenn ein Mitglied deiner Gruppe zu Boden geht oder getötet wird.</German>
+        </Key>
+        <Key ID="str_cwh_hud_opacity">
+            <English>HUD opacity</English>
+            <French>Opacité du HUD</French>
+            <Spanish>Opacidad del HUD</Spanish>
+            <German>HUD-Deckkraft</German>
+        </Key>
+        <Key ID="str_cwh_hud_opacity_description">
+            <English>Opacity of the HUD info elements (weapon, grenades, heading). The visor is not affected.</English>
+            <French>Opacité des éléments d'information du HUD (arme, grenades, cap). La visière n'est pas affectée.</French>
+            <Spanish>Opacidad de los elementos de información del HUD (arma, granadas, rumbo). El visor no se ve afectado.</Spanish>
+            <German>Deckkraft der Informationselemente des HUD (Waffe, Granaten, Richtung). Das Visier ist nicht betroffen.</German>
+        </Key>
+        <Key ID="str_cwh_hud_repairTime">
+            <English>Repair time</English>
+            <French>Durée de réparation</French>
+            <Spanish>Tiempo de reparación</Spanish>
+            <German>Reparaturdauer</German>
+        </Key>
+        <Key ID="str_cwh_hud_repairTime_description">
+            <English>Time in seconds needed to repair a cracked HUD.</English>
+            <French>Temps en secondes nécessaire pour réparer un HUD fissuré.</French>
+            <Spanish>Tiempo en segundos necesario para reparar un HUD agrietado.</Spanish>
+            <German>Zeit in Sekunden, die zum Reparieren eines beschädigten HUD benötigt wird.</German>
+        </Key>
+        <Key ID="str_cwh_hud_scale">
+            <English>HUD scale</English>
+            <French>Taille du HUD</French>
+            <Spanish>Tamaño del HUD</Spanish>
+            <German>HUD-Größe</German>
+        </Key>
+        <Key ID="str_cwh_hud_scale_description">
+            <English>Size of the HUD info elements (weapon, grenades, heading). The visor is not affected.</English>
+            <French>Taille des éléments d'information du HUD (arme, grenades, cap). La visière n'est pas affectée.</French>
+            <Spanish>Tamaño de los elementos de información del HUD (arma, granadas, rumbo). El visor no se ve afectado.</Spanish>
+            <German>Größe der Informationselemente des HUD (Waffe, Granaten, Richtung). Das Visier ist nicht betroffen.</German>
+        </Key>
+        <Key ID="str_cwh_hud_showGrenade">
+            <English>Show grenade block</English>
+            <French>Afficher le bloc grenades</French>
+            <Spanish>Mostrar el bloque de granadas</Spanish>
+            <German>Granatenblock anzeigen</German>
+        </Key>
+        <Key ID="str_cwh_hud_showGrenade_description">
+            <English>Selected grenade and how many are left.</English>
+            <French>Grenade sélectionnée et nombre restant.</French>
+            <Spanish>Granada seleccionada y cuántas quedan.</Spanish>
+            <German>Ausgewählte Granate und verbleibende Anzahl.</German>
+        </Key>
+        <Key ID="str_cwh_hud_showHeading">
+            <English>Show heading</English>
+            <French>Afficher le cap</French>
+            <Spanish>Mostrar la brújula</Spanish>
+            <German>Kompass anzeigen</German>
+        </Key>
+        <Key ID="str_cwh_hud_showHeading_description">
+            <English>Direction you are looking at, in degrees.</English>
+            <French>Direction du regard, en degrés.</French>
+            <Spanish>Dirección en la que miras, en grados.</Spanish>
+            <German>Blickrichtung in Grad.</German>
+        </Key>
+        <Key ID="str_cwh_hud_showHealth">
+            <English>Show health block</English>
+            <French>Afficher le bloc santé</French>
+            <Spanish>Mostrar el bloque de salud</Spanish>
+            <German>Gesundheitsblock anzeigen</German>
+        </Key>
+        <Key ID="str_cwh_hud_showHealth_description">
+            <English>Health and stamina. With ACE medical: blood volume and pain.</English>
+            <French>Santé et endurance. Avec ACE médical : volume de sang et douleur.</French>
+            <Spanish>Salud y resistencia. Con ACE Medical: volumen de sangre y dolor.</Spanish>
+            <German>Leben und Ausdauer. Mit ACE Medical: Blutvolumen und Schmerz.</German>
+        </Key>
+        <Key ID="str_cwh_hud_showNotifications">
+            <English>Show notifications</English>
+            <French>Afficher les notifications</French>
+            <Spanish>Mostrar las notificaciones</Spanish>
+            <German>Benachrichtigungen anzeigen</German>
+        </Key>
+        <Key ID="str_cwh_hud_showNotifications_description">
+            <English>HUD messages under the compass. If disabled, or when the HUD is not shown, CBA notifications are used instead.</English>
+            <French>Messages du HUD sous la boussole. Si désactivé, ou quand le HUD n'est pas affiché, les notifications CBA sont utilisées à la place.</French>
+            <Spanish>Mensajes del HUD bajo la brújula. Si se desactiva, o cuando el HUD no se muestra, se usan las notificaciones de CBA.</Spanish>
+            <German>HUD-Nachrichten unter dem Kompass. Wenn deaktiviert oder wenn das HUD nicht angezeigt wird, werden stattdessen CBA-Benachrichtigungen verwendet.</German>
+        </Key>
+        <Key ID="str_cwh_hud_showRadio">
+            <English>Show radio block</English>
+            <French>Afficher le bloc radio</French>
+            <Spanish>Mostrar el bloque de radio</Spanish>
+            <German>Funkblock anzeigen</German>
+        </Key>
+        <Key ID="str_cwh_hud_showRadio_description">
+            <English>Short range radios (active first) and active long range radio, with channel and frequency, lit while transmitting. Requires TFAR.</English>
+            <French>Radios courte portée (active en premier) et radio longue portée active, avec canal et fréquence, allumées pendant les transmissions. Nécessite TFAR.</French>
+            <Spanish>Radios de corto alcance (la activa primero) y radio de largo alcance activa, con canal y frecuencia, se ilumina al transmitir. Requiere TFAR.</Spanish>
+            <German>Kurzstreckenfunkgeräte (aktives zuerst) und aktives Langstreckenfunkgerät, mit Kanal und Frequenz, leuchtet beim Senden. Benötigt TFAR.</German>
+        </Key>
+        <Key ID="str_cwh_hud_showSquad">
+            <English>Show squad markers</English>
+            <French>Afficher les marqueurs d'escouade</French>
+            <Spanish>Mostrar los marcadores de escuadra</Spanish>
+            <German>Trupp-Markierungen anzeigen</German>
+        </Key>
+        <Key ID="str_cwh_hud_showSquad_description">
+            <English>Marks the members of your group with a small icon in the HUD color. It blinks orange if they are unconscious.</English>
+            <French>Marque les membres de votre groupe avec une petite icône de la couleur du HUD. Elle clignote en orange s'ils sont inconscients.</French>
+            <Spanish>Marca a los miembros de tu grupo con un pequeño icono del color del HUD. Parpadea en naranja si están inconscientes.</Spanish>
+            <German>Markiert die Mitglieder deiner Gruppe mit einem kleinen Symbol in der HUD-Farbe. Es blinkt orange, wenn sie bewusstlos sind.</German>
+        </Key>
+        <Key ID="str_cwh_hud_showWeapon">
+            <English>Show weapon block</English>
+            <French>Afficher le bloc arme</French>
+            <Spanish>Mostrar el bloque de arma</Spanish>
+            <German>Waffenblock anzeigen</German>
+        </Key>
+        <Key ID="str_cwh_hud_showWeapon_description">
+            <English>Weapon name, ammunition, fire mode and magazines. If disabled, the vanilla weapon info stays visible.</English>
+            <French>Nom de l'arme, munitions, mode de tir et chargeurs. Si désactivé, l'info arme d'Arma reste visible.</French>
+            <Spanish>Nombre del arma, munición, modo de disparo y cargadores. Si se desactiva, la información del arma original sigue visible.</Spanish>
+            <German>Waffenname, Munition, Feuermodus und Magazine. Wenn deaktiviert, bleibt die Standard-Waffenanzeige sichtbar.</German>
+        </Key>
+        <Key ID="str_cwh_hud_soundVolume">
+            <English>HUD sounds volume</English>
+            <French>Volume des sons du HUD</French>
+            <Spanish>Volumen de los sonidos del HUD</Spanish>
+            <German>Lautstärke der HUD-Sounds</German>
+        </Key>
+        <Key ID="str_cwh_hud_soundVolume_description">
+            <English>Volume of the HUD sounds.</English>
+            <French>Volume des sons du HUD.</French>
+            <Spanish>Volumen de los sonidos del HUD.</Spanish>
+            <German>Lautstärke der HUD-Sounds.</German>
+        </Key>
+        <Key ID="str_cwh_hud_squadMaxDistance">
+            <English>Squad markers range</English>
+            <French>Portée des marqueurs d'escouade</French>
+            <Spanish>Alcance de los marcadores de escuadra</Spanish>
+            <German>Reichweite der Trupp-Markierungen</German>
+        </Key>
+        <Key ID="str_cwh_hud_squadMaxDistance_description">
+            <English>Distance in meters beyond which squad members are no longer marked.</English>
+            <French>Distance en mètres au-delà de laquelle les membres de l'escouade ne sont plus marqués.</French>
+            <Spanish>Distancia en metros a partir de la cual los miembros de la escuadra dejan de marcarse.</Spanish>
+            <German>Entfernung in Metern, ab der Truppmitglieder nicht mehr markiert werden.</German>
+        </Key>
+        <Key ID="str_cwh_hud_squadTeamColors">
+            <English>Squad markers in team colors</English>
+            <French>Marqueurs d'escouade aux couleurs d'équipe</French>
+            <Spanish>Marcadores de escuadra con colores de equipo</Spanish>
+            <German>Trupp-Markierungen in Teamfarben</German>
+        </Key>
+        <Key ID="str_cwh_hud_squadTeamColors_description">
+            <English>If enabled, the markers use the color of the member's team (red, green, blue, yellow) instead of the HUD color.</English>
+            <French>Si activé, les marqueurs prennent la couleur de l'équipe du coéquipier (rouge, vert, bleu, jaune) au lieu de la couleur du HUD.</French>
+            <Spanish>Si está activado, los marcadores usan el color del equipo del miembro (rojo, verde, azul, amarillo) en lugar del color del HUD.</Spanish>
+            <German>Wenn aktiviert, verwenden die Markierungen die Farbe des Teams des Mitglieds (rot, grün, blau, gelb) statt der HUD-Farbe.</German>
+        </Key>
+        <Key ID="str_cwh_hud_sunFilterByDefault">
+            <English>Enable sun filter by default</English>
+            <French>Activer le filtre solaire par défaut</French>
+            <Spanish>Activar el filtro solar por defecto</Spanish>
+            <German>Sonnenfilter standardmäßig aktivieren</German>
+        </Key>
+        <Key ID="str_cwh_hud_sunFilterByDefault_description">
+            <English>If enabled, the sun filter (darker visor) will be active when the mission starts.</English>
+            <French>Si activé, le filtre solaire (visière assombrie) sera actif au début de la mission.</French>
+            <Spanish>Si está activado, el filtro solar (visor más oscuro) estará activo al inicio de la misión.</Spanish>
+            <German>Wenn aktiviert, ist der Sonnenfilter (dunkleres Visier) zu Beginn der Mission aktiv.</German>
         </Key>
     </Package>
 </Project>

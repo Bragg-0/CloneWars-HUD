@@ -4,6 +4,8 @@
         <Key ID="str_cwh_main_url">
             <English>https://github.com/Bragg-0/CloneWars-HUD</English>
             <French>https://github.com/Bragg-0/CloneWars-HUD</French>
+            <Spanish>https://github.com/Bragg-0/CloneWars-HUD</Spanish>
+            <German>https://github.com/Bragg-0/CloneWars-HUD</German>
         </Key>
     </Package>
 </Project>

@@ -20,3 +20,5 @@ releases
 
 # Dossiers de l'éditeur de code 
 .vscode
+# Sauvegardes automatiques de l'éditeur Eden
+.hemtt/missions/~*

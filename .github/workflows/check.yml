@@ -1,0 +1,23 @@
+name: Check
+
+# Lints and builds the mod on every push and pull request
+on:
+  push:
+    branches: [main, v4]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup HEMTT
+        uses: arma-actions/hemtt@v1
+
+      - name: Check
+        run: hemtt check
+
+      - name: Build
+        run: hemtt build
