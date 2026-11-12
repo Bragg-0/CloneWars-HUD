@@ -4,13 +4,17 @@
 
 .DESCRIPTION
     Needs the PNG versions of the textures: run tools/generate_textures.ps1 first.
-    Output: .hemttout/showcase/showcase_v4.jpg
+    Output: .hemttout/showcase/showcase.jpg, or showcase_<version>.jpg with -Version
+    -Version adds a release line under the title (e.g. -Version "4.0" -Subtitle "COMPLETE REWRITE").
 
     Usage (from the repository root):
         pwsh tools/generate_textures.ps1 -PreviewOnly
         pwsh tools/generate_showcase.ps1
+        pwsh tools/generate_showcase.ps1 -Version "4.0" -Subtitle "COMPLETE REWRITE"
 #>
 param(
+    [string]$Version = "",
+    [string]$Subtitle = "",
     [string]$TextureDir = (Join-Path $PSScriptRoot '..\.hemttout\textures'),
     [string]$OutDir = (Join-Path $PSScriptRoot '..\.hemttout\showcase')
 )
@@ -102,10 +106,11 @@ $glowBrush.Dispose()
 
 Draw-Texture (Join-Path $root 'logo_ca.png') 110 70 330 330
 Draw-Text 'CLONEWARS HUD' 112 420 84 'Bold'
-Draw-Text '4.0  ·  COMPLETE REWRITE' 116 520 34 'Regular' $lightBlue
+$tagline = if ($Version -ne "") { (@($Version, $Subtitle) | Where-Object { $_ -ne "" }) -join "  ·  " } else { "IMMERSIVE CLONE TROOPER HELMET HUD" }
+Draw-Text $tagline 116 520 34 "Regular" $lightBlue
 
 $features = @(
-    'Original HUD for Phase I, Phase II, ARF and BARC helmets',
+    "Visors for Phase I, Phase II, ARF and BARC helmets",
     'Compass strip with squad and waypoint',
     'Weapon, grenade and health blocks',
     'TFAR radio: channels, transmit and receive',
@@ -218,7 +223,7 @@ Draw-Text 'Requires CBA_A3  ·  Optional: ACE3, TFAR, Zeus Enhanced' 112 1020 24
 
 $g.Dispose()
 
-$output = Join-Path $OutDir 'showcase_v4.jpg'
+$output = Join-Path $OutDir ($(if ($Version -ne "") { "showcase_$Version.jpg" } else { "showcase.jpg" }))
 $codec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object MimeType -eq 'image/jpeg'
 $quality = [System.Drawing.Imaging.EncoderParameters]::new(1)
 $quality.Param[0] = [System.Drawing.Imaging.EncoderParameter]::new([System.Drawing.Imaging.Encoder]::Quality, [long]92)
