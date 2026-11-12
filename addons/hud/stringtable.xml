@@ -13,6 +13,14 @@
             <English>Repairing HUD...</English>
             <French>Réparation du HUD...</French>
         </Key>
+        <Key ID="str_cwh_hud_squadDown">
+            <English>%1 is down</English>
+            <French>%1 est à terre</French>
+        </Key>
+        <Key ID="str_cwh_hud_squadKilled">
+            <English>%1 is KIA</English>
+            <French>%1 a été tué</French>
+        </Key>
     </Package>
     <Package name="CWH - Keybinds">
         <Key ID="str_cwh_hud_key_repair">
@@ -56,6 +64,22 @@
         <Key ID="str_cwh_hud_color_description">
             <English>Change the color of the HUD.</English>
             <French>Change la couleur du HUD.</French>
+        </Key>
+        <Key ID="str_cwh_hud_compassShowWaypoint">
+            <English>Waypoint on the compass</English>
+            <French>Waypoint sur la boussole</French>
+        </Key>
+        <Key ID="str_cwh_hud_compassShowWaypoint_description">
+            <English>Shows on the compass your custom waypoint (Shift + click on the map), otherwise the current task destination, otherwise the group waypoint.</English>
+            <French>Affiche sur la boussole votre waypoint personnel (Maj + clic sur la carte), sinon la destination de la tâche en cours, sinon le waypoint du groupe.</French>
+        </Key>
+        <Key ID="str_cwh_hud_compassSquad">
+            <English>Squad on the compass</English>
+            <French>Escouade sur la boussole</French>
+        </Key>
+        <Key ID="str_cwh_hud_compassSquad_description">
+            <English>Shows the direction of the members of your group on the compass.</English>
+            <French>Affiche la direction des membres de votre groupe sur la boussole.</French>
         </Key>
         <Key ID="str_cwh_hud_enableBootAnimation">
             <English>Boot sequence</English>
@@ -169,6 +193,22 @@
             <English>The ammo counter blinks orange when the magazine is at or below this level. 0% disables the warning.</English>
             <French>Le compteur de munitions clignote en orange quand le chargeur est à ce niveau ou en dessous. 0 % désactive l'alerte.</French>
         </Key>
+        <Key ID="str_cwh_hud_notificationDuration">
+            <English>Notification duration</English>
+            <French>Durée des notifications</French>
+        </Key>
+        <Key ID="str_cwh_hud_notificationDuration_description">
+            <English>Time in seconds a notification stays on screen.</English>
+            <French>Temps en secondes pendant lequel une notification reste affichée.</French>
+        </Key>
+        <Key ID="str_cwh_hud_notifySquad">
+            <English>Squad alerts</English>
+            <French>Alertes d'escouade</French>
+        </Key>
+        <Key ID="str_cwh_hud_notifySquad_description">
+            <English>Notification when a member of your group goes down or is killed.</English>
+            <French>Notification quand un membre de votre groupe tombe inconscient ou est tué.</French>
+        </Key>
         <Key ID="str_cwh_hud_opacity">
             <English>HUD opacity</English>
             <French>Opacité du HUD</French>
@@ -216,6 +256,22 @@
         <Key ID="str_cwh_hud_showHealth_description">
             <English>Health and stamina. With ACE medical: blood volume and pain.</English>
             <French>Santé et endurance. Avec ACE médical : volume de sang et douleur.</French>
+        </Key>
+        <Key ID="str_cwh_hud_showNotifications">
+            <English>Show notifications</English>
+            <French>Afficher les notifications</French>
+        </Key>
+        <Key ID="str_cwh_hud_showNotifications_description">
+            <English>HUD messages under the compass. If disabled, or when the HUD is not shown, CBA notifications are used instead.</English>
+            <French>Messages du HUD sous la boussole. Si désactivé, ou quand le HUD n'est pas affiché, les notifications CBA sont utilisées à la place.</French>
+        </Key>
+        <Key ID="str_cwh_hud_showRadio">
+            <English>Show radio block</English>
+            <French>Afficher le bloc radio</French>
+        </Key>
+        <Key ID="str_cwh_hud_showRadio_description">
+            <English>Short range radios (active first) and active long range radio, with channel and frequency, lit while transmitting. Requires TFAR.</English>
+            <French>Radios courte portée (active en premier) et radio longue portée active, avec canal et fréquence, allumées pendant les transmissions. Nécessite TFAR.</French>
         </Key>
         <Key ID="str_cwh_hud_showSquad">
             <English>Show squad markers</English>

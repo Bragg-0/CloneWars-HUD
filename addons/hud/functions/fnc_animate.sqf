@@ -20,7 +20,8 @@ Author:
 private _now = diag_tickTime;
 private _active = false;
 private _offset = [0, 0];
-private _factors = [1, 1, 1, 1];
+private _factors = [];
+_factors resize [CWH_BLOCK_COUNT, 1];
 private _colorFade = 0;
 
 // Boot sequence
@@ -30,7 +31,8 @@ if (GVAR(bootStart) >= 0) then {
         GVAR(bootStart) = -1;
     } else {
         _active = true;
-        _factors = [0, 1, 2, 3] apply {
+        // Lighting order of each block (see CWH_BLOCK_*): weapon, grenade, heading, health, radio, notifications
+        _factors = [0, 1, 2, 3, 1.5, 2] apply {
             private _progress = (((_elapsed - _x * CWH_BOOT_STAGGER) / CWH_BOOT_FADE) max 0) min 1;
             // Flicker while lighting up
             if (_progress < 1 && {random 1 < 0.35}) then {_progress * 0.3} else {_progress}

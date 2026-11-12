@@ -144,25 +144,93 @@ Add-Line $g (New-Path @(10,19, 20,9) $false) 1 200 $false
 
 Save-Texture $c 'grenade_frame_ca'
 
-# --- Heading block: 192x48 design px -> 512x128 -------------------------------
+# --- Compass: frame 512x64 design px -> 1024x128 -----------------------------
+# The graduated strip scrolls inside the window (x 16..496, y 3..33) of this frame.
 
-$c = New-Canvas 512 128 192
+$c = New-Canvas 1024 128 512
 $g = $c.G
 
-$outline = New-Path @(22,6, 170,6, 186,24, 170,42, 22,42, 6,24)
-Add-Fill $g $outline
+$outline = New-Path @(14,2, 498,2, 510,18, 498,34, 300,34, 292,58, 220,58, 212,34, 14,34, 2,18)
+Add-Fill $g $outline 120
 Add-Line $g $outline
 
-# Heading marker (top center) and side ticks
-$marker = New-Path @(90,6, 102,6, 96,13)
+# Center pointer
+$marker = New-Path @(248,1, 264,1, 256,11)
 $brush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::White)
 $g.FillPath($brush, $marker)
 $brush.Dispose()
-Add-Line $g (New-Path @(14,24, 24,24) $false) 1.2 200 $false
-Add-Line $g (New-Path @(168,24, 178,24) $false) 1.2 200 $false
-Add-Line $g (New-Path @(80,42, 112,42) $false) 3.5
+# End brackets
+Add-Line $g (New-Path @(8,18, 16,18) $false) 1.2 200 $false
+Add-Line $g (New-Path @(496,18, 504,18) $false) 1.2 200 $false
+Add-Line $g (New-Path @(236,58, 276,58) $false) 3.5
 
-Save-Texture $c 'dir_frame_ca'
+Save-Texture $c 'compass_frame_ca'
+
+# --- Compass strip: -60 to 420 degrees, 4 design px per degree ---------------
+# 1920x30 design px -> 2048x32. White, drawn over the dark compass frame.
+
+$c = New-Canvas 2048 32 1920
+$g = $c.G
+$g.TextRenderingHint = [System.Drawing.Text.TextRenderingHint]::AntiAliasGridFit
+$format = [System.Drawing.StringFormat]::new()
+$format.Alignment = [System.Drawing.StringAlignment]::Center
+$white = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::White)
+$grey = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(200, 255, 255, 255))
+$fontCardinal = [System.Drawing.Font]::new('Arial', 13, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
+$fontNumber = [System.Drawing.Font]::new('Arial', 10, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Pixel)
+$cardinals = @{ 0 = 'N'; 45 = 'NE'; 90 = 'E'; 135 = 'SE'; 180 = 'S'; 225 = 'SW'; 270 = 'W'; 315 = 'NW' }
+
+for ($degree = -60; $degree -le 420; $degree += 5) {
+    $x = ($degree + 60) * 4
+    $heading = (($degree % 360) + 360) % 360
+    if ($heading % 45 -eq 0) {
+        Add-Rect $g ($x - 1) 17 2 13 255
+        $g.DrawString($cardinals[$heading], $fontCardinal, $white, [single]$x, [single]0, $format)
+    } elseif ($heading % 15 -eq 0) {
+        Add-Rect $g ($x - 0.75) 22 1.5 8 220
+        $g.DrawString("$heading", $fontNumber, $grey, [single]$x, [single]4, $format)
+    } else {
+        Add-Rect $g ($x - 0.5) 26 1 4 170
+    }
+}
+$white.Dispose(); $grey.Dispose(); $fontCardinal.Dispose(); $fontNumber.Dispose()
+
+Save-Texture $c 'compass_strip_ca'
+
+# --- Compass waypoint marker: 32x32 -----------------------------------------
+
+$c = New-Canvas 64 64 32
+$g = $c.G
+Add-Line $g (New-Path @(16,3, 29,16, 16,29, 3,16)) 3
+Add-Rect $g 13 13 6 6 255
+Save-Texture $c 'compass_waypoint_ca'
+
+# --- Notification: 448x28 design px -> 1024x64 --------------------------------
+# Tinted with the notification color (info / warning / alert / success).
+
+$c = New-Canvas 1024 64 448
+$g = $c.G
+$outline = New-Path @(10,2, 446,2, 446,19, 438,26, 2,26, 2,10)
+Add-Fill $g $outline
+Add-Line $g $outline 1.4
+Add-Line $g (New-Path @(2,10, 2,22) $false) 3.5
+Add-Line $g (New-Path @(430,23, 436,17) $false) 1 160 $false
+Save-Texture $c 'notification_frame_ca'
+
+# --- Radio block: 192x48 design px -> 1024x256 --------------------------------
+
+$c = New-Canvas 1024 256 192
+$g = $c.G
+$outline = New-Path @(16,4, 188,4, 188,36, 178,46, 4,46, 4,16)
+Add-Fill $g $outline
+Add-Line $g $outline
+# Accent bar on the right edge
+Add-Line $g (New-Path @(188,12, 188,30) $false) 3.5
+# Separator under the radio name
+Add-Line $g (New-Path @(14,22, 160,22) $false) 1 110 $false
+# Double line on the top-left cut corner
+Add-Line $g (New-Path @(9,18, 18,9) $false) 1 200 $false
+Save-Texture $c 'radio_frame_ca'
 
 # The visor crack (crack_ca.paa) is not generated: the hand-picked texture is kept as is.
 

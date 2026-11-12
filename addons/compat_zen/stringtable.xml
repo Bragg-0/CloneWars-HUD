@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="CloneWars HUD - compat_zen">
+    <Package name="CWH - Zeus Enhanced">
+        <Key ID="str_cwh_compat_zen_break">
+            <English>Crack HUD</English>
+            <French>Fissurer le HUD</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_category">
+            <English>Clone Wars HUD</English>
+            <French>Clone Wars HUD</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_disable">
+            <English>Turn HUD off</English>
+            <French>Désactiver le HUD</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_enable">
+            <English>Turn HUD on</English>
+            <French>Activer le HUD</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_message">
+            <English>Message</English>
+            <French>Message</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_noRecipient">
+            <English>No player to send the notification to</English>
+            <French>Aucun joueur à qui envoyer la notification</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_notify">
+            <English>HUD notification</English>
+            <French>Notification HUD</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_recipients">
+            <English>Recipients</English>
+            <French>Destinataires</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_repair">
+            <English>Repair HUD</English>
+            <French>Réparer le HUD</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_selectPlayer">
+            <English>Place the module on a player</English>
+            <French>Placez le module sur un joueur</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_toBlufor">
+            <English>BLUFOR</English>
+            <French>BLUFOR</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_toCivilian">
+            <English>Civilians</English>
+            <French>Civils</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_toEveryone">
+            <English>Everyone</English>
+            <French>Tout le monde</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_toGroup">
+            <English>Group of the unit under the module</English>
+            <French>Groupe de l'unité sous le module</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_toIndependent">
+            <English>Independent</English>
+            <French>Indépendants</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_toOpfor">
+            <English>OPFOR</English>
+            <French>OPFOR</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_toPlayer">
+            <English>Player under the module</English>
+            <French>Joueur sous le module</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_type">
+            <English>Type</English>
+            <French>Type</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_typeAlert">
+            <English>Alert</English>
+            <French>Alerte</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_typeInfo">
+            <English>Info</English>
+            <French>Info</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_typeSuccess">
+            <English>Success</English>
+            <French>Succès</French>
+        </Key>
+        <Key ID="str_cwh_compat_zen_typeWarning">
+            <English>Warning</English>
+            <French>Avertissement</French>
+        </Key>
+    </Package>
+</Project>

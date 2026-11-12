@@ -14,7 +14,7 @@ Description:
 
 Parameters:
     0: _offset - Offset applied to the info elements, in design pixels <ARRAY> (default: [0, 0])
-    1: _factors - Opacity factor (0..1) of each block: [weapon, grenade, heading, health] <ARRAY> (default: all 1)
+    1: _factors - Opacity factor (0..1) of each block (see CWH_BLOCK_*) <ARRAY> (default: all 1)
 
 Returns:
     <NONE>
@@ -23,7 +23,11 @@ Author:
     Bragg
 ---------------------------------------------------------------------------- */
 
-params [["_offset", [0, 0], [[]], 2], ["_factors", [1, 1, 1, 1], [[]], 4]];
+params [["_offset", [0, 0], [[]], 2], ["_factors", [], [[]]]];
+if (count _factors != CWH_BLOCK_COUNT) then {
+    _factors = [];
+    _factors resize [CWH_BLOCK_COUNT, 1];
+};
 _offset params ["_offsetX", "_offsetY"];
 
 private _display = CWH_DISPLAY;
@@ -48,6 +52,19 @@ private _opacity = GVAR(opacity);
 private _unitW = _pxW * _scale;
 private _unitH = _pxH * _scale;
 
+// Used by the elements positioned every frame (compass strip and markers)
+GVAR(layoutUnit) = [_unitW, _unitH];
+
+// Compass children: positioned by fnc_updateCompass, inside the clipping group
+private _compassFade = 1 - _opacity * (_factors select CWH_BLOCK_HEADING);
+{
+    _x ctrlSetFade _compassFade;
+    _x ctrlCommit 0;
+} forEach ([CWH_CTRL_COMPASS_STRIP, CWH_CTRL_COMPASS_WAYPOINT] + CWH_CTRL_COMPASS_SQUAD);
+
+// Notifications: fade is handled by fnc_updateNotifications, only the opacity factor is kept
+GVAR(notificationFactor) = _opacity * (_factors select CWH_BLOCK_NOTIFICATIONS);
+
 {
     _x params ["_idc", "_block", "_anchorH", "_anchorV", "_posX", "_posY", "_width", "_height", ["_fontSize", 0]];
 
@@ -70,7 +87,9 @@ private _unitH = _pxH * _scale;
     if (_fontSize > 0) then {
         _control ctrlSetFontHeight (_fontSize * _unitH);
     };
-    _control ctrlSetFade (1 - _opacity * (_factors select _block));
+    if (_block != CWH_BLOCK_NOTIFICATIONS) then {
+        _control ctrlSetFade (1 - _opacity * (_factors select _block));
+    };
     _control ctrlCommit 0;
 } forEach [
     // idc, block, anchor H, anchor V, x, y, width, height, font size (design pixels, 1920x1080 canvas)
@@ -92,11 +111,39 @@ private _unitH = _pxH * _scale;
     // Grenade (under the weapon): 128x64 block at 1768,194
     [1020, CWH_BLOCK_GRENADE, "R", "T", 1768, 194, 128, 64],     // Frame
     [1022, CWH_BLOCK_GRENADE, "R", "T", 1776, 204, 50, 44, 30],  // Count
-    [1021, CWH_BLOCK_GRENADE, "R", "T", 1834, 203, 50, 46],      // Icon
+    [1021, CWH_BLOCK_GRENADE, "R", "T", 1834, 201, 50, 44],      // Icon
+    [1023, CWH_BLOCK_GRENADE, "R", "T", 1840, 248, 38, 3],       // Smoke / chemlight color
 
-    // Heading (top center, right under the visor top piece): 192x48 block at 864,68
-    [1030, CWH_BLOCK_HEADING, "C", "T", 864, 68, 192, 48],      // Frame
-    [1031, CWH_BLOCK_HEADING, "C", "T", 884, 78, 152, 28, 22],  // Text
+    // Up to 3 rows (one per radio) of 192x48, from 1704,268, 54 px apart:
+    // frame, name, channel, transmit / receive indicator, additional channel (right of the name)
+    [1080, CWH_BLOCK_RADIO, "R", "T", 1704, 268, 192, 48],
+    [1081, CWH_BLOCK_RADIO, "R", "T", 1718, 272, 146, 18, 14],
+    [1082, CWH_BLOCK_RADIO, "R", "T", 1718, 292, 146, 22, 18],
+    [1083, CWH_BLOCK_RADIO, "R", "T", 1870, 284, 8, 18],
+    [1084, CWH_BLOCK_RADIO, "R", "T", 1718, 272, 146, 18, 14],
+    [1085, CWH_BLOCK_RADIO, "R", "T", 1704, 322, 192, 48],
+    [1086, CWH_BLOCK_RADIO, "R", "T", 1718, 326, 146, 18, 14],
+    [1087, CWH_BLOCK_RADIO, "R", "T", 1718, 346, 146, 22, 18],
+    [1088, CWH_BLOCK_RADIO, "R", "T", 1870, 338, 8, 18],
+    [1089, CWH_BLOCK_RADIO, "R", "T", 1718, 326, 146, 18, 14],
+    [1090, CWH_BLOCK_RADIO, "R", "T", 1704, 376, 192, 48],
+    [1091, CWH_BLOCK_RADIO, "R", "T", 1718, 380, 146, 18, 14],
+    [1092, CWH_BLOCK_RADIO, "R", "T", 1718, 400, 146, 22, 18],
+    [1093, CWH_BLOCK_RADIO, "R", "T", 1870, 392, 8, 18],
+    [1094, CWH_BLOCK_RADIO, "R", "T", 1718, 380, 146, 18, 14],
+
+    // Compass (top center, at the top of the screen): 512x64 texture drawn at 75% (CWH_COMPASS_SCALE), 384x48 block at 768,8
+    [1030, CWH_BLOCK_HEADING, "C", "T", 768, 8, 384, 48],        // Frame
+    [1032, CWH_BLOCK_HEADING, "C", "T", 780, 10, 360, 23],       // Strip window (clipping group)
+    [1031, CWH_BLOCK_HEADING, "C", "T", 930, 33, 60, 17, 14],    // Heading value
+
+    // Notifications (under the compass): 3 stacked 448x28 rows at 736,62
+    [1070, CWH_BLOCK_NOTIFICATIONS, "C", "T", 736, 62, 448, 28],
+    [1073, CWH_BLOCK_NOTIFICATIONS, "C", "T", 750, 63, 420, 26, 17],
+    [1071, CWH_BLOCK_NOTIFICATIONS, "C", "T", 736, 94, 448, 28],
+    [1074, CWH_BLOCK_NOTIFICATIONS, "C", "T", 750, 95, 420, 26, 17],
+    [1072, CWH_BLOCK_NOTIFICATIONS, "C", "T", 736, 126, 448, 28],
+    [1075, CWH_BLOCK_NOTIFICATIONS, "C", "T", 750, 127, 420, 26, 17],
 
     // Health (top left): 256x64 block at 24,24, two rows (label, bar, value)
     [1040, CWH_BLOCK_HEALTH, "L", "T", 24, 24, 256, 64],         // Frame

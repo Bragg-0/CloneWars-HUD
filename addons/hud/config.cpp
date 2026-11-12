@@ -18,6 +18,7 @@ class RscText;
 class RscPicture;
 class RscPictureKeepAspect;
 class RscProgress;
+class RscControlsGroupNoScrollbars;
 
 class RscTitles {
     #include "rsc\rscHUD.hpp"

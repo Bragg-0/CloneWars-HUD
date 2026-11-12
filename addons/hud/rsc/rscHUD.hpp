@@ -5,6 +5,57 @@
     w = 0; \
     h = 0
 
+// Squad member marker on the compass strip
+#define COMPASS_SQUAD(n,idcValue) \
+    class Squad_##n : RscText { \
+        idc = idcValue; \
+        LAYOUT_BY_SCRIPT; \
+        colorBackground[] = { CWH_COLOR_WHITE }; \
+    }
+
+// Notification frame + text
+#define NOTIFICATION(n,idcFrame,idcText) \
+    class Notification_Frame_##n : RscPicture { \
+        idc = idcFrame; \
+        LAYOUT_BY_SCRIPT; \
+        text = QPATHTOEF(ui,data\hud\notification_frame_ca.paa); \
+    }; \
+    class Notification_Text_##n : RscText { \
+        idc = idcText; \
+        style = ST_LEFT; \
+        LAYOUT_BY_SCRIPT; \
+    }
+
+// Radio row: frame, radio name, channel / frequency, transmit / receive indicator, additional channel
+#define RADIO_ROW(n,idcFrame,idcName,idcChannel,idcTransmit,idcAdditional) \
+    class Radio_Frame_##n : RscPictureKeepAspect { \
+        idc = idcFrame; \
+        LAYOUT_BY_SCRIPT; \
+        text = QPATHTOEF(ui,data\hud\radio_frame_ca.paa); \
+        colorText[] = { CWH_COLOR_DEFAULT }; \
+    }; \
+    class Radio_Name_##n : RscText { \
+        idc = idcName; \
+        style = ST_LEFT; \
+        LAYOUT_BY_SCRIPT; \
+    }; \
+    class Radio_Channel_##n : RscText { \
+        idc = idcChannel; \
+        style = ST_LEFT; \
+        font = "RobotoCondensedBold"; \
+        LAYOUT_BY_SCRIPT; \
+    }; \
+    class Radio_Transmit_##n : RscText { \
+        idc = idcTransmit; \
+        LAYOUT_BY_SCRIPT; \
+        colorBackground[] = { CWH_COLOR_DISABLED }; \
+    }; \
+    class Radio_Additional_##n : RscText { \
+        idc = idcAdditional; \
+        style = ST_RIGHT; \
+        LAYOUT_BY_SCRIPT; \
+    }
+
 class GVAR(rscHUD) {
     idd = -1;
     movingEnable = 0;
@@ -105,12 +156,17 @@ class GVAR(rscHUD) {
             style = ST_CENTER;
             LAYOUT_BY_SCRIPT;
         };
+        class Grenade_Color : RscText { // Smoke / chemlight color
+            idc = 1023;
+            LAYOUT_BY_SCRIPT;
+            colorBackground[] = { CWH_COLOR_WHITE };
+        };
 
-        // Heading
+        // Compass: frame, heading value, and a clipping group in which the graduated strip scrolls
         class Dir_Frame : RscPictureKeepAspect {
             idc = 1030;
             LAYOUT_BY_SCRIPT;
-            text = QPATHTOEF(ui,data\hud\dir_frame_ca.paa);
+            text = QPATHTOEF(ui,data\hud\compass_frame_ca.paa);
             colorText[] = { CWH_COLOR_DEFAULT };
         };
         class Dir_Info : RscText {
@@ -118,6 +174,46 @@ class GVAR(rscHUD) {
             style = ST_CENTER;
             LAYOUT_BY_SCRIPT;
         };
+        class Compass_Group : RscControlsGroupNoScrollbars {
+            idc = 1032;
+            LAYOUT_BY_SCRIPT;
+            class controls {
+                class Strip : RscPicture {
+                    idc = 1033;
+                    LAYOUT_BY_SCRIPT;
+                    text = QPATHTOEF(ui,data\hud\compass_strip_ca.paa);
+                    colorText[] = { CWH_COLOR_WHITE };
+                };
+                class Waypoint : RscPictureKeepAspect {
+                    idc = 1034;
+                    LAYOUT_BY_SCRIPT;
+                    text = QPATHTOEF(ui,data\hud\compass_waypoint_ca.paa);
+                    colorText[] = { CWH_COLOR_WAYPOINT };
+                };
+                COMPASS_SQUAD(0,1050);
+                COMPASS_SQUAD(1,1051);
+                COMPASS_SQUAD(2,1052);
+                COMPASS_SQUAD(3,1053);
+                COMPASS_SQUAD(4,1054);
+                COMPASS_SQUAD(5,1055);
+                COMPASS_SQUAD(6,1056);
+                COMPASS_SQUAD(7,1057);
+                COMPASS_SQUAD(8,1058);
+                COMPASS_SQUAD(9,1059);
+                COMPASS_SQUAD(10,1060);
+                COMPASS_SQUAD(11,1061);
+            };
+        };
+
+        // Notifications: up to 3 stacked under the compass
+        NOTIFICATION(0,1070,1073);
+        NOTIFICATION(1,1071,1074);
+        NOTIFICATION(2,1072,1075);
+
+        // Radio: up to 3 rows, one per radio
+        RADIO_ROW(0,1080,1081,1082,1083,1084);
+        RADIO_ROW(1,1085,1086,1087,1088,1089);
+        RADIO_ROW(2,1090,1091,1092,1093,1094);
 
         // Health: two rows (label, bar, value)
         class Health_Frame : RscPictureKeepAspect {

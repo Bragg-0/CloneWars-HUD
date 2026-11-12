@@ -3,6 +3,7 @@ private _categoryColors = [QUOTE(MOD_NAME), "Colors"];
 private _categoryDisplay = [QUOTE(MOD_NAME), "Display"];
 private _categoryElements = [QUOTE(MOD_NAME), "Elements"];
 private _categoryEffects = [QUOTE(MOD_NAME), "Effects"];
+private _categoryNotifications = [QUOTE(MOD_NAME), "Notifications"];
 private _categoryDamage = [QUOTE(MOD_NAME), "Damage"];
 private _categoryListHelmets = [QUOTE(MOD_NAME), "Helmets"];
 
@@ -124,6 +125,55 @@ private _fnc_resetHelmets = {
     [LLSTRING(squadTeamColors), LLSTRING(squadTeamColors_Description)],
     _categoryElements,
     false
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(compassSquad),
+    "CHECKBOX",
+    [LLSTRING(compassSquad), LLSTRING(compassSquad_Description)],
+    _categoryElements,
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(compassShowWaypoint),
+    "CHECKBOX",
+    [LLSTRING(compassShowWaypoint), LLSTRING(compassShowWaypoint_Description)],
+    _categoryElements,
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(showRadio),
+    "CHECKBOX",
+    [LLSTRING(showRadio), LLSTRING(showRadio_Description)],
+    _categoryElements,
+    true
+] call CBA_fnc_addSetting;
+
+// Notifications
+[
+    QGVAR(showNotifications),
+    "CHECKBOX",
+    [LLSTRING(showNotifications), LLSTRING(showNotifications_Description)],
+    _categoryNotifications,
+    true
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(notificationDuration),
+    "SLIDER",
+    [LLSTRING(notificationDuration), LLSTRING(notificationDuration_Description)],
+    _categoryNotifications,
+    [2, 15, 5, 0]
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(notifySquad),
+    "CHECKBOX",
+    [LLSTRING(notifySquad), LLSTRING(notifySquad_Description)],
+    _categoryNotifications,
+    true
 ] call CBA_fnc_addSetting;
 
 // Effects

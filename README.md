@@ -15,6 +15,10 @@ CloneWars HUD enhances the gaming experience by adding authentic HUD interfaces 
 - **Damage System**: The HUD can crack when the player takes damage
 - **Repair**: Ability to repair damaged HUD
 - **ACE3 Compatibility**: ACE3 compatibility module included
+- **Compass strip**: Graduated compass with squad members and waypoint
+- **Notifications**: HUD messages replacing the vanilla hints, usable by mission makers
+- **Radio**: Radios and channels with TFAR
+- **Zeus Enhanced modules**: Crack, repair, turn on / off the HUD of a player, send HUD notifications
 - **CBA Configuration**: Fully configurable settings via CBA Settings
 - **First and Third Person View**: Option to enable/disable in external view
 
@@ -25,6 +29,8 @@ CloneWars HUD enhances the gaming experience by adding authentic HUD interfaces 
 
 ### Optional
 - [ACE3](https://github.com/acemod/ACE3) - For advanced compatibility features
+- [TFAR](https://github.com/michail-nikolaev/task-force-arma-3-radio) (1.0 beta) - Radio block
+- [Zeus Enhanced](https://github.com/zen-mod/ZEN) - Zeus modules
 
 ## 🔧 Installation
 
@@ -58,6 +64,9 @@ The HUD adapts to any aspect ratio (4:3, 16:9, 21:9...): nothing is stretched.
 - **Show weapon / grenade / heading / health block**: Turn each info block on or off
 - **Low ammo warning**: Magazine level under which the ammo counter blinks orange (0% to disable)
 - **Squad markers**: Marks the members of your group with a small icon in the HUD color (team colors optional, orange blink if unconscious), up to a configurable range
+- **Squad / waypoint on the compass**: Direction of the group members and of your waypoint (custom waypoint, task destination or group waypoint) on the compass strip
+- **Show radio block**: Short range radios (active first) and active long range radio, with channel, frequency and additional channel. Green while you transmit, amber while someone transmits on one of your frequencies (TFAR)
+- **Hide the TFAR hint**: While the radio block is shown, hides the TFAR transmitting / channel hint
 
 The health block shows health and stamina, or blood volume and pain when ACE medical is loaded.
 
@@ -65,6 +74,11 @@ The health block shows health and stamina, or blood volume and pain when ACE med
 - **Boot sequence**: The HUD elements light up one after the other when the HUD turns on
 - **Glitch when hit**: The HUD shakes and flickers briefly when you take damage
 - **HUD sounds** and volume: Power on / off, hit, low ammo, crack and repair sounds
+
+#### Notifications
+- **Show notifications**: HUD messages under the compass (CBA notifications are used when the HUD is not shown)
+- **Notification duration**
+- **Squad alerts**: Notification when a group member goes down or is killed
 
 #### Colors
 - **HUD Color**: Customize the interface color
@@ -138,6 +152,7 @@ class cwh_hud_types {
 | `cwh_hud_fnc_repair` | `[unit]` | Starts the repair (progress bar) |
 | `cwh_hud_fnc_glitch` | `[duration]` (0.35 s if omitted) | Makes the HUD glitch |
 | `cwh_hud_fnc_playSound` | `[name]` | Plays a HUD sound: `boot`, `shutdown`, `glitch`, `warning`, `alert`, `confirm` |
+| `cwh_hud_fnc_notify` | `[text, type, duration]` | Shows a HUD notification. Type: `info`, `warning`, `alert`, `success` |
 | `cwh_hud_fnc_getHelmetType` | `[classname]` | HUD type of a helmet, `""` if none |
 
 ### Events (CBA, local)
@@ -155,6 +170,26 @@ class cwh_hud_types {
 }] call CBA_fnc_addEventHandler;
 ```
 
+### Remote events (CBA, sent to the machine of a player)
+
+```sqf
+["cwh_hud_notify", ["Extraction in 5 minutes", "warning"], _player] call CBA_fnc_targetEvent;
+["cwh_hud_notify", ["Mission complete", "success"]] call CBA_fnc_globalEvent; // Every player
+["cwh_hud_setEnabled", [false], _player] call CBA_fnc_targetEvent;
+["cwh_hud_setBroken", [_player, true], _player] call CBA_fnc_targetEvent;
+```
+
+### Radio providers
+
+Another radio mod can feed the radio block:
+
+```sqf
+cwh_hud_radioProviders pushBack {
+    // List of radios (up to 3 shown), each [radio name, channel text, transmitting, additional channel text (optional), receiving (optional)]
+    [["My radio", "CH 2", false, "+CH 5", false]]
+};
+```
+
 ## 🛠️ Development
 
 This project uses [HEMTT](https://github.com/BrettMayson/HEMTT) for packaging and development.
@@ -167,7 +202,9 @@ CloneWars-HUD/
 │   ├── main/           # Main component
 │   ├── hud/            # HUD logic
 │   ├── ui/             # Graphic resources
-│   └── compat_ace/     # ACE3 compatibility module
+│   ├── compat_ace/     # ACE3 compatibility
+│   ├── compat_tfar/    # TFAR compatibility (radio block)
+│   └── compat_zen/     # Zeus Enhanced modules
 └── include/            # Include files
 ```
 

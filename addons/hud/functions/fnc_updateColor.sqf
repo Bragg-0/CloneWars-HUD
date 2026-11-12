@@ -54,6 +54,24 @@ CWH_CTRL_HEALTH_VALUE_1 ctrlSetTextColor ([[CWH_COLOR_WHITE], [CWH_COLOR_EMPTY]]
 CWH_CTRL_HEALTH_BAR_2 ctrlSetTextColor ([_color, [CWH_COLOR_WARNING]] select GVAR(healthRow2Warning));
 CWH_CTRL_HEALTH_VALUE_2 ctrlSetTextColor ([[CWH_COLOR_WHITE], [CWH_COLOR_WARNING]] select GVAR(healthRow2Warning));
 
+// Radio rows: green while transmitting, amber while receiving (frame and indicator)
+{
+    _x params ["_frame", "", "", "_indicator"];
+    switch (GVAR(radioStates) param [_forEachIndex, 0]) do {
+        case CWH_RADIO_TRANSMITTING: {
+            _frame ctrlSetTextColor [CWH_COLOR_SUCCESS];
+            _indicator ctrlSetBackgroundColor [CWH_COLOR_SUCCESS];
+        };
+        case CWH_RADIO_RECEIVING: {
+            _frame ctrlSetTextColor [CWH_COLOR_WAYPOINT];
+            _indicator ctrlSetBackgroundColor [CWH_COLOR_WAYPOINT];
+        };
+        default {
+            _indicator ctrlSetBackgroundColor [CWH_COLOR_DISABLED];
+        };
+    };
+} forEach CWH_CTRL_RADIO_ROWS;
+
 {
     _x ctrlSetBackgroundColor ([[CWH_COLOR_DISABLED], _color] select (_forEachIndex < GVAR(fireModeLevel)));
 } forEach CWH_CTRL_FIREMODES;

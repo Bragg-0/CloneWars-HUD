@@ -62,6 +62,7 @@ if (diag_tickTime >= GVAR(nextSlowUpdate)) then {
     [] call FUNC(updateGrenade);
     [] call FUNC(updateHealth);
     [] call FUNC(updateSquad);
+    [] call FUNC(updateRadio);
 
     {
         _x ctrlShow GVAR(showHeading);
@@ -81,6 +82,7 @@ if (diag_tickTime >= GVAR(nextSlowUpdate)) then {
 };
 
 [] call FUNC(updateColor);
+[] call FUNC(updateNotifications);
 
 // Boot sequence, glitch
 if (GVAR(animating)) then {

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="CloneWars HUD - compat_tfar">
+    <Package name="CWH - TFAR">
+        <Key ID="str_cwh_compat_tfar_hideTfarHint">
+            <English>Hide the TFAR hint</English>
+            <French>Masquer l'indication TFAR</French>
+        </Key>
+        <Key ID="str_cwh_compat_tfar_hideTfarHint_description">
+            <English>While the HUD radio block is shown, hides the TFAR hint (transmitting, radio and channel changes).</English>
+            <French>Tant que le bloc radio du HUD est affiché, masque l'indication de TFAR (transmission, changement de radio et de canal).</French>
+        </Key>
+    </Package>
+</Project>
