@@ -33,5 +33,6 @@ workshop = [
     "463939057",            # ACE3
     "2162749089",           # Legion Studios Core - Stable
     "1779063631",           # Zeus Enhanced
+    "894678801",            # Task Force Arrowhead Radio (BETA!!!) 
 ]
 mission = "test.Stratis"
