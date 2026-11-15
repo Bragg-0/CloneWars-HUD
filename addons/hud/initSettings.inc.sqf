@@ -62,6 +62,33 @@ private _fnc_resetHelmets = {
     [0.2, 1, 1, 0, true]
 ] call CBA_fnc_addSetting;
 
+[
+    QGVAR(compassScale),
+    "SLIDER",
+    [LLSTRING(compassScale), LLSTRING(compassScale_Description)],
+    _categoryDisplay,
+    [0.75, 1.5, 1, 0, true]
+] call CBA_fnc_addSetting;
+
+[
+    QGVAR(radioPosition),
+    "LIST",
+    [LLSTRING(radioPosition), LLSTRING(radioPosition_Description)],
+    _categoryDisplay,
+    [["left", "topRight", "bottomRight"], [LLSTRING(radioPosition_left), LLSTRING(radioPosition_topRight), LLSTRING(radioPosition_bottomRight)], 0]
+] call CBA_fnc_addSetting;
+
+// Every font family known by the game, including the ones added by other mods
+private _fonts = ("true" configClasses (configFile >> "CfgFontFamilies")) apply {configName _x};
+_fonts sort true;
+[
+    QGVAR(font),
+    "LIST",
+    [LLSTRING(font), LLSTRING(font_Description)],
+    _categoryDisplay,
+    [_fonts, _fonts, (_fonts find "RobotoCondensed") max 0]
+] call CBA_fnc_addSetting;
+
 // Elements
 [
     QGVAR(showWeapon),

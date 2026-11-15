@@ -46,17 +46,18 @@ if (!GVAR(visible) || {_type != GVAR(type)}) then {
     [_type] call FUNC(show);
 };
 
+// Screen resolution, interface size or display settings changed (or new display): recompute the layout.
+// Done before anything is drawn, the compass and the notifications use its results.
+private _layoutKey = [safeZoneW, safeZoneH, getResolution select 0, getResolution select 1, GVAR(scale), GVAR(opacity), GVAR(compassScale), GVAR(radioPosition), GVAR(font)];
+if (_layoutKey isNotEqualTo GVAR(layoutKey)) then {
+    GVAR(layoutKey) = _layoutKey;
+    [] call FUNC(layout);
+};
+
 [] call FUNC(updateCompass);
 
 if (diag_tickTime >= GVAR(nextSlowUpdate)) then {
     GVAR(nextSlowUpdate) = diag_tickTime + CWH_SLOW_UPDATE_INTERVAL;
-
-    // Screen resolution, interface size or HUD scale / opacity changed: recompute the layout
-    private _layoutKey = [safeZoneW, safeZoneH, getResolution select 0, getResolution select 1, GVAR(scale), GVAR(opacity)];
-    if (_layoutKey isNotEqualTo GVAR(layoutKey)) then {
-        GVAR(layoutKey) = _layoutKey;
-        [] call FUNC(layout);
-    };
 
     [] call FUNC(updateWeapon);
     [] call FUNC(updateGrenade);
@@ -64,8 +65,12 @@ if (diag_tickTime >= GVAR(nextSlowUpdate)) then {
     [] call FUNC(updateSquad);
     [] call FUNC(updateRadio);
 
+    // Only on change: showing the compass group shows again every control inside it,
+    // including the hidden graduations and markers
     {
-        _x ctrlShow GVAR(showHeading);
+        if (ctrlShown _x isNotEqualTo GVAR(showHeading)) then {
+            _x ctrlShow GVAR(showHeading);
+        };
     } forEach CWH_CTRL_DIR;
 
     CWH_CTRL_SUNFILTER ctrlShow GVAR(sunFilter);

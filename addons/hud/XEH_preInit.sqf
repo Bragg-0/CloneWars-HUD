@@ -17,6 +17,7 @@ GVAR(helmetCache) = createHashMap;     // helmet classname => HUD type ("" if no
 GVAR(helmetRoots) = nil;               // built lazily from the settings, see fnc_getHelmetType
 GVAR(weaponInfoCache) = createHashMap; // weapon state => [icon, name, capacity, magazine icon, fire mode level]
 GVAR(grenadeColorCache) = createHashMap; // throwable magazine => color ([] if none)
+GVAR(grenadeLabelCache) = createHashMap; // throwable magazine => short label
 
 // Runtime state
 GVAR(unit) = objNull;          // Unit the HUD is currently attached to
@@ -35,7 +36,9 @@ GVAR(squadUnits) = [];         // Squad members to mark
 GVAR(currentColor) = [CWH_COLOR_DEFAULT]; // HUD color currently displayed (RGB cycle included)
 GVAR(squadStates) = createHashMap; // Squad member => 0 ok, 1 down, 2 killed (notifications)
 GVAR(compassWaypoint) = [];    // Position marked on the compass
-GVAR(layoutUnit) = [0, 0];     // UI units per design pixel [w, h], see fnc_layout
+GVAR(compassUnit) = [0, 0];      // UI units per design pixel of the compass [w, h], see fnc_layout
+GVAR(compassAlpha) = 1;         // Opacity of the compass (setting and boot animation)
+GVAR(notificationLayout) = [0, 0, 0, 0]; // [center x, top y, unit w, unit h], see fnc_layout
 GVAR(notifications) = [];      // [[text, color, start, end], ...] newest first
 GVAR(notificationFactor) = 1;  // Opacity of the notifications (setting and boot animation)
 GVAR(radioProviders) = [];     // Code returning the radio info, see fnc_updateRadio

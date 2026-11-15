@@ -1,5 +1,33 @@
 # Changelog
 
+## 4.1.0
+
+Thanks to Berry [16th] for the detailed feedback.
+
+### New
+
+- **Compass size** setting, independent of the HUD scale (default bigger than in 4.0)
+- **Radio block position** setting: left under the health block (default), top right or bottom right
+- **HUD font** setting: every font known by the game is listed, including fonts added by other mods (e.g. Aurebesh)
+- **Grenade short name** in the grenade block, to tell apart grenades sharing the same icon (e.g. thermal detonator classes)
+- Compact weapon block, the ammo counter is no longer bold
+- The grenade icon keeps its own colors, the smoke color is shown by the colored stripe under it
+
+### Changed
+
+- The compass graduations, labels and markers fade out near its edges instead of being cut
+- Squad members on the compass are colored chevrons, following the team colors setting
+- The waypoint stays at the edge of the compass, dimmed, when it is out of view
+- Notifications fit their text and are centered
+- The compass gets smaller when it would overlap the side blocks (narrow screens with a big HUD scale)
+
+### Fixed
+
+- The grenade count was one less than the actual number (the selected grenade was not counted)
+- The green smoke grenade was shown cyan
+- Markers flickered at the edges of the compass
+- Notifications could overlap the weapon and grenade blocks
+
 ## 4.0.0
 
 Complete rewrite of the mod.

@@ -19,7 +19,13 @@ Author:
 ---------------------------------------------------------------------------- */
 
 private _members = (units group player) select {_x != player};
-GVAR(squadUnits) = _members select {alive _x};
+
+// Dead, or in a transitional death state (waiting for respawn, team switch)
+private _fnc_isDead = {
+    !alive _this || {lifeState _this in ["DEAD", "DEAD-RESPAWN", "DEAD-SWITCHING"]}
+};
+
+GVAR(squadUnits) = _members select {!(_x call _fnc_isDead)};
 
 // Squad member down (unconscious) or killed. A member seen for the first time takes its current
 // state without notification (joining a group, respawn).
@@ -28,7 +34,7 @@ if (GVAR(notifySquad)) then {
     {
         private _key = hashValue _x;
         private _state = switch (true) do {
-            case (!alive _x): {2};
+            case (_x call _fnc_isDead): {2};
             case (lifeState _x == "INCAPACITATED" || {_x getVariable ["ACE_isUnconscious", false]}): {1};
             default {0};
         };

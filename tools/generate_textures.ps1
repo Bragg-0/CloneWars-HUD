@@ -82,13 +82,13 @@ function Add-Rect($g, [double]$X, [double]$Y, [double]$W, [double]$H, [int]$Alph
     $brush.Dispose()
 }
 
-function Save-Texture($canvas, [string]$Name) {
+function Save-Texture($canvas, [string]$Name, [switch]$PngOnly) {
     $png = Join-Path $PngDir "$Name.png"
     $canvas.G.Dispose()
     $canvas.Bitmap.Save($png, [System.Drawing.Imaging.ImageFormat]::Png)
     $canvas.Bitmap.Dispose()
     Write-Host "PNG  $png"
-    if (-not $PreviewOnly) {
+    if (-not $PreviewOnly -and -not $PngOnly) {
         $paa = Join-Path $OutDir "$Name.paa"
         if (Test-Path $paa) { Remove-Item $paa }
         & hemtt utils paa convert $png $paa | Out-Null
@@ -97,32 +97,33 @@ function Save-Texture($canvas, [string]$Name) {
     }
 }
 
-# --- Weapon block: 320x160 design px -> 1024x512 ------------------------------
+# --- Weapon block: 288x120 design px on a 288x144 canvas -> 1024x512 ----------
+# The bottom of the canvas stays empty (2:1 texture). Keep in sync with fnc_layout.
 
-$c = New-Canvas 1024 512 320
+$c = New-Canvas 1024 512 288
 $g = $c.G
 
-$outline = New-Path @(30,6, 314,6, 314,130, 290,154, 6,154, 6,30)
+$outline = New-Path @(26,6, 282,6, 282,96, 262,116, 6,116, 6,26)
 Add-Fill $g $outline
 Add-Line $g $outline
 
 # Double line on the top-left cut corner
-Add-Line $g (New-Path @(12,34, 34,12) $false) 1.2 200 $false
+Add-Line $g (New-Path @(11,30, 30,11) $false) 1.2 200 $false
 # Accent bar on the right edge
-Add-Line $g (New-Path @(314,44, 314,96) $false) 4.5
+Add-Line $g (New-Path @(282,34, 282,76) $false) 4.5
 # Separator under the weapon name, with a small end marker
-Add-Line $g (New-Path @(40,34, 304,34) $false) 1 110 $false
-Add-Rect $g 296 31.5 8 5 220
+Add-Line $g (New-Path @(34,29, 274,29) $false) 1 110 $false
+Add-Rect $g 266 26.5 8 5 220
 # Ammo bar track
-Add-Rect $g 14 108 292 6 38
+Add-Rect $g 14 90 260 5 38
 # Hatching next to the bottom-right cut corner
-foreach ($offset in 0, 7, 14) {
-    Add-Line $g (New-Path @((292 - $offset),148, (300 - $offset),140) $false) 1.2 150 $false
+foreach ($offset in 0, 6) {
+    Add-Line $g (New-Path @((258 - $offset),112, (266 - $offset),104) $false) 1.2 150 $false
 }
 # Notches on the left edge
-Add-Rect $g 6 60 5 2 230
-Add-Rect $g 6 70 5 2 230
-Add-Rect $g 6 80 5 2 230
+Add-Rect $g 6 50 5 2 230
+Add-Rect $g 6 58 5 2 230
+Add-Rect $g 6 66 5 2 230
 
 Save-Texture $c 'weapon_frame_ca'
 
@@ -195,7 +196,8 @@ for ($degree = -60; $degree -le 420; $degree += 5) {
 }
 $white.Dispose(); $grey.Dispose(); $fontCardinal.Dispose(); $fontNumber.Dispose()
 
-Save-Texture $c 'compass_strip_ca'
+# Not used by the mod any more (the compass is drawn with controls): kept for tools/generate_showcase.ps1
+Save-Texture $c 'compass_strip_ca' -PngOnly
 
 # --- Compass waypoint marker: 32x32 -----------------------------------------
 
@@ -215,7 +217,8 @@ Add-Fill $g $outline
 Add-Line $g $outline 1.4
 Add-Line $g (New-Path @(2,10, 2,22) $false) 3.5
 Add-Line $g (New-Path @(430,23, 436,17) $false) 1 160 $false
-Save-Texture $c 'notification_frame_ca'
+# Not used by the mod any more (adaptive notifications): kept for tools/generate_showcase.ps1
+Save-Texture $c 'notification_frame_ca' -PngOnly
 
 # --- Radio block: 192x48 design px -> 1024x256 --------------------------------
 

@@ -5,24 +5,50 @@
     w = 0; \
     h = 0
 
-// Squad member marker on the compass strip
-#define COMPASS_SQUAD(n,idcValue) \
-    class Squad_##n : RscText { \
+// Compass graduation (positioned every frame by fnc_updateCompass)
+#define COMPASS_TICK(n,idcValue) \
+    class Tick_##n : RscText { \
         idc = idcValue; \
         LAYOUT_BY_SCRIPT; \
         colorBackground[] = { CWH_COLOR_WHITE }; \
     }
 
-// Notification frame + text
-#define NOTIFICATION(n,idcFrame,idcText) \
-    class Notification_Frame_##n : RscPicture { \
-        idc = idcFrame; \
+// Compass label: cardinal point or degrees
+#define COMPASS_LABEL(n,idcValue) \
+    class Label_##n : RscText { \
+        idc = idcValue; \
+        style = ST_CENTER; \
         LAYOUT_BY_SCRIPT; \
-        text = QPATHTOEF(ui,data\hud\notification_frame_ca.paa); \
+    }
+
+// Squad member marker on the compass
+#define COMPASS_SQUAD(n,idcValue) \
+    class Squad_##n : RscPictureKeepAspect { \
+        idc = idcValue; \
+        LAYOUT_BY_SCRIPT; \
+        text = QPATHTOEF(ui,data\hud\squad_marker_ca.paa); \
+    }
+
+// Notification: background box, colored accent and underline, text. Width adapted to the text by fnc_updateNotifications.
+#define NOTIFICATION(n,idcBox,idcAccent,idcLine,idcText) \
+    class Notification_Box_##n : RscText { \
+        idc = idcBox; \
+        LAYOUT_BY_SCRIPT; \
+        colorBackground[] = { 0, 0, 0, 0.6 }; \
+    }; \
+    class Notification_Accent_##n : RscText { \
+        idc = idcAccent; \
+        LAYOUT_BY_SCRIPT; \
+        colorBackground[] = { CWH_COLOR_WHITE }; \
+    }; \
+    class Notification_Line_##n : RscText { \
+        idc = idcLine; \
+        LAYOUT_BY_SCRIPT; \
+        colorBackground[] = { CWH_COLOR_WHITE }; \
     }; \
     class Notification_Text_##n : RscText { \
         idc = idcText; \
-        style = ST_LEFT; \
+        style = ST_CENTER; \
         LAYOUT_BY_SCRIPT; \
     }
 
@@ -42,7 +68,6 @@
     class Radio_Channel_##n : RscText { \
         idc = idcChannel; \
         style = ST_LEFT; \
-        font = "RobotoCondensedBold"; \
         LAYOUT_BY_SCRIPT; \
     }; \
     class Radio_Transmit_##n : RscText { \
@@ -118,7 +143,6 @@ class GVAR(rscHUD) {
         class Weapon_Ammo : RscText { // Rounds left in the magazine
             idc = 1016;
             style = ST_RIGHT;
-            font = "RobotoCondensedBold";
             LAYOUT_BY_SCRIPT;
         };
         class Weapon_FireMode_5 : RscText {
@@ -161,8 +185,13 @@ class GVAR(rscHUD) {
             LAYOUT_BY_SCRIPT;
             colorBackground[] = { CWH_COLOR_WHITE };
         };
+        class Grenade_Label : RscText { // Short name, tells apart grenades sharing the same icon
+            idc = 1024;
+            style = ST_CENTER;
+            LAYOUT_BY_SCRIPT;
+        };
 
-        // Compass: frame, heading value, and a clipping group in which the graduated strip scrolls
+        // Compass: frame, heading value, and a clipping group in which graduations, labels and markers are placed
         class Dir_Frame : RscPictureKeepAspect {
             idc = 1030;
             LAYOUT_BY_SCRIPT;
@@ -178,37 +207,67 @@ class GVAR(rscHUD) {
             idc = 1032;
             LAYOUT_BY_SCRIPT;
             class controls {
-                class Strip : RscPicture {
-                    idc = 1033;
-                    LAYOUT_BY_SCRIPT;
-                    text = QPATHTOEF(ui,data\hud\compass_strip_ca.paa);
-                    colorText[] = { CWH_COLOR_WHITE };
-                };
+                COMPASS_TICK(0,1300);
+                COMPASS_TICK(1,1301);
+                COMPASS_TICK(2,1302);
+                COMPASS_TICK(3,1303);
+                COMPASS_TICK(4,1304);
+                COMPASS_TICK(5,1305);
+                COMPASS_TICK(6,1306);
+                COMPASS_TICK(7,1307);
+                COMPASS_TICK(8,1308);
+                COMPASS_TICK(9,1309);
+                COMPASS_TICK(10,1310);
+                COMPASS_TICK(11,1311);
+                COMPASS_TICK(12,1312);
+                COMPASS_TICK(13,1313);
+                COMPASS_TICK(14,1314);
+                COMPASS_TICK(15,1315);
+                COMPASS_TICK(16,1316);
+                COMPASS_TICK(17,1317);
+                COMPASS_TICK(18,1318);
+                COMPASS_TICK(19,1319);
+                COMPASS_TICK(20,1320);
+                COMPASS_TICK(21,1321);
+                COMPASS_TICK(22,1322);
+                COMPASS_TICK(23,1323);
+                COMPASS_TICK(24,1324);
+                COMPASS_TICK(25,1325);
+                COMPASS_LABEL(0,1330);
+                COMPASS_LABEL(1,1331);
+                COMPASS_LABEL(2,1332);
+                COMPASS_LABEL(3,1333);
+                COMPASS_LABEL(4,1334);
+                COMPASS_LABEL(5,1335);
+                COMPASS_LABEL(6,1336);
+                COMPASS_LABEL(7,1337);
+                COMPASS_LABEL(8,1338);
+                COMPASS_LABEL(9,1339);
+                COMPASS_SQUAD(0,1350);
+                COMPASS_SQUAD(1,1351);
+                COMPASS_SQUAD(2,1352);
+                COMPASS_SQUAD(3,1353);
+                COMPASS_SQUAD(4,1354);
+                COMPASS_SQUAD(5,1355);
+                COMPASS_SQUAD(6,1356);
+                COMPASS_SQUAD(7,1357);
+                COMPASS_SQUAD(8,1358);
+                COMPASS_SQUAD(9,1359);
+                COMPASS_SQUAD(10,1360);
+                COMPASS_SQUAD(11,1361);
                 class Waypoint : RscPictureKeepAspect {
                     idc = 1034;
                     LAYOUT_BY_SCRIPT;
                     text = QPATHTOEF(ui,data\hud\compass_waypoint_ca.paa);
                     colorText[] = { CWH_COLOR_WAYPOINT };
                 };
-                COMPASS_SQUAD(0,1050);
-                COMPASS_SQUAD(1,1051);
-                COMPASS_SQUAD(2,1052);
-                COMPASS_SQUAD(3,1053);
-                COMPASS_SQUAD(4,1054);
-                COMPASS_SQUAD(5,1055);
-                COMPASS_SQUAD(6,1056);
-                COMPASS_SQUAD(7,1057);
-                COMPASS_SQUAD(8,1058);
-                COMPASS_SQUAD(9,1059);
-                COMPASS_SQUAD(10,1060);
-                COMPASS_SQUAD(11,1061);
             };
         };
 
         // Notifications: up to 3 stacked under the compass
-        NOTIFICATION(0,1070,1073);
-        NOTIFICATION(1,1071,1074);
-        NOTIFICATION(2,1072,1075);
+        NOTIFICATION(0,1200,1201,1202,1203);
+        NOTIFICATION(1,1204,1205,1206,1207);
+        NOTIFICATION(2,1208,1209,1210,1211);
 
         // Radio: up to 3 rows, one per radio
         RADIO_ROW(0,1080,1081,1082,1083,1084);
