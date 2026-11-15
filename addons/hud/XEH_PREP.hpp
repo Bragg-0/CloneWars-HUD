@@ -1,9 +1,12 @@
 PREP(animate);
 PREP(canRepair);
 PREP(drawSquad);
+PREP(getControls);
 PREP(getDisplay);
 PREP(getGrenadeColor);
+PREP(getGrenadeLabel);
 PREP(getHelmetType);
+PREP(getSquadColor);
 PREP(getWeaponInfo);
 PREP(glitch);
 PREP(handleDamage);

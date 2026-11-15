@@ -95,6 +95,18 @@
             <Spanish>Cambia el color del HUD.</Spanish>
             <German>Ändert die Farbe des HUD.</German>
         </Key>
+        <Key ID="str_cwh_hud_compassScale">
+            <English>Compass size</English>
+            <French>Taille de la boussole</French>
+            <Spanish>Tamaño de la brújula</Spanish>
+            <German>Kompassgröße</German>
+        </Key>
+        <Key ID="str_cwh_hud_compassScale_description">
+            <English>Size of the compass, in addition to the HUD scale.</English>
+            <French>Taille de la boussole, en plus de la taille du HUD.</French>
+            <Spanish>Tamaño de la brújula, además del tamaño del HUD.</Spanish>
+            <German>Größe des Kompasses, zusätzlich zur HUD-Größe.</German>
+        </Key>
         <Key ID="str_cwh_hud_compassShowWaypoint">
             <English>Waypoint on the compass</English>
             <French>Waypoint sur la boussole</French>
@@ -190,6 +202,18 @@
             <French>Si activé, le HUD sera également affiché en vue à la troisième personne.</French>
             <Spanish>Si está activado, el HUD también se mostrará en la vista en tercera persona.</Spanish>
             <German>Wenn aktiviert, wird das HUD auch in der Third-Person-Ansicht angezeigt.</German>
+        </Key>
+        <Key ID="str_cwh_hud_font">
+            <English>HUD font</English>
+            <French>Police du HUD</French>
+            <Spanish>Fuente del HUD</Spanish>
+            <German>HUD-Schriftart</German>
+        </Key>
+        <Key ID="str_cwh_hud_font_description">
+            <English>Font of the HUD texts. Fonts added by other mods (e.g. Aurebesh) are listed too.</English>
+            <French>Police des textes du HUD. Les polices ajoutées par d'autres mods (Aurebesh par exemple) apparaissent aussi.</French>
+            <Spanish>Fuente de los textos del HUD. También aparecen las fuentes añadidas por otros mods (por ejemplo, Aurebesh).</Spanish>
+            <German>Schriftart der HUD-Texte. Von anderen Mods hinzugefügte Schriftarten (z. B. Aurebesh) werden ebenfalls aufgelistet.</German>
         </Key>
         <Key ID="str_cwh_hud_health_blood">
             <English>BLOOD</English>
@@ -322,6 +346,36 @@
             <French>Opacité des éléments d'information du HUD (arme, grenades, cap). La visière n'est pas affectée.</French>
             <Spanish>Opacidad de los elementos de información del HUD (arma, granadas, rumbo). El visor no se ve afectado.</Spanish>
             <German>Deckkraft der Informationselemente des HUD (Waffe, Granaten, Richtung). Das Visier ist nicht betroffen.</German>
+        </Key>
+        <Key ID="str_cwh_hud_radioPosition">
+            <English>Radio block position</English>
+            <French>Position du bloc radio</French>
+            <Spanish>Posición del bloque de radio</Spanish>
+            <German>Position des Funkblocks</German>
+        </Key>
+        <Key ID="str_cwh_hud_radioPosition_bottomRight">
+            <English>Bottom right</English>
+            <French>En bas à droite</French>
+            <Spanish>Abajo a la derecha</Spanish>
+            <German>Unten rechts</German>
+        </Key>
+        <Key ID="str_cwh_hud_radioPosition_description">
+            <English>Where the radio block is shown on the screen.</English>
+            <French>Emplacement du bloc radio à l'écran.</French>
+            <Spanish>Dónde se muestra el bloque de radio en la pantalla.</Spanish>
+            <German>Wo der Funkblock auf dem Bildschirm angezeigt wird.</German>
+        </Key>
+        <Key ID="str_cwh_hud_radioPosition_left">
+            <English>Left, under the health block</English>
+            <French>À gauche, sous le bloc santé</French>
+            <Spanish>A la izquierda, bajo el bloque de salud</Spanish>
+            <German>Links, unter dem Gesundheitsblock</German>
+        </Key>
+        <Key ID="str_cwh_hud_radioPosition_topRight">
+            <English>Top right, under the grenades</English>
+            <French>En haut à droite, sous les grenades</French>
+            <Spanish>Arriba a la derecha, bajo las granadas</Spanish>
+            <German>Oben rechts, unter den Granaten</German>
         </Key>
         <Key ID="str_cwh_hud_repairTime">
             <English>Repair time</English>

@@ -57,6 +57,9 @@ The mod uses the CBA settings system. Access the options via:
 #### Display
 - **HUD Scale**: Size of the info elements (weapon, grenades, heading)
 - **HUD Opacity**: Opacity of the info elements
+- **Compass Size**: Size of the compass, in addition to the HUD scale
+- **Radio Block Position**: Left (under the health block), top right or bottom right
+- **HUD Font**: Any font known by the game, including fonts added by other mods (e.g. Aurebesh)
 
 The HUD adapts to any aspect ratio (4:3, 16:9, 21:9...): nothing is stretched.
 

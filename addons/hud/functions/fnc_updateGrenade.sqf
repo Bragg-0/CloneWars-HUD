@@ -28,13 +28,14 @@ if (!GVAR(showGrenade) || {_magazine == ""}) exitWith {
 
 CWH_CTRL_GRENADE_ICON ctrlSetText getText (configFile >> "CfgMagazines" >> _magazine >> "picture");
 
-// Smoke / chemlight color: icon tinted and a colored stripe under it
+// Smoke / chemlight color: colored stripe under the icon (the icon keeps its own colors)
 private _color = [_magazine] call FUNC(getGrenadeColor);
 if (_color isEqualTo []) then {
-    CWH_CTRL_GRENADE_ICON ctrlSetTextColor [CWH_COLOR_WHITE];
     CWH_CTRL_GRENADE_COLOR ctrlShow false;
 } else {
-    CWH_CTRL_GRENADE_ICON ctrlSetTextColor _color;
     CWH_CTRL_GRENADE_COLOR ctrlSetBackgroundColor _color;
 };
-CWH_CTRL_GRENADE_COUNT ctrlSetText str ({_x == _magazine} count magazines player);
+// The selected throwable is loaded in the hand: "magazines" does not list it, "magazinesAmmoFull" does
+CWH_CTRL_GRENADE_COUNT ctrlSetText str ({(_x select 0) == _magazine} count magazinesAmmoFull player);
+
+CWH_CTRL_GRENADE_LABEL ctrlSetText ([_magazine] call FUNC(getGrenadeLabel));
